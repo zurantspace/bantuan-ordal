@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://cdn.divriots.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style>
+/* vietnamese */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K8-C8QSw.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K9-C8QSw.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* malayalam */
+@font-face {
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/manjari/v14/k3kQo8UPMOBO2w1UfcHoLnnA.woff2) format('woff2');
+  unicode-range: U+0307, U+0323, U+0951-0952, U+0964-0965, U+0D00-0D7F, U+1CDA, U+1CF2, U+200C-200D, U+20B9, U+25CC, U+A830-A832;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/manjari/v14/k3kQo8UPMOBO2w1UfdfoLnnA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/manjari/v14/k3kQo8UPMOBO2w1UfdnoLg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLm111VFteOcEg.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLm111VGdeOcEg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLm111VF9eO.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+    <style>
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+}</style>
+    <style>
+@font-face {
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}
+@font-face {
+  font-family: "SF Pro";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}</style>
+    <style media="all">
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: auto;
+}
+
+button {
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+}a {
+  color: inherit;
+  text-decoration: inherit;
+}
+input {
+  border: none;
+  font: inherit;
+  outline: none;
+  background-color: inherit;
+}
+button {
+  border-style: none;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+}
+textarea {
+  font: inherit;
+  background-color: inherit;
+}
+select {
+  font: inherit;
+  background-color: inherit;
+}
+img {
+  display: block;
+}
+picture {
+  display: block;
+}
+video {
+  display: block;
+}
+canvas {
+  display: block;
+}
+svg {
+  display: block;
+}
+
+[data-visible='false']{
+  display:none!important;
+}
+
+.before-hidden::before {
+  display:none;
+}
+
+.after-hidden::after {
+  display:none;
+}
+
+.before-visible::before {
+  content: "";
+}
+
+.after-visible::after {
+  content: "";
+}
+
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+</style>
+    <style>
+
+#Rectangle_23::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 0.3px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 60px;
+}
+#Rectangle_82::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 11px;
+}
+#Rectangle_160::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 11px;
+}
+#Rectangle_161::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 11px;
+}
+#Rectangle_81::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 11px;
+}
+#Rectangle_101::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 5px;
+}
+#Rectangle_157::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 5px;
+}
+#Rectangle_158::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 5px;
+}
+#Rectangle_159::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 5px;
+}
+#PPT_WEBINAR_CARI_KERJA_10::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(49.1deg, #1d1c1c 42.8%, #848484 96.6%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 7px;
+}</style>
+    <meta charset="utf-8">
+  </head>
+  <body style="display: grid;background-color: #000;">
+    <div style="background-color: #000;overflow: hidden;width: 393px;min-width: 393px;max-width: 393px;min-height: 7036px;max-height: 7036px;position: relative;margin: 0px auto;">
+      <div style="overflow: hidden;left: 15px;top: 5047px;aspect-ratio: 1.25;width: auto;height: 292px;position: absolute;filter: drop-shadow(0px 0px 40px rgba(255,0,0,0.25));"><img src="images/4b5bc5bedc4e84f230af5162471599703d678d9a.png" alt="Untitled-3 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <div style="overflow: hidden;left: 85px;top: 5375px;width: 231px;height: 283px;position: absolute;">
+        <div style="overflow: hidden;left: 0px;top: 0px;aspect-ratio: 0.8;width: auto;height: 288px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMxIiBoZWlnaHQ9IjI4MyIgdmlld0JveD0iMCAwIDIzMSAyODMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJsZWZ0OiAwcHg7dG9wOiAwcHg7dHJhbnNmb3JtOiBtYXRyaXgoMSwwLDAsMSwwLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDAuNTAwMDAwMDI2MzcyODM2IDIzNy41MDAwMDkyMzA4OTI4IC0xOTMuODYwNDMxNTYzMDI1NTcgMC40MDgxMjcyMzIxMTMyMDE2IDIxMi40MzAyMTU3ODE1MTI4IC0wLjIwNDA2MzYxNjA1NjYwMDgpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiIG9mZnNldD0iMC41NDUyMTg5NDQ1NDk1NjA1IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTE1LDExNSwxMTUsMCkiIG9mZnNldD0iMSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyMzEiIGhlaWdodD0iMjgzIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMMjMxIDAgMjMxIDI4MyAwIDI4M1oiIHN0eWxlPSJmaWxsLXJ1bGU6IG5vbnplcm87ZmlsbDogdXJsKCNkZWZfMCk7IiAvPjwvZz48L3N2Zz4=&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/e232b6dde94eee651266af90109671af703a64c3.png" alt="Untitled-1 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="background-color: #090909;left: 0px;top: 1172px;width: 393px;height: 1237px;position: absolute;"></div>
+      <div style="border-radius: 15px;background-color: rgba(197,28,28,0.14);left: -114px;top: 5566px;width: 198px;height: 225px;position: absolute;"></div>
+      <div style="border-radius: 15px;background-color: rgba(197,28,28,0.14);left: 101px;top: 5566px;width: 198px;height: 225px;position: absolute;"></div>
+      <svg width="393" height="1237" viewBox="0 0 393 1237" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: -0.2px;top: 1172px;width: 393px;height: 1237px;position: absolute;">
+        <defs>
+          <clippath id="def_0">
+            <rect x="0" y="0" width="393" height="1237"></rect>
+          </clippath>
+          <mask id="def_1" maskUnits="userSpaceOnUse" x="4.6193599700927734e-7" y="0" width="393" height="1237" style="mask-type: alpha;">
+            <path d="M0 0L393 0 393 1237 0 1237Z" style="fill-rule: nonzero;fill: #363636;"></path>
+          </mask>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(227.8873176199022 98.27646886859839 -169.92747782038714 277.1338613635198 335.927490234375 1076.8189697265625)" id="def_2">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(227.8873176199022 98.27646886859839 -169.92747782038714 277.1338613635198 -31.072509765625 -5.031864643096924)" id="def_3">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="clip-path: url(#def_0);">
+          <path d="M482.1721 1308.2461C444.5716 1369.5685 349.5763 1433.1202 289.4574 1407.1939 229.3385 1381.2676 239.9317 1233.378 277.5322 1172.0555 315.1327 1110.7331 396.1685 1102.7979 456.2874 1128.7242 516.4063 1154.6505 519.7726 1246.9236 482.1721 1308.2461Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_2);mask: url(#def_1);"></path>
+          <path d="M115.1721 226.3952C77.5716 287.7177-17.4237 351.2693-77.5426 325.343-137.6615 299.4167-127.0683 151.5271-89.4678 90.2047-51.8673 28.8823 29.1685 20.9471 89.2874 46.8734 149.4063 72.7997 152.7726 165.0728 115.1721 226.3952Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_3);mask: url(#def_1);"></path>
+        </g>
+      </svg>
+      <div style="border-radius: 15px;background-color: rgba(197,28,28,0.14);left: 316px;top: 5566px;width: 198px;height: 225px;position: absolute;"></div>
+      <svg width="213.82772827148438" height="299.44805908203125" viewBox="0 0 213.82772827148438 299.44805908203125" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(37.5deg);left: -25.7px;top: 4049px;width: 213.8px;height: 299.4px;opacity: 0.4;position: absolute;filter: blur(calc(150px / 2));">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(213.82772827148438 0 0 299.44805908203125 0 0)" id="def_0_0">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M213.8277 143.8716C213.8277 210.1316 172.2505 299.4481 115.8407 299.4481 59.4308 299.4481 0 169.1648 0 102.9048 0 36.6448 56.5244 0 112.9343 0 169.3441 0 213.8277 77.6116 213.8277 143.8716Z" style="fill-rule: nonzero;fill: url(#def_0_0);"></path>
+      </svg>
+      <div style="overflow: hidden;left: 71px;top: 1327px;width: 276px;height: 155px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 14px;left: 0px;top: 0px;width: 276px;height: 155px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc3IiBoZWlnaHQ9IjE1NiIgdmlld0JveD0iMCAwIDI3NyAxNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJsZWZ0OiAtMC41cHg7dG9wOiAtMC41cHg7dHJhbnNmb3JtOiBtYXRyaXgoMSwwLDAsMSwwLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xNi44NjY2Njc5MTg2NjY4MTMgMTMzLjUwMDAwNjI5Nzg4NzE1IC0yMzcuNzE2MTQwMjQ2NTYwMzcgLTI4Ljc0MTk0MjM0OTA2MzkxNSAyNTYuODU4MDcwMTIzMjgwMiAxNC4zNzA5NzExNzQ1MzE5NTgpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9IiMwMDAiIG9mZnNldD0iMC4yODkzMzYwMjU3MTQ4NzQyNyIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDApIiBvZmZzZXQ9IjAuOTg4MDk3MjUwNDYxNTc4NCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzYiIGhlaWdodD0iMTU1IiB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoMC41MDE4MTE1OTQyMDI4OTg2IDAuNTAzMjI1ODA2NDUxNjEzNSkiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9InN0cm9rZTogIzI4MjgyODsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/3908b7a0f767afe6cf41279595bad9a7e5f615d5.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="overflow: hidden;left: 71px;top: 1594px;width: 276px;height: 155px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 14px;left: 0px;top: 0px;width: 276px;height: 155px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc3IiBoZWlnaHQ9IjE1NiIgdmlld0JveD0iMCAwIDI3NyAxNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJsZWZ0OiAtMC41cHg7dG9wOiAtMC41cHg7dHJhbnNmb3JtOiBtYXRyaXgoMSwwLDAsMSwwLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xNi44NjY2Njc5MTg2NjY4MTMgMTMzLjUwMDAwNjI5Nzg4NzE1IC0yMzcuNzE2MTQwMjQ2NTYwMzcgLTI4Ljc0MTk0MjM0OTA2MzkxNSAyNTYuODU4MDcwMTIzMjgwMiAxNC4zNzA5NzExNzQ1MzE5NTgpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9IiMwMDAiIG9mZnNldD0iMC4yODkzMzYwMjU3MTQ4NzQyNyIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDApIiBvZmZzZXQ9IjAuOTg4MDk3MjUwNDYxNTc4NCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzYiIGhlaWdodD0iMTU1IiB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoMC41MDE4MTE1OTQyMDI4OTg2IDAuNTAzMjI1ODA2NDUxNjEzNSkiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9InN0cm9rZTogIzI4MjgyODsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/9ed8bdd22586e8961463be4aa56f94247d755f99.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="overflow: hidden;left: 71px;top: 1861px;width: 276px;height: 155px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 14px;left: 0px;top: 0px;width: 276px;height: 155px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc3IiBoZWlnaHQ9IjE1NiIgdmlld0JveD0iMCAwIDI3NyAxNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJsZWZ0OiAtMC41cHg7dG9wOiAtMC41cHg7dHJhbnNmb3JtOiBtYXRyaXgoMSwwLDAsMSwwLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xNi44NjY2Njc5MTg2NjY4MTMgMTMzLjUwMDAwNjI5Nzg4NzE1IC0yMzcuNzE2MTQwMjQ2NTYwMzcgLTI4Ljc0MTk0MjM0OTA2MzkxNSAyNTYuODU4MDcwMTIzMjgwMiAxNC4zNzA5NzExNzQ1MzE5NTgpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9IiMwMDAiIG9mZnNldD0iMC4yODkzMzYwMjU3MTQ4NzQyNyIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDApIiBvZmZzZXQ9IjAuOTg4MDk3MjUwNDYxNTc4NCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzYiIGhlaWdodD0iMTU1IiB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoMC41MDE4MTE1OTQyMDI4OTg2IDAuNTAzMjI1ODA2NDUxNjEzNSkiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9InN0cm9rZTogIzI4MjgyODsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/e26466b5c42f70d4191af984fd6c15e2cc1c1123.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-0.2px,-10.8px) scale(1,1.02);"></div>
+      </div>
+      <div style="overflow: hidden;left: 71px;top: 2128px;width: 276px;height: 155px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 14px;left: 0px;top: 0px;width: 276px;height: 155px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc3IiBoZWlnaHQ9IjE1NiIgdmlld0JveD0iMCAwIDI3NyAxNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJsZWZ0OiAtMC41cHg7dG9wOiAtMC41cHg7dHJhbnNmb3JtOiBtYXRyaXgoMSwwLDAsMSwwLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xNi44NjY2Njc5MTg2NjY4MTMgMTMzLjUwMDAwNjI5Nzg4NzE1IC0yMzcuNzE2MTQwMjQ2NTYwMzcgLTI4Ljc0MTk0MjM0OTA2MzkxNSAyNTYuODU4MDcwMTIzMjgwMiAxNC4zNzA5NzExNzQ1MzE5NTgpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9IiMwMDAiIG9mZnNldD0iMC4yODkzMzYwMjU3MTQ4NzQyNyIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDApIiBvZmZzZXQ9IjAuOTg4MDk3MjUwNDYxNTc4NCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzYiIGhlaWdodD0iMTU1IiB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoMC41MDE4MTE1OTQyMDI4OTg2IDAuNTAzMjI1ODA2NDUxNjEzNSkiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PHBhdGggZD0iTTE0IDBMMjYyIDBBMTQgMTQgMCAwIDEgMjc2IDE0TDI3NiAxNDFBMTQgMTQgMCAwIDEgMjYyIDE1NUwxNCAxNTVBMTQgMTQgMCAwIDEgMCAxNDFMMCAxNEExNCAxNCAwIDAgMSAxNCAwWiIgc3R5bGU9InN0cm9rZTogIzI4MjgyODsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/c544b901ed7a5f5012ce33f8860c4854b5cb9d50.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <svg width="1018" height="1" viewBox="0 0 1018 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(-90deg);left: 47px;top: 2344.5px;width: 1018px;height: 1px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1018 0 0 1 0 0)" id="def_0_1">
+            <stop stop-color="rgba(241,48,30,0)" offset="0"></stop>
+            <stop stop-color="#f1301e" offset="0.3990384638309479"></stop>
+            <stop stop-color="#9f2315" offset="0.8028846383094788"></stop>
+            <stop stop-color="rgba(159,35,21,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H339" transform=" translate(0 0.5)" style="stroke: url(#def_0_1);"></path>
+      </svg>
+      <svg width="274.5822448730469" height="389.3725891113281" viewBox="0 0 274.5822448730469 389.3725891113281" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(12.7deg);left: 431.7px;top: 3485px;width: 274.6px;height: 389.4px;opacity: 0.5;position: absolute;filter: blur(calc(260px / 2));">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(274.5822448730469 0 0 389.3725891113281 0 0)" id="def_0_2">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M274.5822 187.0764C274.5822 273.2343 221.1918 389.3726 148.7543 389.3726 76.3168 389.3726 0 219.9651 0 133.8072 0 47.6493 72.5846 0 145.0221 0 217.4596 0 274.5822 100.9185 274.5822 187.0764Z" style="fill-rule: nonzero;fill: url(#def_0_2);"></path>
+      </svg>
+      <div style="background-image: linear-gradient(90deg, rgba(21,21,21,0) 0%, #282727 48.6%, rgba(8,8,8,0.05) 100%);background-blend-mode: normal;display: flex;flex-direction: column;row-gap: 65px;align-items: start;justify-content: flex-start;left: -19px;top: 3772px;width: 455px;height: 65px;position: absolute;padding: 0px 0px 0px 24px;"><svg width="392" height="1" viewBox="0 0 392 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 392px;height: 1px;mix-blend-mode: color-dodge;position: relative;flex-shrink: 0;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(392 0 0 1 0 0)" id="def_0_3"> <stop stop-color="rgba(99,97,102,0)" offset="0"></stop> <stop stop-color="#f0f0f0" offset="0.4616021513938904"></stop> <stop stop-color="rgba(119,117,122,0)" offset="1"></stop> </lineargradient> </defs> <g transform=" translate(0 0.5)" style="mix-blend-mode: color-dodge;"> <path d="M0 0H273.5" style="stroke: url(#def_0_3);"></path> </g> </svg><svg width="392" height="1" viewBox="0 0 392 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 392px;height: 1px;mix-blend-mode: color-dodge;position: relative;flex-shrink: 0;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(392 0 0 1 0 0)" id="def_0_4"> <stop stop-color="rgba(99,97,102,0)" offset="0"></stop> <stop stop-color="#f0f0f0" offset="0.4616021513938904"></stop> <stop stop-color="rgba(119,117,122,0)" offset="1"></stop> </lineargradient> </defs> <g transform=" translate(0 0.5)" style="mix-blend-mode: color-dodge;"> <path d="M0 0H273.5" style="stroke: url(#def_0_4);"></path> </g> </svg></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 25px;font-size: 40px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 117px;top: 3791px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Menjadi</span></span>
+      <svg width="571" height="264.28729248046875" viewBox="0 0 571 264.28729248046875" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: -296px;top: 62px;width: 571px;height: 264.3px;mix-blend-mode: color-dodge;position: absolute;">
+        <defs>
+          <clippath id="def_0_5">
+            <rect x="0" y="0" width="571" height="264.28729248046875"></rect>
+          </clippath>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(147.27568235604872 243.5704909207458 -747.930162492097 -48.99780780214671 671.5323978481739 52.803826555746895)" id="def_1_0">
+            <stop stop-color="#e52e1d" offset="0"></stop>
+            <stop stop-color="rgba(137,14,14,0)" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(89.91276472104886 196.2707604159413 -361.70292252704064 17.27797754048987 598.8763876655793 13.902043810552943)" id="def_2_0">
+            <stop stop-color="#e52e1d" offset="0"></stop>
+            <stop stop-color="rgba(137,14,14,0)" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(72.33119399080482 201.19293737046686 -290.9754175340103 17.711283360930874 622.4571616126207 13.816454785547457)" id="def_3_0">
+            <stop stop-color="#e52e1d" offset="0"></stop>
+            <stop stop-color="rgba(137,14,14,0)" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(89.35423073162053 155.47938211964728 -143.75547185928437 40.89131224525018 121.2230736334147 9.721548667476814)" id="def_4">
+            <stop stop-color="#e52e1d" offset="0"></stop>
+            <stop stop-color="rgba(137,14,14,0)" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(120.05703298569343 188.84459660306834 -515.559377934351 4.181728720518132 536.7221961454715 18.12787188196072)" id="def_5">
+            <stop stop-color="#e52e1d" offset="0"></stop>
+            <stop stop-color="rgba(137,14,14,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="mix-blend-mode: color-dodge;">
+          <g style="clip-path: url(#def_0_5);">
+            <g style="mix-blend-mode: color-dodge;">
+              <path d="M54.198 22.4758L300.7373 22.4758 502.4972 264.2873 207.3735 232.0458 54.198 22.4758Z" style="fill-rule: nonzero;opacity: 0.4000000059604645;fill: url(#def_1_0);"></path>
+              <path d="M54.198 22.4758L300.7373 22.4758 502.4972 264.2873 207.3735 232.0458 54.198 22.4758Z" style="fill-rule: nonzero;opacity: 0.800000011920929;fill: rgba(0,0,0,0.2);"></path>
+            </g>
+            <g style="mix-blend-mode: color-dodge;">
+              <path d="M301.1383 17.3149L444.2893 200.017 534.9115 207.7788 386.9487 17.3149H301.1383Z" style="fill-rule: nonzero;opacity: 0.4000000059604645;fill: url(#def_2_0);"></path>
+              <path d="M301.1383 17.3149L444.2893 200.017 534.9115 207.7788 386.9487 17.3149H301.1383Z" style="fill-rule: nonzero;opacity: 0.800000011920929;fill: rgba(0,0,0,0.2);"></path>
+            </g>
+            <g style="mix-blend-mode: color-dodge;">
+              <path d="M382.9389 17.3149L544.5351 212.5554 571 183.2992 544.5351 118.8161 514.8624 24.4797 382.9389 17.3149Z" style="fill-rule: nonzero;opacity: 0.4000000059604645;fill: url(#def_3_0);"></path>
+              <path d="M382.9389 17.3149L544.5351 212.5554 571 183.2992 544.5351 118.8161 514.8624 24.4797 382.9389 17.3149Z" style="fill-rule: nonzero;opacity: 0.800000011920929;fill: rgba(0,0,0,0.2);"></path>
+            </g>
+            <path d="M0 34.454L121.0867 179.1655 146.815 174.5493 70.1681 21.8643 0 34.454Z" style="fill-rule: nonzero;opacity: 0.4000000059604645;fill: url(#def_4);"></path>
+            <path d="M0 34.454L121.0867 179.1655 146.815 174.5493 70.1681 21.8643 0 34.454Z" style="fill-rule: nonzero;opacity: 0.800000011920929;fill: rgba(0,0,0,0.2);"></path>
+            <path d="M111.4733 41.7946L256.6293 195.2405 438.6342 180.9289 336.0281 16.616 111.4733 41.7946Z" style="fill-rule: nonzero;opacity: 0.4000000059604645;fill: url(#def_5);"></path>
+            <path d="M111.4733 41.7946L256.6293 195.2405 438.6342 180.9289 336.0281 16.616 111.4733 41.7946Z" style="fill-rule: nonzero;opacity: 0.800000011920929;fill: rgba(0,0,0,0.2);"></path>
+          </g>
+        </g>
+      </svg>
+      <svg width="274.5822448730469" height="389.3725891113281" viewBox="0 0 274.5822448730469 389.3725891113281" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(12.7deg);left: -110.3px;top: 3184px;width: 274.6px;height: 389.4px;opacity: 0.2;position: absolute;filter: blur(calc(100px / 2));">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(274.5822448730469 0 0 389.3725891113281 0 0)" id="def_0_6">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M274.5822 187.0764C274.5822 273.2343 221.1918 389.3726 148.7543 389.3726 76.3168 389.3726 0 219.9651 0 133.8072 0 47.6493 72.5846 0 145.0221 0 217.4596 0 274.5822 100.9185 274.5822 187.0764Z" style="fill-rule: nonzero;fill: url(#def_0_6);"></path>
+      </svg>
+      <div style="overflow: hidden;left: 12px;top: 2355px;width: 370px;height: 661.6px;position: absolute;">
+        <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-90deg);left: 105.1px;top: 580.2px;aspect-ratio: 3.67;width: auto;height: 143.6px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjYyIiBoZWlnaHQ9IjY2MS41NTk5OTc1NTg1OTM4IiB2aWV3Qm94PSIwIDAgNjYyIDY2MS41NTk5OTc1NTg1OTM4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KC00LjM3MTEzODgyODY3Mzc4NGUtOCwwLjk5OTk5OTk5OTk5OTk5OCwtMC45OTk5OTk5OTk5OTk5OTgsLTQuMzcxMTM4ODI4NjczNzg0ZS04LDY2MS41NjAwMTM3MzE4MDYxLDAuMDAwMDI4OTE3NzA1OTMyOTQwNDA3KTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtMi43NjIxOTM1MDEyMDQzNzcyZS0xNCA0NDIuMDAwMDE5NDMzNTg3NCAtMjQ3LjIwMzU5MTE5OTUxNTg3IDIuNjk5NDM0OTgzMDM5NjZlLTEyIDMwOC42MDE3OTU1OTk3NTc5NiAxODkuOTk5OTk3MDI4OTE4MTYpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjE3LDIxNywyMTcsMCkiIG9mZnNldD0iMCIgLz48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBvZmZzZXQ9IjAuOTQyMzA3NzEwNjQ3NTgzIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjM3MCIgaGVpZ2h0PSI2NjEuNTU5OTk3NTU4NTkzOCIgc3R5bGU9Im1hc2stdHlwZTogYWxwaGE7Ij48cGF0aCBkPSJNMCAwTDM3MCAwIDM3MCA2NjEuNTYgMCA2NjEuNTZaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -81.4px -105.1px;"><img src="images/f8b9c9a075f0ba8e317e00df919ae6a1978e1574.png" alt="Gemini_Generated_Image_rnfd5qrnfd5qrnfd 1" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-14.8px,5.9px) rotate(90deg) scale(0.7,4.6);"></div>
+      </div>
+      <div style="overflow: hidden;left: -74px;top: 2686px;width: 239.4px;height: 248.7px;position: absolute;">
+        <div style="background-image: linear-gradient(168.6deg, rgba(217,217,217,0) 0%, #000 72.7%);background-blend-mode: normal;transform-origin: 0 0;transform: rotate(-18.6deg);left: -26.8px;top: 71.1px;width: 240.4px;height: 203.6px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI1IiBoZWlnaHQ9IjIzNiIgdmlld0JveD0iMCAwIDIyNSAyMzYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7dHJhbnNmb3JtOiBtYXRyaXgoMC4xMjE1ODE1MzA0NTA0OTM5MSwtMC45OTI1ODE0NzI0Mjk2MDIsMC45OTI1ODE0NzI0Mjk2MDIsMC4xMjE1ODE1MzA0NTA0OTM5MSwwLDIxMS4xNTgzMzQ3MDIyNjY1Nik7bGVmdDogNDIuN3B4O3RvcDogMjQ4LjdweDthc3BlY3QtcmF0aW86IDEuMDY7Ij48ZyBpZD0ibWFza191bmRlZmluZWQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyMTIuNzM2NTI2NDg5MjU3OCIgaGVpZ2h0PSIyMDAuNzQ1MTE3MTg3NSIgc3R5bGU9Im1hc2stdHlwZTogYWxwaGE7Ij48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 9.4px -20.6px;"></div>
+      </div>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(2.8deg) scale(-1,1);left: calc(250.8px + 50%);top: 2757.7px;width: 239.4px;height: 248.7px;position: absolute;">
+        <div style="background-image: linear-gradient(166.1deg, rgba(217,217,217,0) 3.6%, #000 73.3%);background-blend-mode: normal;transform-origin: 0 0;transform: rotate(-18.6deg);left: -26.8px;top: 71.1px;width: 240.4px;height: 203.6px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI1IiBoZWlnaHQ9IjIzNiIgdmlld0JveD0iMCAwIDIyNSAyMzYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7dHJhbnNmb3JtOiBtYXRyaXgoMC4xMjE1ODE1ODc2MzE0NzcxNCwtMC45OTI1ODE1MjcwOTgzMjY3LDAuOTkyNTgxNDE3NzYwODkyMywwLjEyMTU4MTQ3MzI2OTUxODcxLDAsMjExLjE1ODMxNjA0MTExNjg1KTtsZWZ0OiA0Mi43cHg7dG9wOiAyNDguN3B4O2FzcGVjdC1yYXRpbzogMS4wNjsiPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjIxMi43MzY0OTU5NzE2Nzk3IiBoZWlnaHQ9IjIwMC43NDUxNDc3MDUwNzgxMiIgc3R5bGU9Im1hc2stdHlwZTogYWxwaGE7Ij48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 9.4px -20.6px;"></div>
+      </div>
+      <svg width="167" height="199" viewBox="0 0 167 199" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(37.5deg);left: 422.1px;top: 186px;width: 167px;height: 199px;opacity: 0.5;position: absolute;filter: blur(calc(100px / 2));">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(167 0 0 199 0 0)" id="def_0_7">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M167 95.6107C167 139.6442 134.5281 199 90.4718 199 46.4156 199 0 112.4195 0 68.386 0 24.3525 44.1457 0 88.2019 0 132.2582 0 167 51.5773 167 95.6107Z" style="fill-rule: nonzero;fill: url(#def_0_7);"></path>
+      </svg>
+      <svg width="223.06594848632812" height="285.6432189941406" viewBox="0 0 223.06594848632812 285.6432189941406" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(37.5deg);left: -43.1px;top: 108px;width: 223.1px;height: 285.6px;opacity: 0.6;position: absolute;filter: blur(calc(300px / 2));">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(223.06594848632812 0 0 285.6432189941406 0 0)" id="def_0_8">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M223.0659 137.239C223.0659 200.4443 179.6924 285.6432 120.8454 285.6432 61.9985 285.6432 0 161.3661 0 98.1608 0 34.9555 58.9665 0 117.8135 0 176.6605 0 223.0659 74.0337 223.0659 137.239Z" style="fill-rule: nonzero;fill: url(#def_0_8);"></path>
+      </svg>
+      <div style="background-color: rgba(1,1,1,0.59);left: -11px;top: 62px;width: 415px;height: 44px;position: absolute;"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #d6d6d6;left: 20px;top: 73px;width: max-content;position: absolute;">Butuh Bantuan?</span>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 1px;align-items: center;justify-content: center;left: 106px;top: 73px;width: min-content;position: absolute;">
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="9.120834350585938" height="9.166690826416792" viewBox="0 0 9.120834350585938 9.166690826416792" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.5%;top: 8.3%;right: 8.5%;bottom: 8.3%;width: 82.9%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9.120834350585938 0 0 9.166690826416016 0 0)" id="def_0_9"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M7.7917 1.3338C7.3714 0.9094 6.8709 0.5729 6.3193 0.3439 5.7677 0.115 5.176-0.002 4.5788 0 2.0762 0 0.0367 2.0396 0.0367 4.5421 0.0367 5.3442 0.2475 6.1234 0.6417 6.8109L0 9.1667 2.4063 8.5342C3.0708 8.8963 3.8179 9.0888 4.5788 9.0888 7.0813 9.0888 9.1208 7.0492 9.1208 4.5467 9.1208 3.3321 8.6488 2.1909 7.7917 1.3338ZM4.5788 8.3188C3.9004 8.3188 3.2358 8.1354 2.6538 7.7917L2.5162 7.7092 1.0863 8.085 1.4667 6.6917 1.375 6.5496C0.998 5.9478 0.7979 5.2522 0.7975 4.5421 0.7975 2.4613 2.4933 0.7654 4.5742 0.7654 5.5825 0.7654 6.5313 1.1596 7.2417 1.8746 7.5935 2.2247 7.8723 2.6412 8.0619 3.0999 8.2515 3.5586 8.3482 4.0504 8.3463 4.5467 8.3554 6.6275 6.6596 8.3188 4.5788 8.3188ZM6.6504 5.4954C6.5358 5.4404 5.9767 5.1654 5.8758 5.1242 5.7704 5.0875 5.6971 5.0692 5.6192 5.1792 5.5413 5.2938 5.3258 5.5504 5.2617 5.6238 5.1975 5.7017 5.1287 5.7109 5.0142 5.6513 4.8996 5.5963 4.5329 5.4725 4.1021 5.0875 3.7629 4.785 3.5383 4.4138 3.4696 4.2992 3.4054 4.1846 3.4604 4.125 3.52 4.0654 3.5704 4.015 3.6346 3.9325 3.6896 3.8684 3.7446 3.8042 3.7675 3.7538 3.8042 3.6804 3.8408 3.6025 3.8225 3.5384 3.795 3.4834 3.7675 3.4284 3.5383 2.8692 3.4467 2.64 3.355 2.42 3.2588 2.4475 3.19 2.4429H2.97C2.8921 2.4429 2.7729 2.4704 2.6675 2.585 2.5667 2.6996 2.2733 2.9746 2.2733 3.5338 2.2733 4.0929 2.6813 4.6338 2.7363 4.7071 2.7913 4.785 3.5383 5.9309 4.675 6.4213 4.9454 6.5404 5.1563 6.6092 5.3213 6.6596 5.5917 6.7467 5.8392 6.7329 6.0363 6.7054 6.2563 6.6734 6.71 6.4304 6.8017 6.1646 6.8979 5.8988 6.8979 5.6742 6.8658 5.6238 6.8338 5.5734 6.765 5.5504 6.6504 5.4954Z" transform=" translate(0 7.767737428482965e-13)" style="fill-rule: nonzero;fill: url(#def_0_9);"></path> </svg></div>
+        <span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;width: max-content;position: relative;flex-shrink: 0;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Whatsapp</span></span>
+      </div>
+      <div style="border-radius: 6px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;display: flex;flex-direction: row;grid-column-gap: 10px;align-items: center;justify-content: center;left: 290px;top: 71px;width: 83px;height: 25px;position: absolute;padding: 2px 13px;"><span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #fff;width: max-content;position: relative;flex-shrink: 0;">Login</span></div>
+      <div style="left: calc(-196.5px + 50%);top: 217px;width: 393px;height: 72px;position: absolute;"><span class="text" style="display: inline;text-align: center;line-height: 39px;font-size: 36px;font-family: Anton, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 82px;top: 0px;width: max-content;position: absolute;">DAPATKAN KERJA</span><span class="text" style="display: inline;text-align: center;line-height: 39px;font-size: 36px;font-family: Anton, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 54px;top: 39px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">HANYA DALAM 5 HARI</span></span></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 77px;top: 299px;width: max-content;position: absolute;">Kuasai cara dapat kerja yang belum<br></span>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 108px;top: 315px;width: max-content;position: absolute;">terbayangkan sebelumnya<br></span>
+      <svg width="392" height="0.5" viewBox="0 0 392 0.5" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 1px;top: 106.3px;width: 392px;height: 0.5px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(392 0 0 1 0 0)" id="def_0_10">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H392" transform=" translate(0 0.25)" style="stroke: url(#def_0_10);stroke-width: 0.5;"></path>
+      </svg>
+      <div style="overflow: hidden;border-radius: 20px;left: 43px;top: 392px;width: 305px;height: 155px;position: absolute;filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.25));"><img src="images/95bdde574663222db6a16fc32e08d608bf39b10f.png" alt="Rectangle 22" style="opacity: 0.8999999761581421;inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <div style="overflow: hidden;left: 166px;top: 439px;aspect-ratio: 1;width: auto;height: 61px;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));backface-visibility: hidden;transform: translateZ(0);"><svg width="50.00001144409181" height="50.83334732055664" viewBox="0 0 50.00001144409181 50.83334732055664" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M25 0C20.0555 0 15.222 1.4907 11.1108 4.2835 6.9995 7.0763 3.7952 11.0458 1.903 15.6901 0.0108 20.3344-0.4843 25.4449 0.4804 30.3752 1.445 35.3056 3.826 39.8344 7.3223 43.389 10.8187 46.9435 15.2732 49.3643 20.1228 50.345 24.9723 51.3257 29.9989 50.8223 34.5671 48.8986 39.1353 46.9749 43.0397 43.7172 45.7867 39.5374 48.5338 35.3577 50 30.4436 50 25.4167 50 22.0789 49.3534 18.7738 48.097 15.6901 46.8406 12.6064 44.9991 9.8045 42.6777 7.4444 40.3562 5.0842 37.6002 3.212 34.5671 1.9347 31.534 0.6574 28.2831 0 25 0ZM20 36.8542V13.9792L35 25.4167 20 36.8542Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div id="Rectangle_23" style="overflow: hidden;padding: 0.3px;border-radius: 60px;background-image: linear-gradient(90deg, #49120d 0%, #0d0201 100%);background-blend-mode: normal;left: 61px;top: 156px;width: 272px;height: 26px;position: absolute;box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.15);"></div>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 10px;align-items: center;justify-content: flex-start;left: 79px;top: 159px;width: 253px;height: 20px;position: absolute;padding: 2px 0px;">
+        <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 12px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: calc(-127.5px + 50%);top: 0px;width: 256px;height: 20px;position: absolute;">DIDESAIN UNTUK FRESH GRADUATE</span>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 16px;position: relative;flex-shrink: 0;"><svg width="14.000000000000002" height="12" viewBox="0 0 14.000000000000002 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 5.7%;top: 11.8%;right: 6.8%;bottom: 13.2%;width: 87.5%;height: 75%;position: absolute;"> <path d="M12.5 6.5V3.25L6.25 0 0 3.25 6.25 6.5 9.5 5V8.5C9.5 9.5 8 10.5 6.25 10.5 4.5 10.5 3 9.5 3 8.5V5" transform=" translate(0.8400000000000001 0.8571428571428571)" style="stroke: #fff;stroke-width: 1.5;stroke-linecap: round;stroke-linejoin: round;"></path> </svg></div>
+      </div>
+      <div style="border-radius: 6px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 66px;top: 587px;width: 259px;height: 46px;position: absolute;box-shadow: 0px 4px 40px 5px rgba(255,7,7,0.26);"></div>
+      <div style="border-radius: 6px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 66px;top: 4990px;width: 259px;height: 46px;position: absolute;box-shadow: 0px 4px 40px 5px rgba(255,7,7,0.26);"></div>
+      <div style="border-radius: 6px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 66px;top: 6382px;width: 259px;height: 46px;position: absolute;box-shadow: 0px 4px 40px 5px rgba(255,7,7,0.26);"></div>
+      <div style="border-radius: 6px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 66px;top: 3083px;width: 259px;height: 46px;position: absolute;box-shadow: 0px 4px 40px 5px rgba(255,7,7,0.26);"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 85px;top: 601px;width: max-content;position: absolute;">Klaim Hanya Rp 50.000 Sekarang</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 85px;top: 5004px;width: max-content;position: absolute;">Klaim Hanya Rp 50.000 Sekarang</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 85px;top: 6396px;width: max-content;position: absolute;">Klaim Hanya Rp 50.000 Sekarang</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #565656;left: 29px;top: 641px;width: 336px;position: absolute;">Garansi Refund 100% bila tidak puas</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #565656;left: 28px;top: 5041px;width: 336px;position: absolute;">🔒 Pembayaran aman • Akses instan • Bergaransi</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #565656;left: 28px;top: 6433px;width: 336px;position: absolute;">🔒 Pembayaran aman • Akses instan • Bergaransi</span>
+      <div style="border-width: 1px;border-style: solid;border-color: #3b383f;border-radius: 30px;background-color: #161616;left: 139px;top: 1216px;width: 112px;height: 23px;position: absolute;"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 20px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;letter-spacing: 2.6px;color: #fff;left: 155px;top: 1217px;width: max-content;position: absolute;">ACADEMY</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 12px;font-size: 100px;font-family: Manjari, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;letter-spacing: -1px;color: #fff;align-items: center;justify-content: center;left: 186px;top: 788px;width: 19px;height: 22px;position: absolute;">“</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 28px;font-size: 22px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;letter-spacing: -0.2px;color: #fff;left: 52px;top: 782px;width: max-content;position: absolute;">Hasil yang didapat<br>member setelah program</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 20px;font-size: 20px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 71px;top: 2469px;width: max-content;position: absolute;">Cukup Dengan <br>Satu Strategi yang Tepat</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 25px;font-size: 30px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 80px;top: 3256px;width: max-content;position: absolute;"><span style="font-weight: 400;">Dari<br></span>Pengangguran</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 25px;font-size: 26px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 85px;top: 4272px;width: max-content;position: absolute;">Mudah<br>Dapat Pekerjaan</span>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 12px;align-items: start;justify-content: flex-start;left: -105px;top: 866px;width: min-content;position: absolute;">
+        <div style="overflow: hidden;border-radius: 12px;aspect-ratio: 0.86;width: auto;height: 225px;position: relative;flex-shrink: 0;"><img src="images/6ad72bf32a791010a1a4fb994e11e862a0379d83.png" alt="1 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="overflow: hidden;border-radius: 12px;aspect-ratio: 0.86;width: auto;height: 226px;position: relative;flex-shrink: 0;"><img src="images/83424aab9ef97c9c134d8ac55d65caa74a83f52d.png" alt="2 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="overflow: hidden;border-radius: 12px;aspect-ratio: 0.86;width: auto;height: 224px;position: relative;flex-shrink: 0;"><img src="images/ce6a0805330e942495a04badf4d43b52e986ab60.png" alt="3 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="background-image: linear-gradient(-89.8deg, #000 18.6%, rgba(0,0,0,0) 95.8%);background-blend-mode: normal;transform-origin: 0 0;transform: rotate(180deg);left: 124px;top: 1116px;width: 135px;height: 268px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 12px;font-size: 16px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;letter-spacing: 6.4px;color: #fff;align-items: center;justify-content: center;transform-origin: 0 0;transform: scale(-1,1);left: 215px;top: 1101px;width: 38px;height: 17px;position: absolute;">....</span>
+      <div style="background-image: linear-gradient(-89.8deg, #000 18.6%, rgba(0,0,0,0) 95.8%);background-blend-mode: normal;left: 275px;top: 848px;width: 118px;height: 268px;position: absolute;"></div>
+      <svg width="393" height="1" viewBox="0 0 393 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 0.8px;top: 2408.5px;width: 393px;height: 1px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-393.5006355677626 0.00044777015165151335 -0.17596605466162935 -154252.50549289156 393.58861916146674 77126.74878362859)" id="def_0_11">
+            <stop stop-color="rgba(51,51,51,0)" offset="0"></stop>
+            <stop stop-color="#fff" offset="0.49038460850715637"></stop>
+            <stop stop-color="rgba(51,51,51,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H392.5" transform=" translate(0 0.5)" style="stroke: url(#def_0_11);"></path>
+      </svg>
+      <div style="border-radius: 0px 20px 20px;background-image: linear-gradient(180deg, rgba(217,217,217,0.2) 0%, rgba(115,115,115,0.2) 100%);background-blend-mode: normal;left: 46px;top: 4476px;width: 308px;height: 127px;position: absolute;"></div>
+      <div style="border-radius: 20px;background-image: linear-gradient(180deg, rgba(217,217,217,0.2) 0%, rgba(115,115,115,0.2) 100%);background-blend-mode: normal;left: 46px;top: 4620px;width: 308px;height: 330px;position: absolute;"></div>
+      <div style="border-radius: 12px;background-image: linear-gradient(180deg, rgba(217,217,217,0.2) 0%, rgba(115,115,115,0.2) 100%);background-blend-mode: normal;left: 20px;top: 5911px;width: 353px;height: 371px;position: absolute;"></div>
+      <span class="text" style="display: inline;text-align: left;line-height: 10px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 92px;top: 4684px;width: 236px;position: absolute;"><span style="font-weight: 700;">CV kamu gak pernah kalah saing. CV kamu gak pernah dibaca.</span> Dan itu dua masalah yang beda obatnya. <br><br><span style="font-weight: 700;">HRD bukan mencari yang terbaik, mereka mencari yang duluan. </span>Kandidat urutan ke-9 sampai 200 seringnya gak pernah dibuka sama sekali. <br><br><span style="font-weight: 700;">Gaji pertamamu ditentukan dalam 10 detik.</span> Pas kamu jawab "berapa ekspektasi gaji kamu?" Dan 90% fresh grad jawabnya langsung salah. <br><br><span style="font-weight: 700;">IPK jelek gak usah ditulis. Itu bukan bohong.</span> CV itu self-report — dan hampir semua fresh grad gak sadar mereka boleh ga nulis. <br><br><span style="font-weight: 700;">Pertanyaan interview itu cuma ada segelintir, dan diulang-ulang di semua perusahaan.</span> Kandidat yang keterima bukan yang paling jujur tapi yang paling siap. <br><br>Dan, masih banyak lagi 🤫<br><br></span>
+      <div style="border-radius: 6px 6px 0px 0px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 46px;top: 4457px;width: 115px;height: 19px;position: absolute;"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 19px;font-size: 14px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #fff;left: calc(-124.5px + 50%);top: 3004px;width: max-content;position: absolute;">Maka kamu akan dapatkan <br>penghasilan tetap <span style="font-weight: 800;font-style: italic;">tiap bulannya.</span></span>
+      <span class="text" style="display: inline;text-align: center;line-height: 19px;font-size: 16px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: calc(-71.5px + 50%);top: 3096px;width: max-content;position: absolute;">KLAIM SEKARANG</span>
+      <svg width="273.5" height="1" viewBox="0 0 273.5 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 60px;top: 3056.5px;width: 273.5px;height: 1px;mix-blend-mode: color-dodge;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(273.5 0 0 1 0 0)" id="def_0_12">
+            <stop stop-color="rgba(99,97,102,0)" offset="0"></stop>
+            <stop stop-color="#f0f0f0" offset="0.4616021513938904"></stop>
+            <stop stop-color="rgba(119,117,122,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g transform=" translate(0 0.5)" style="mix-blend-mode: color-dodge;">
+          <path d="M0 0H273.5" style="stroke: url(#def_0_12);"></path>
+        </g>
+      </svg>
+      <span class="text" style="display: inline;text-align: center;line-height: 28px;font-size: 33px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;letter-spacing: -0.3px;color: #fff;left: 60px;top: 1266px;width: max-content;position: absolute;">Isi Materi Course</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 18px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 85px;top: 4493px;width: max-content;position: absolute;">Strategi Rahasia<br>Mendapatkan Pekerjaan</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 16px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 70px;top: 4634px;width: max-content;position: absolute;">Yang bakal kamu tahu setelah <br>kelas ini (dan orang lain enggak):</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 35px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 67px;top: 4457px;width: 83px;height: 19px;position: absolute;">Customer Service</span>
+      <div style="overflow: hidden;left: 54px;top: 4461px;aspect-ratio: 1;width: auto;height: 11px;position: absolute;"><svg width="9.120834350585938" height="9.166690826416792" viewBox="0 0 9.120834350585938 9.166690826416792" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.5%;top: 8.3%;right: 8.5%;bottom: 8.3%;width: 82.9%;height: 83.3%;position: absolute;"> <path d="M7.7917 1.3338C7.3714 0.9094 6.8709 0.5729 6.3193 0.3439 5.7677 0.115 5.176-0.002 4.5788 0 2.0762 0 0.0367 2.0396 0.0367 4.5421 0.0367 5.3442 0.2475 6.1234 0.6417 6.8109L0 9.1667 2.4063 8.5342C3.0708 8.8963 3.8179 9.0888 4.5788 9.0888 7.0813 9.0888 9.1208 7.0492 9.1208 4.5467 9.1208 3.3321 8.6488 2.1909 7.7917 1.3338ZM4.5788 8.3188C3.9004 8.3188 3.2358 8.1354 2.6538 7.7917L2.5162 7.7092 1.0863 8.085 1.4667 6.6917 1.375 6.5496C0.998 5.9478 0.7979 5.2522 0.7975 4.5421 0.7975 2.4613 2.4933 0.7654 4.5742 0.7654 5.5825 0.7654 6.5313 1.1596 7.2417 1.8746 7.5935 2.2247 7.8723 2.6412 8.0619 3.0999 8.2515 3.5586 8.3482 4.0504 8.3463 4.5467 8.3554 6.6275 6.6596 8.3188 4.5788 8.3188ZM6.6504 5.4954C6.5358 5.4404 5.9767 5.1654 5.8758 5.1242 5.7704 5.0875 5.6971 5.0692 5.6192 5.1792 5.5413 5.2938 5.3258 5.5504 5.2617 5.6238 5.1975 5.7017 5.1287 5.7109 5.0142 5.6513 4.8996 5.5963 4.5329 5.4725 4.1021 5.0875 3.7629 4.785 3.5383 4.4138 3.4696 4.2992 3.4054 4.1846 3.4604 4.125 3.52 4.0654 3.5704 4.015 3.6346 3.9325 3.6896 3.8684 3.7446 3.8042 3.7675 3.7538 3.8042 3.6804 3.8408 3.6025 3.8225 3.5384 3.795 3.4834 3.7675 3.4284 3.5383 2.8692 3.4467 2.64 3.355 2.42 3.2588 2.4475 3.19 2.4429H2.97C2.8921 2.4429 2.7729 2.4704 2.6675 2.585 2.5667 2.6996 2.2733 2.9746 2.2733 3.5338 2.2733 4.0929 2.6813 4.6338 2.7363 4.7071 2.7913 4.785 3.5383 5.9309 4.675 6.4213 4.9454 6.5404 5.1563 6.6092 5.3213 6.6596 5.5917 6.7467 5.8392 6.7329 6.0363 6.7054 6.2563 6.6734 6.71 6.4304 6.8017 6.1646 6.8979 5.8988 6.8979 5.6742 6.8658 5.6238 6.8338 5.5734 6.765 5.5504 6.6504 5.4954Z" transform=" translate(0 7.767737428482965e-13)" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 10px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 71px;top: 4546px;width: 259px;position: absolute;">Kuasai &amp; praktekkan langsung ilmunya <br></span>
+      <span class="text" style="display: inline;text-align: center;line-height: 10px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 71px;top: 4560px;width: 259px;position: absolute;">rasakan bahwa mencari kerja sangatlah mudah apabila punya strategi yang tepat.</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 14px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 120px;top: 5623px;width: 160px;position: absolute;">Saya tahu Rp50.000 mungkin bukan uang yang kecil bagi sebagian orang. Bisa jadi itu uang yang Anda kumpulkan dari hasil kerja keras. Karena itu, Saya Kelvin Sun tidak pernah membuat course ini asal jadi. </span>
+      <span class="text" style="display: inline;text-align: center;line-height: 14px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 86px;top: 5314px;width: 227px;position: absolute;">Garansi uang kembali bila ilmu di dalam tidak works, boleh ajukan refund</span>
+      <div style="overflow: hidden;left: 33px;top: 3337px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/df52b1554dcbab1b769388e69a03fa49b3da46d5.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-17.4px,-40.1px) scale(4.03,1.28);"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 8px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -8px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 115px;top: 3939px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/1a2c52531bd6f5cbcaf5498f513cebe6197e2302.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-41.9px,0.9px) scale(3.14,1);"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 197px;top: 3909px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;transform-origin: 0 0;transform: scale(-1,1);left: 82px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KC0xLDAsMCwxLDgyLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDUuMDIxMDUyMDk1NTk5MTg4ZS0xNSAzMjMuNTQzNDg3NTQ4ODI4MSAtODIgLTMuOTE5MTk3MDA5NzY5MTc3ZS0xNCA4MiA5LjY5MDMyMjIwNjMxODM2NWUtMTUpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjE3LDIxNywyMTcsMCkiIG9mZnNldD0iMCIgLz48c3RvcCBzdG9wLWNvbG9yPSIjZDlkOWQ5IiBvZmZzZXQ9IjAuNDk1MTkyMzE5MTU0NzM5NCIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDExNSwxMTUsMTE1LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/0a08c51bde72c9fa2668a7e00a7f688d8c7f437c.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-3.9px,0.9px) scale(3.14,1);"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 279px;top: 3939px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/1b7800390f6daa1eb25b574f3c2867ba14269d78.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 64px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -64px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 114px;top: 3378px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/1feac50a131628a53b78d8dbe29f15be641a2819.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI0OCwyMiwyMiwwKSIgb2Zmc2V0PSIwIiAvPjxzdG9wIHN0b3AtY29sb3I9IiNlYTFlMWUiIG9mZnNldD0iMC40OTUxOTIzMTkxNTQ3Mzk0IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjMwLDE4LDE4LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 196px;top: 3348px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;transform-origin: 0 0;transform: scale(-1,1);left: 82px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KC0xLDAsMCwxLDgyLDApO3RyYW5zZm9ybS1vcmlnaW46IDAgMDsiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCB4MT0iMCIgeTE9IjAuNSIgeDI9IjEiIHkyPSIwLjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDUuMDIxMDUyMDk1NTk5MTg4ZS0xNSAzMjMuNTQzNDg3NTQ4ODI4MSAtODIgLTMuOTE5MTk3MDA5NzY5MTc3ZS0xNCA4MiA5LjY5MDMyMjIwNjMxODM2NWUtMTUpIiBpZD0iZGVmXzAiPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjE3LDIxNywyMTcsMCkiIG9mZnNldD0iMCIgLz48c3RvcCBzdG9wLWNvbG9yPSIjZDlkOWQ5IiBvZmZzZXQ9IjAuNDk1MTkyMzE5MTU0NzM5NCIgLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDExNSwxMTUsMTE1LDApIiBvZmZzZXQ9IjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Im1hc2tfdW5kZWZpbmVkIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODIiIGhlaWdodD0iMzIzLjU0MzQ4NzU0ODgyODEiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTAgMEw4MiAwIDgyIDMyMy41NDM1IDAgMzIzLjU0MzVaIiBzdHlsZT0iZmlsbC1ydWxlOiBub256ZXJvO2ZpbGw6IHVybCgjZGVmXzApOyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/cf5053c8cde0f212b973650184a448f84ad4b6f7.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <div style="overflow: hidden;left: 278px;top: 3378px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/d7421d50e7bfa99338d8a4167c65a2b58091a68a.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 64px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -64px 0px;"></div>
+      </div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 40px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: center;left: 97px;top: 5269px;width: 205px;height: 40px;position: absolute;filter: drop-shadow(0px 0px 9px rgba(0,0,0,0.5));"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">REFUND</span></span>
+      <span class="text" style="display: inline;text-align: center;line-height: 15px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;letter-spacing: 2.2px;color: transparent;background-image: linear-gradient(156deg, #cf2121 15.1%, #fff 84.4%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: calc(-116.5px + 50%);top: 5872px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(156deg, #cf2121 15.1%, #fff 84.4%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">FREQUENTLY ASKED QUESTION</span></span>
+      <span class="text" style="display: inline;text-align: center;line-height: 15px;font-size: 20px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: calc(-62.5px + 50%);top: 6352px;width: max-content;position: absolute;">Sudah Yakin? </span>
+      <svg width="79" height="1" viewBox="0 0 79 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 0px;top: 5875.5px;width: 79px;height: 1px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(79 0 0 1 0 0)" id="def_0_13">
+            <stop stop-color="#636166" offset="0"></stop>
+            <stop stop-color="#c7c3cc" offset="0.35576921701431274"></stop>
+            <stop stop-color="rgba(119,117,122,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H79" transform=" translate(0 0.5)" style="stroke: url(#def_0_13);"></path>
+      </svg>
+      <svg width="79" height="1" viewBox="0 0 79 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: scale(-1,1);left: 390px;top: 5875.5px;width: 79px;height: 1px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(79 0 0 1 0 0)" id="def_0_14">
+            <stop stop-color="#636166" offset="0"></stop>
+            <stop stop-color="#c7c3cc" offset="0.35576921701431274"></stop>
+            <stop stop-color="rgba(119,117,122,0)" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H79" transform=" translate(0 0.5)" style="stroke: url(#def_0_14);"></path>
+      </svg>
+      <div id="Rectangle_82" style="overflow: hidden;padding: 1px;border-radius: 11px;background-color: #161616;left: 31px;top: 6079px;width: 331px;height: 45px;position: absolute;"></div>
+      <div id="Rectangle_160" style="overflow: hidden;padding: 1px;border-radius: 11px;background-color: #161616;left: 31px;top: 6136px;width: 331px;height: 59px;position: absolute;"></div>
+      <div id="Rectangle_161" style="overflow: hidden;padding: 1px;border-radius: 11px;background-color: #161616;left: 31px;top: 6207px;width: 331px;height: 59px;position: absolute;"></div>
+      <div id="Rectangle_81" style="overflow: hidden;padding: 1px;border-radius: 11px;background-color: #161616;left: 31px;top: 5926px;width: 331px;height: 141px;position: absolute;"></div>
+      <span class="text" style="display: inline;text-align: left;line-height: 15px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 50px;top: 6094px;width: 261px;height: 15px;position: absolute;">Durasi total kelas berapa lama? <br></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 15px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 50px;top: 6151px;width: 233px;height: 42px;position: absolute;">Materinya bakal basi gak dalam setahun dua tahun?</span>
+      <span class="text" style="display: inline;text-align: left;line-height: 15px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 50px;top: 6222px;width: 233px;height: 42px;position: absolute;">Kok murah banget 50rb? Jangan-jangan isinya receh.<br></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 15px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;left: 50px;top: 5943px;width: 261px;height: 42px;position: absolute;">Saya fresh graduate, belum pernah kerja sama sekali. Cocok gak?</span>
+      <span class="text" style="display: inline;text-align: left;line-height: 15px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #ccc;left: 50px;top: 5985px;width: 261px;height: 67px;position: absolute;">Justru ini dibuat untuk kamu. Ada episode khusus yang membahas cara dapat kerja saat pengalaman kerjamu masih kosong. Bagian yang paling sering bikin fresh grad merasa buntu. <br></span>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-90deg) scale(-1,1);left: 311px;top: 6093px;aspect-ratio: 0.5;width: auto;height: 36px;position: absolute;"><svg width="10.700923919677734" height="19.455001831054688" viewBox="0 0 10.700923919677734 19.455001831054688" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(-180deg);left: 79.9%;top: 77%;right: -39.3%;bottom: -31.1%;width: 59.4%;height: 54%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10.700923919677734 0 0 19.455001831054688 0 0)" id="def_0_15"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M10.7009 17.865L9.1094 19.455 0.4409 10.7895C0.3012 10.6506 0.1903 10.4855 0.1146 10.3037 0.039 10.1218 0 9.9267 0 9.7298 0 9.5328 0.039 9.3377 0.1146 9.1558 0.1903 8.974 0.3012 8.8089 0.4409 8.67L9.1094 0 10.6994 1.59 2.5634 9.7275 10.7009 17.865Z" style="fill-rule: nonzero;fill: url(#def_0_15);"></path> </svg></div>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-90deg) scale(-1,1);left: 311px;top: 6154px;aspect-ratio: 0.5;width: auto;height: 36px;position: absolute;"><svg width="10.700923919677734" height="19.455001831054688" viewBox="0 0 10.700923919677734 19.455001831054688" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(-180deg);left: 79.9%;top: 77%;right: -39.3%;bottom: -31.1%;width: 59.4%;height: 54%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10.700923919677734 0 0 19.455001831054688 0 0)" id="def_0_16"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M10.7009 17.865L9.1094 19.455 0.4409 10.7895C0.3012 10.6506 0.1903 10.4855 0.1146 10.3037 0.039 10.1218 0 9.9267 0 9.7298 0 9.5328 0.039 9.3377 0.1146 9.1558 0.1903 8.974 0.3012 8.8089 0.4409 8.67L9.1094 0 10.6994 1.59 2.5634 9.7275 10.7009 17.865Z" style="fill-rule: nonzero;fill: url(#def_0_16);"></path> </svg></div>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-90deg) scale(-1,1);left: 311px;top: 6225px;aspect-ratio: 0.5;width: auto;height: 36px;position: absolute;"><svg width="10.700923919677734" height="19.455001831054688" viewBox="0 0 10.700923919677734 19.455001831054688" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(-180deg);left: 79.9%;top: 77%;right: -39.3%;bottom: -31.1%;width: 59.4%;height: 54%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10.700923919677734 0 0 19.455001831054688 0 0)" id="def_0_17"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M10.7009 17.865L9.1094 19.455 0.4409 10.7895C0.3012 10.6506 0.1903 10.4855 0.1146 10.3037 0.039 10.1218 0 9.9267 0 9.7298 0 9.5328 0.039 9.3377 0.1146 9.1558 0.1903 8.974 0.3012 8.8089 0.4409 8.67L9.1094 0 10.6994 1.59 2.5634 9.7275 10.7009 17.865Z" style="fill-rule: nonzero;fill: url(#def_0_17);"></path> </svg></div>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-90deg);left: 311px;top: 5967px;aspect-ratio: 0.5;width: auto;height: 36px;position: absolute;"><svg width="10.700923919677734" height="19.455001831054688" viewBox="0 0 10.700923919677734 19.455001831054688" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="transform-origin: 0 0;transform: rotate(-180deg);left: 79.9%;top: 77%;right: -39.3%;bottom: -31.1%;width: 59.4%;height: 54%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10.700923919677734 0 0 19.455001831054688 0 0)" id="def_0_18"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M10.7009 17.865L9.1094 19.455 0.4409 10.7895C0.3012 10.6506 0.1903 10.4855 0.1146 10.3037 0.039 10.1218 0 9.9267 0 9.7298 0 9.5328 0.039 9.3377 0.1146 9.1558 0.1903 8.974 0.3012 8.8089 0.4409 8.67L9.1094 0 10.6994 1.59 2.5634 9.7275 10.7009 17.865Z" style="fill-rule: nonzero;fill: url(#def_0_18);"></path> </svg></div>
+      <div style="background-image: linear-gradient(-89.8deg, #000 18.6%, rgba(0,0,0,0) 95.8%);background-blend-mode: normal;transform-origin: 0 0;transform: rotate(180deg);left: 122px;top: 5816px;width: 135px;height: 268px;position: absolute;"></div>
+      <div style="background-image: linear-gradient(-89.8deg, #000 18.6%, rgba(0,0,0,0) 95.8%);background-blend-mode: normal;left: 275px;top: 5548px;width: 118px;height: 268px;position: absolute;"></div>
+      <div id="Rectangle_101" style="overflow: hidden;padding: 1px;border-radius: 5px;background-color: #101010;left: 34px;top: 1392px;aspect-ratio: 1;width: auto;height: 26px;position: absolute;filter: drop-shadow(0px 1px 10px rgba(255,1,1,0.3));"></div>
+      <div id="Rectangle_157" style="overflow: hidden;padding: 1px;border-radius: 5px;background-color: #101010;left: 34px;top: 1659px;aspect-ratio: 1;width: auto;height: 26px;position: absolute;filter: drop-shadow(0px 1px 10px rgba(255,1,1,0.3));"></div>
+      <div id="Rectangle_158" style="overflow: hidden;padding: 1px;border-radius: 5px;background-color: #101010;left: 34px;top: 1926px;aspect-ratio: 1;width: auto;height: 26px;position: absolute;filter: drop-shadow(0px 1px 10px rgba(255,1,1,0.3));"></div>
+      <div id="Rectangle_159" style="overflow: hidden;padding: 1px;border-radius: 5px;background-color: #101010;left: 34px;top: 2193px;aspect-ratio: 1;width: auto;height: 26px;position: absolute;filter: drop-shadow(0px 1px 10px rgba(255,1,1,0.3));"></div>
+      <span class="text" style="display: inline;text-align: left;line-height: 30px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: calc(-152.5px + 50%);top: 1390px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">1</span></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 30px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: calc(-153.5px + 50%);top: 1657px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">2</span></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 30px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: calc(-154.5px + 50%);top: 1924px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">3</span></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 30px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: calc(-155.5px + 50%);top: 2191px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">4</span></span>
+      <span class="text" style="display: inline;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;left: 74px;top: 1492px;width: max-content;position: absolute;">EPISODE 1</span>
+      <span class="text" style="display: inline;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;left: 74px;top: 1759px;width: max-content;position: absolute;">EPISODE 2</span>
+      <span class="text" style="display: inline;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;left: 74px;top: 2026px;width: max-content;position: absolute;">EPISODE 3</span>
+      <span class="text" style="display: inline;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;left: 74px;top: 2293px;width: max-content;position: absolute;">EPISODE 4</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 74px;top: 1507px;width: 273px;height: 41px;position: absolute;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span style="text-decoration: underline;">Lihat selengkapnya...</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 74px;top: 1774px;width: 273px;height: 41px;position: absolute;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span style="text-decoration: underline;">Lihat selengkapnya...</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 74px;top: 2041px;width: 273px;height: 41px;position: absolute;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span style="text-decoration: underline;">Lihat selengkapnya...</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 74px;top: 2308px;width: 273px;height: 41px;position: absolute;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span style="text-decoration: underline;">Lihat selengkapnya...</span></span>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 154px;align-items: center;justify-content: center;left: 0px;top: 0px;width: 393px;position: absolute;padding: 21px 24px 19px;">
+        <div style="display: flex;flex-direction: row;grid-column-gap: 10px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1.5px 0px 0px;"><span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 17px;font-family: &quot;SF Pro&quot;, Inter, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;width: max-content;position: relative;flex-shrink: 0;letter-spacing: 0.29px;">9:41</span></div>
+        <div style="display: flex;flex-direction: row;grid-column-gap: 7px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1px 1px 0px 0px;">
+          <svg width="19.200000762939453" height="12.226415634155273" viewBox="0 0 19.200000762939453 12.226415634155273" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 19.2px;height: 12.2px;position: relative;flex-shrink: 0;">
+            <path d="M19.2 1.1462C19.2 0.5132 18.7224 0 18.1333 0H17.0667C16.4776 0 16 0.5132 16 1.1462V11.0802C16 11.7132 16.4776 12.2264 17.0667 12.2264H18.1333C18.7224 12.2264 19.2 11.7132 19.2 11.0802V1.1462ZM11.7659 2.4453H12.8326C13.4217 2.4453 13.8992 2.9708 13.8992 3.619V11.0527C13.8992 11.7009 13.4217 12.2264 12.8326 12.2264H11.7659C11.1768 12.2264 10.6992 11.7009 10.6992 11.0527V3.619C10.6992 2.9708 11.1768 2.4453 11.7659 2.4453ZM7.4341 5.0943H6.3674C5.7783 5.0943 5.3008 5.6265 5.3008 6.283V11.0377C5.3008 11.6942 5.7783 12.2264 6.3674 12.2264H7.4341C8.0232 12.2264 8.5008 11.6942 8.5008 11.0377V6.283C8.5008 5.6265 8.0232 5.0943 7.4341 5.0943ZM2.1333 7.5396H1.0667C0.4776 7.5396 0 8.0642 0 8.7113V11.0547C0 11.7018 0.4776 12.2264 1.0667 12.2264H2.1333C2.7224 12.2264 3.2 11.7018 3.2 11.0547V8.7113C3.2 8.0642 2.7224 7.5396 2.1333 7.5396Z" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <svg width="17.141666892719684" height="12.328306198120117" viewBox="0 0 17.141666892719684 12.328306198120117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 17.1px;height: 12.3px;position: relative;flex-shrink: 0;">
+            <path d="M8.5713 2.4663C11.0584 2.4664 13.4504 3.3885 15.2529 5.0419 15.3887 5.1696 15.6056 5.168 15.7393 5.0383L17.0368 3.7749C17.1045 3.7091 17.1422 3.62 17.1417 3.5274 17.1411 3.4347 17.1023 3.346 17.0338 3.281 12.3028-1.0937 4.8391-1.0937 0.1081 3.281 0.0395 3.346 0.0006 3.4346 0 3.5273-0.0006 3.62 0.037 3.7091 0.1047 3.7749L1.4026 5.0383C1.5362 5.1682 1.7533 5.1698 1.8889 5.0419 3.6917 3.3884 6.0839 2.4663 8.5713 2.4663ZM8.5679 6.6866C9.9253 6.6865 11.2341 7.1982 12.2403 8.1223 12.3763 8.2535 12.5907 8.2507 12.7234 8.1159L14.0106 6.7966C14.0784 6.7274 14.1161 6.6335 14.1151 6.536 14.1141 6.4384 14.0746 6.3454 14.0054 6.2776 10.9416 3.3867 6.1969 3.3867 3.133 6.2776 3.0638 6.3454 3.0244 6.4385 3.0234 6.5361 3.0225 6.6337 3.0603 6.7275 3.1282 6.7966L4.4151 8.1159C4.5478 8.2507 4.7621 8.2535 4.8982 8.1223 5.9037 7.1988 7.2115 6.6871 8.5679 6.6866ZM11.0924 9.4801C11.0943 9.5855 11.0572 9.687 10.9899 9.7608L8.8133 12.2156C8.7495 12.2877 8.6625 12.3283 8.5717 12.3283 8.4809 12.3283 8.3939 12.2877 8.3301 12.2156L6.1531 9.7608C6.0859 9.687 6.0489 9.5854 6.0509 9.48 6.0528 9.3747 6.0937 9.2749 6.1636 9.2043 7.5537 7.8904 9.5897 7.8904 10.9798 9.2043 11.0497 9.275 11.0904 9.3748 11.0924 9.4801Z" transform=" translate(1.0858184387280625e-12 0)" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <div style="width: 27.3px;height: 13px;position: relative;flex-shrink: 0;">
+            <div style="border-width: 1px;border-style: solid;border-color: #fff;border-radius: 4.3px;left: calc(-13.7px + 50%);top: 0px;bottom: 0px;width: 25px;height: 100%;opacity: 0.35;mix-blend-mode: normal;isolation: isolate;position: absolute;"></div>
+            <svg width="1.328037977218628" height="4.075471878051758" viewBox="0 0 1.328037977218628 4.075471878051758" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: calc(12.3px + 50%);top: 34.6%;bottom: 34%;width: 1.3px;height: 31.3%;opacity: 0.4;mix-blend-mode: normal;isolation: isolate;position: absolute;">
+              <path d="M0 0V4.0755C0.8047 3.7303 1.328 2.9273 1.328 2.0377 1.328 1.1481 0.8047 0.3452 0 0" style="fill-rule: nonzero;fill: #fff;"></path>
+            </svg>
+            <div style="border-radius: 2.5px;background-color: #fff;left: calc(-11.7px + 50%);top: 15.4%;bottom: 15.4%;width: 21px;height: 69.2%;position: absolute;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="overflow: hidden;left: 32px;top: 3909px;width: 82px;height: 323.5px;position: absolute;">
+        <div style="overflow: hidden;left: -0.9px;top: 0px;width: 82.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"><img src="images/55ddf9a0171c105aa99c5c3c1773dd27d2eca298.png" alt="Rectangle 148" style="inset: 0;width: 100%;height: 100%;position: absolute;transform: translate(-26.9px,9.3px) scale(3.14,1);"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: -0.9px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0.9px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 8px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -8px 0px;"></div>
+        <div style="background-color: rgba(217,217,217,0.2);left: 73.1px;top: 0px;width: 8.9px;height: 323.5px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iMzI0IiB2aWV3Qm94PSIwIDAgODIgMzI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogMHB4O3RvcDogMHB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjAyMTA1MjA5NTU5OTE4OGUtMTUgMzIzLjU0MzQ4NzU0ODgyODEgLTgyIC0zLjkxOTE5NzAwOTc2OTE3N2UtMTQgODIgOS42OTAzMjIyMDYzMTgzNjVlLTE1KSIgaWQ9ImRlZl8wIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDIxNywyMTcsMjE3LDApIiBvZmZzZXQ9IjAiIC8+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZDlkOSIgb2Zmc2V0PSIwLjQ5NTE5MjMxOTE1NDczOTQiIC8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMTUsMTE1LDExNSwwKSIgb2Zmc2V0PSIxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgyIiBoZWlnaHQ9IjMyMy41NDM0ODc1NDg4MjgxIiBzdHlsZT0ibWFzay10eXBlOiBhbHBoYTsiPjxwYXRoIGQ9Ik0wIDBMODIgMCA4MiAzMjMuNTQzNSAwIDMyMy41NDM1WiIgc3R5bGU9ImZpbGwtcnVsZTogbm9uemVybztmaWxsOiB1cmwoI2RlZl8wKTsiIC8+PC9nPjwvc3ZnPg==&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: -73.1px 0px;"></div>
+      </div>
+      <span class="text" style="display: inline;text-align: center;line-height: 20px;font-size: 22px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: transparent;background-image: linear-gradient(132deg, #df2f2f 15.1%, #fff 84.4%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 134px;top: 6727px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(132deg, #df2f2f 15.1%, #fff 84.4%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Happy Life</span></span>
+      <div id="PPT_WEBINAR_CARI_KERJA_10" style="overflow: hidden;padding: 1px;border-radius: 7px;left: 27px;top: 6489px;aspect-ratio: 1.65;width: auto;height: 204px;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));"><img src="images/9d76d859390b453536c79362caed5da1ac22c158.png" alt="PPT WEBINAR CARI KERJA 10" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 12px;font-size: 16px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;letter-spacing: 6.4px;color: #fff;align-items: center;justify-content: center;transform-origin: 0 0;transform: scale(-1,1);left: 216px;top: 6289px;width: 38px;height: 17px;position: absolute;">....</span>
+      <div style="overflow: hidden;left: 75px;top: 4683px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10.000000953674318" height="10.000000953674316" viewBox="0 0 10.000000953674318 10.000000953674316" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10.000000953674316 0 0 10.000000953674316 0 0)" id="def_0_19"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M4 2.5V3.5H5V7.5H6V2.5H4ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_19);"></path> </svg></div>
+      <div style="overflow: hidden;left: 75px;top: 4723px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10 0 0 10 0 0)" id="def_0_20"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M3.5 2.5V3.5H5.5V4.5H4.5C4.2348 4.5 3.9804 4.6054 3.7929 4.7929 3.6054 4.9804 3.5 5.2348 3.5 5.5V7.5H6.5V6.5H4.5V5.5H5.5C5.7652 5.5 6.0196 5.3946 6.2071 5.2071 6.3946 5.0196 6.5 4.7652 6.5 4.5V3.5C6.5 3.2348 6.3946 2.9804 6.2071 2.7929 6.0196 2.6054 5.7652 2.5 5.5 2.5H3.5ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_20);"></path> </svg></div>
+      <div style="overflow: hidden;left: 75px;top: 4763px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10 0 0 10 0 0)" id="def_0_21"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M6.5 6.5V5.75C6.5 5.5511 6.421 5.3603 6.2803 5.2197 6.1397 5.079 5.9489 5 5.75 5 5.9489 5 6.1397 4.921 6.2803 4.7803 6.421 4.6397 6.5 4.4489 6.5 4.25V3.5C6.5 3.2348 6.3946 2.9804 6.2071 2.7929 6.0196 2.6054 5.7652 2.5 5.5 2.5H3.5V3.5H5.5V4.5H4.5V5.5H5.5V6.5H3.5V7.5H5.5C5.7652 7.5 6.0196 7.3946 6.2071 7.2071 6.3946 7.0196 6.5 6.7652 6.5 6.5ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_21);"></path> </svg></div>
+      <div style="overflow: hidden;left: 75px;top: 4803px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10 0 0 10 0 0)" id="def_0_22"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M3.5 2.5V5.5H5.5V7.5H6.5V2.5H5.5V4.5H4.5V2.5H3.5ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_22);"></path> </svg></div>
+      <div style="overflow: hidden;left: 75px;top: 4843px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10 0 0 10 0 0)" id="def_0_23"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M3.5 2.5V5.5H5.5V6.5H3.5V7.5H5.5C5.7652 7.5 6.0196 7.3946 6.2071 7.2071 6.3946 7.0196 6.5 6.7652 6.5 6.5V5.5C6.5 5.2348 6.3946 4.9804 6.2071 4.7929 6.0196 4.6054 5.7652 4.5 5.5 4.5H4.5V3.5H6.5V2.5H3.5ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_23);"></path> </svg></div>
+      <div style="overflow: hidden;left: 75px;top: 4893px;aspect-ratio: 1;width: auto;height: 12px;position: absolute;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(10 0 0 10 0 0)" id="def_0_24"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M4.5 2.5C4.2348 2.5 3.9804 2.6054 3.7929 2.7929 3.6054 2.9804 3.5 3.2348 3.5 3.5V6.5C3.5 6.7652 3.6054 7.0196 3.7929 7.2071 3.9804 7.3946 4.2348 7.5 4.5 7.5H5.5C5.7652 7.5 6.0196 7.3946 6.2071 7.2071 6.3946 7.0196 6.5 6.7652 6.5 6.5V5.5C6.5 5.2348 6.3946 4.9804 6.2071 4.7929 6.0196 4.6054 5.7652 4.5 5.5 4.5H4.5V3.5H6.5V2.5H4.5ZM4.5 5.5H5.5V6.5H4.5V5.5ZM5 0C5.6566 0 6.3068 0.1293 6.9134 0.3806 7.52 0.6319 8.0712 1.0002 8.5355 1.4645 8.9998 1.9288 9.3681 2.48 9.6194 3.0866 9.8707 3.6932 10 4.3434 10 5 10 6.3261 9.4732 7.5979 8.5355 8.5355 7.5979 9.4732 6.3261 10 5 10 4.3434 10 3.6932 9.8707 3.0866 9.6194 2.48 9.3681 1.9288 8.9998 1.4645 8.5355 0.5268 7.5979 0 6.3261 0 5 0 3.6739 0.5268 2.4021 1.4645 1.4645 2.4021 0.5268 3.6739 0 5 0Z" style="fill-rule: nonzero;fill: url(#def_0_24);"></path> </svg></div>
+    </div>
+  </body>
+</html>
