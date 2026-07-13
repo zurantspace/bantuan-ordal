@@ -35,7 +35,7 @@ next-env.d.ts
 # Raw materials and non-website files
 Assets/
 brief/
-pages/
+design-templates/
 patch-statusbar.js
 check-btn.js
 fix-clickable.js
