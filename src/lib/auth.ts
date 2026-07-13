@@ -78,6 +78,23 @@ export function isAuthenticated(): boolean {
   return !!localStorage.getItem('bantuan_ordal_token');
 }
 
+/** Cek apakah user yang sedang login adalah admin.
+ *  Admin punya token terpisah — user biasa yang sudah login tidak otomatis jadi admin. */
+export function isAdmin(): boolean {
+  if (typeof window === 'undefined') return false;
+  return !!localStorage.getItem('bantuan_ordal_admin_token');
+}
+
+/** Login sebagai admin (untuk demo: admin@bantuanordal.com / admin9999) */
+export function loginAdmin(email: string, password: string): boolean {
+  const isAdminCredentials = email === 'admin@bantuanordal.com' && password === 'admin9999';
+  if (!isAdminCredentials) return false;
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('bantuan_ordal_admin_token', 'admin-token-' + Date.now());
+  }
+  return true;
+}
+
 export function registerFromCheckout(name: string, email: string, phone: string, password: string): AuthUser {
   const user: AuthUser = {
     id: 'user-' + Date.now(),

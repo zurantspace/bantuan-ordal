@@ -63,11 +63,7 @@ export default function HomeDashboard() {
           aria-label={`Premium Episode ${ep.number}: ${ep.title}`} />
       ))}
 
-      {/* Nav bar */}
-      <button id="nav-home"    onClick={() => router.push('/home')}      style={{ position: 'absolute', top: 1600, left: 39,  width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-kelas"   onClick={() => router.push('/watch/1')}   style={{ position: 'absolute', top: 1600, left: 103, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-bonus"   onClick={() => router.push('/bonus')}     style={{ position: 'absolute', top: 1600, left: 167, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-profile" onClick={() => router.push('/settings')}  style={{ position: 'absolute', top: 1600, left: 231, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
+      {/* Nav bar handled by (dashboard)/layout.tsx — no duplicate overlay needed */}
     </ScaledIframeCanvas>
   );
 }

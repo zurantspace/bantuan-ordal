@@ -13,6 +13,8 @@ interface ScaledIframeCanvasProps {
   children?: React.ReactNode;
   /** Tambahan style untuk outer shell */
   className?: string;
+  /** Batas lebar maksimum tampilan (default 480) — desktop tampil sebagai kartu mobile di tengah */
+  maxDisplayWidth?: number;
 }
 
 /**
@@ -31,6 +33,7 @@ export default function ScaledIframeCanvas({
   canvasHeight,
   children,
   className,
+  maxDisplayWidth = 480,
 }: ScaledIframeCanvasProps) {
   const shellRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -41,9 +44,10 @@ export default function ScaledIframeCanvas({
       const inner = innerRef.current;
       if (!shell || !inner) return;
 
-      // Lebar efektif = lebar container (bisa lebih dari 393px di desktop)
+      // Cap efektif width agar desktop tidak blow up — render sebagai kartu mobile di tengah
       const containerWidth = shell.parentElement?.clientWidth ?? window.innerWidth;
-      const scale = containerWidth / canvasWidth;
+      const effectiveWidth = Math.min(containerWidth, maxDisplayWidth);
+      const scale = effectiveWidth / canvasWidth;
       const scaledHeight = canvasHeight * scale;
 
       inner.style.transform = `scale(${scale})`;
@@ -53,10 +57,11 @@ export default function ScaledIframeCanvas({
       inner.style.top = '0';
       inner.style.left = '0';
 
-      shell.style.width = '100%';
+      shell.style.width = `${effectiveWidth}px`;
       shell.style.height = `${scaledHeight}px`;
       shell.style.position = 'relative';
       shell.style.overflow = 'hidden';
+      shell.style.margin = '0 auto'; // Center on desktop
     };
 
     applyScale();

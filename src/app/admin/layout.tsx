@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import { isAdmin } from '@/lib/auth';
 
 const NAV_ITEMS = [
   { icon: '📊', label: 'Dashboard',  path: '/admin/dashboard' },
@@ -19,6 +20,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    if (!isAdmin()) {
+      // Redirect non-admin ke login (bukan ke /home, karena mungkin belum login sama sekali)
+      router.replace('/login?from=admin');
+    }
+  }, [router]);
+
+  // Jangan render apapun sampai client-side check selesai (mencegah flash konten admin)
+  if (!mounted || !isAdmin()) return null;
 
   return (
     <div style={{

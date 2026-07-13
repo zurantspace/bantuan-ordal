@@ -80,11 +80,7 @@ export default function WatchPage() {
           aria-label={nextEp.tier === 'premium' ? `Episode Premium ${nextEp.number}` : `Episode ${nextEp.number}`} />
       )}
 
-      {/* Nav */}
-      <button id="nav-home"      onClick={() => router.push('/home')}      style={{ position: 'absolute', top: 793, left: 39,  width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-bonus"     onClick={() => router.push('/bonus')}     style={{ position: 'absolute', top: 793, left: 103, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-affiliate" onClick={() => router.push('/affiliate')} style={{ position: 'absolute', top: 793, left: 167, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-      <button id="nav-profile"   onClick={() => router.push('/settings')}  style={{ position: 'absolute', top: 793, left: 231, width: 64, height: 59, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
+      {/* Nav bar handled by (dashboard)/layout.tsx — no duplicate overlay needed */}
     </ScaledIframeCanvas>
   );
 }

@@ -2,9 +2,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { FAQOverlay, VideoPlayerOverlay, TestimonialSlider } from "@/app/components/InteractiveOverlays";
 
 const PAGE_CANVAS_WIDTH = 393;
 const PAGE_CANVAS_HEIGHT = 7036;
+const MAX_DISPLAY_WIDTH = 480; // Desktop: render as centered mobile card, not full-width blowup
 
 export default function LandingPage() {
   const shellRef = useRef<HTMLDivElement>(null);
@@ -14,8 +16,9 @@ export default function LandingPage() {
     const applyScale = () => {
       if (!shellRef.current || !containerRef.current) return;
       const vw = window.innerWidth;
-      // Scale to EXACTLY fill the viewport width — no cap, no centering
-      const scale = vw / PAGE_CANVAS_WIDTH;
+      // Cap effective width so desktop doesn't blow up to 5x — render as centered card
+      const effectiveWidth = Math.min(vw, MAX_DISPLAY_WIDTH);
+      const scale = effectiveWidth / PAGE_CANVAS_WIDTH;
       const scaledHeight = PAGE_CANVAS_HEIGHT * scale;
 
       containerRef.current.style.transform = `scale(${scale})`;
@@ -25,10 +28,11 @@ export default function LandingPage() {
       containerRef.current.style.top = "0";
       containerRef.current.style.left = "0";
 
-      shellRef.current.style.width = `${vw}px`;
+      shellRef.current.style.width = `${effectiveWidth}px`;
       shellRef.current.style.height = `${scaledHeight}px`;
       shellRef.current.style.position = "relative";
       shellRef.current.style.overflow = "hidden";
+      shellRef.current.style.margin = "0 auto"; // Center on desktop
     };
 
     applyScale();
@@ -156,6 +160,13 @@ function LandingInteractive() {
         }}
         aria-label="Login"
       />
+      {/* ── Interactive components (previously orphaned in MobileCanvas.tsx) ── */}
+      {/* Video hero — replaces static image, user can now play/pause */}
+      <VideoPlayerOverlay />
+      {/* Testimonial slider — user can now swipe through testimonials */}
+      <TestimonialSlider />
+      {/* FAQ accordion — user can now expand/collapse FAQ items */}
+      <FAQOverlay />
     </>
   );
 }
