@@ -46,3 +46,6 @@ fix-statusbar.js
 fix-svg.js
 replace-video.js
 btn-out.txt
+
+# ignore public directory as per user request to only have /src tracked on GitHub
+public/
