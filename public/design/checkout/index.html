@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://cdn.divriots.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style>
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+    <style>
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+}</style>
+    <style>
+@font-face {
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}
+@font-face {
+  font-family: "SF Pro";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}</style>
+    <style media="all">
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: auto;
+}
+
+button {
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+}a {
+  color: inherit;
+  text-decoration: inherit;
+}
+input {
+  border: none;
+  font: inherit;
+  outline: none;
+  background-color: inherit;
+}
+button {
+  border-style: none;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+}
+textarea {
+  font: inherit;
+  background-color: inherit;
+}
+select {
+  font: inherit;
+  background-color: inherit;
+}
+img {
+  display: block;
+}
+picture {
+  display: block;
+}
+video {
+  display: block;
+}
+canvas {
+  display: block;
+}
+svg {
+  display: block;
+}
+
+[data-visible='false']{
+  display:none!important;
+}
+
+.before-hidden::before {
+  display:none;
+}
+
+.after-hidden::after {
+  display:none;
+}
+
+.before-visible::before {
+  content: "";
+}
+
+.after-visible::after {
+  content: "";
+}
+
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+</style>
+    <style>
+
+#Rectangle_23::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 0.3px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 60px;
+}
+#Rectangle_166::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 8px;
+}
+#Rectangle_181::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 8px;
+}</style>
+    <meta charset="utf-8">
+  
+</head>
+  <body style="display: grid;background-color: #000;">
+    <div style="background-color: #000;overflow: hidden;width: 393px;min-width: 393px;max-width: 393px;min-height: 1755px;max-height: 1755px;position: relative;margin: 0px auto;">
+      <svg width="393" height="1649" viewBox="0 0 393 1649" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 0px;top: 106px;width: 393px;height: 1649px;position: absolute;">
+        <defs>
+          <clippath id="def_0">
+            <rect x="0" y="0" width="393" height="1649"></rect>
+          </clippath>
+          <mask id="def_1" maskUnits="userSpaceOnUse" x="0.000030219554901123047" y="0" width="393" height="1649" style="mask-type: alpha;">
+            <path d="M0 0L393 0 393 1649 0 1649Z" style="fill-rule: nonzero;fill: #363636;"></path>
+          </mask>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(227.8873319789709 131.00882906100014 -169.92749815084244 369.4371580028237 335.927490234375 1435.46826171875)" id="def_2">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(284.2181876717441 30.289269330954085 -118.15710845543981 410.2491184492337 282.4071044921875 -126.53217315673828)" id="def_3">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="clip-path: url(#def_0);">
+          <path d="M482.1721 1743.9754C444.5716 1825.7221 349.5763 1910.4405 289.4574 1875.8791 229.3385 1841.3177 239.9317 1644.1714 277.5322 1562.4247 315.1327 1480.678 396.1685 1470.0999 456.2874 1504.6613 516.4063 1539.2227 519.7726 1662.2287 482.1721 1743.9754Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_2);mask: url(#def_1);"></path>
+          <path d="M509.856 100.8638C483.7109 191.6411 393.2041 308.1167 318.2245 300.1261 243.245 292.1355 215.6576 105.2265 241.8026 14.4492 267.9477-76.3281 357.5389-118.5253 432.5185-110.5347 507.498-102.5441 536.0011 10.0864 509.856 100.8638Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_3);mask: url(#def_1);"></path>
+        </g>
+      </svg>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 154px;align-items: center;justify-content: center;left: 0px;top: 0px;width: 393px;position: absolute;padding: 21px 24px 19px;">
+        <div style="display: flex;flex-direction: row;grid-column-gap: 10px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1.5px 0px 0px;"><span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 17px;font-family: &quot;SF Pro&quot;, Inter, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;width: max-content;position: relative;flex-shrink: 0;letter-spacing: 0.29px;">9:41</span></div>
+        <div style="display: flex;flex-direction: row;grid-column-gap: 7px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1px 1px 0px 0px;">
+          <svg width="19.200000762939453" height="12.226415634155273" viewBox="0 0 19.200000762939453 12.226415634155273" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 19.2px;height: 12.2px;position: relative;flex-shrink: 0;">
+            <path d="M19.2 1.1462C19.2 0.5132 18.7224 0 18.1333 0H17.0667C16.4776 0 16 0.5132 16 1.1462V11.0802C16 11.7132 16.4776 12.2264 17.0667 12.2264H18.1333C18.7224 12.2264 19.2 11.7132 19.2 11.0802V1.1462ZM11.7659 2.4453H12.8326C13.4217 2.4453 13.8992 2.9708 13.8992 3.619V11.0527C13.8992 11.7009 13.4217 12.2264 12.8326 12.2264H11.7659C11.1768 12.2264 10.6992 11.7009 10.6992 11.0527V3.619C10.6992 2.9708 11.1768 2.4453 11.7659 2.4453ZM7.4341 5.0943H6.3674C5.7783 5.0943 5.3008 5.6265 5.3008 6.283V11.0377C5.3008 11.6942 5.7783 12.2264 6.3674 12.2264H7.4341C8.0232 12.2264 8.5008 11.6942 8.5008 11.0377V6.283C8.5008 5.6265 8.0232 5.0943 7.4341 5.0943ZM2.1333 7.5396H1.0667C0.4776 7.5396 0 8.0642 0 8.7113V11.0547C0 11.7018 0.4776 12.2264 1.0667 12.2264H2.1333C2.7224 12.2264 3.2 11.7018 3.2 11.0547V8.7113C3.2 8.0642 2.7224 7.5396 2.1333 7.5396Z" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <svg width="17.141666892719684" height="12.328306198120117" viewBox="0 0 17.141666892719684 12.328306198120117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 17.1px;height: 12.3px;position: relative;flex-shrink: 0;">
+            <path d="M8.5713 2.4663C11.0584 2.4664 13.4504 3.3885 15.2529 5.0419 15.3887 5.1696 15.6056 5.168 15.7393 5.0383L17.0368 3.7749C17.1045 3.7091 17.1422 3.62 17.1417 3.5274 17.1411 3.4347 17.1023 3.346 17.0338 3.281 12.3028-1.0937 4.8391-1.0937 0.1081 3.281 0.0395 3.346 0.0006 3.4346 0 3.5273-0.0006 3.62 0.037 3.7091 0.1047 3.7749L1.4026 5.0383C1.5362 5.1682 1.7533 5.1698 1.8889 5.0419 3.6917 3.3884 6.0839 2.4663 8.5713 2.4663ZM8.5679 6.6866C9.9253 6.6865 11.2341 7.1982 12.2403 8.1223 12.3763 8.2535 12.5907 8.2507 12.7234 8.1159L14.0106 6.7966C14.0784 6.7274 14.1161 6.6335 14.1151 6.536 14.1141 6.4384 14.0746 6.3454 14.0054 6.2776 10.9416 3.3867 6.1969 3.3867 3.133 6.2776 3.0638 6.3454 3.0244 6.4385 3.0234 6.5361 3.0225 6.6337 3.0603 6.7275 3.1282 6.7966L4.4151 8.1159C4.5478 8.2507 4.7621 8.2535 4.8982 8.1223 5.9037 7.1988 7.2115 6.6871 8.5679 6.6866ZM11.0924 9.4801C11.0943 9.5855 11.0572 9.687 10.9899 9.7608L8.8133 12.2156C8.7495 12.2877 8.6625 12.3283 8.5717 12.3283 8.4809 12.3283 8.3939 12.2877 8.3301 12.2156L6.1531 9.7608C6.0859 9.687 6.0489 9.5854 6.0509 9.48 6.0528 9.3747 6.0937 9.2749 6.1636 9.2043 7.5537 7.8904 9.5897 7.8904 10.9798 9.2043 11.0497 9.275 11.0904 9.3748 11.0924 9.4801Z" transform=" translate(1.0858184387280625e-12 0)" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <div style="width: 27.3px;height: 13px;position: relative;flex-shrink: 0;">
+            <div style="border-width: 1px;border-style: solid;border-color: #fff;border-radius: 4.3px;left: calc(-13.7px + 50%);top: 0px;bottom: 0px;width: 25px;height: 100%;opacity: 0.35;mix-blend-mode: normal;isolation: isolate;position: absolute;"></div>
+            <svg width="1.328037977218628" height="4.075471878051758" viewBox="0 0 1.328037977218628 4.075471878051758" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: calc(12.3px + 50%);top: 34.6%;bottom: 34%;width: 1.3px;height: 31.3%;opacity: 0.4;mix-blend-mode: normal;isolation: isolate;position: absolute;">
+              <path d="M0 0V4.0755C0.8047 3.7303 1.328 2.9273 1.328 2.0377 1.328 1.1481 0.8047 0.3452 0 0" style="fill-rule: nonzero;fill: #fff;"></path>
+            </svg>
+            <div style="border-radius: 2.5px;background-color: #fff;left: calc(-11.7px + 50%);top: 15.4%;bottom: 15.4%;width: 21px;height: 69.2%;position: absolute;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color: rgba(1,1,1,0.59);left: -6px;top: 62px;width: 415px;height: 44px;position: absolute;"></div>
+      <svg width="392" height="0.5" viewBox="0 0 392 0.5" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 1px;top: 106.3px;width: 392px;height: 0.5px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(392 0 0 1 0 0)" id="def_0_0">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H392" transform=" translate(0 0.25)" style="stroke: url(#def_0_0);stroke-width: 0.5;"></path>
+      </svg>
+      <div style="overflow: hidden;left: 21px;top: 75px;aspect-ratio: 2.62;width: auto;height: 18px;position: absolute;"><img src="images/5057f55df3a0654d35ba33b5c7d724680455ffc1.png" alt="logo 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #fff;left: 282px;top: 73px;width: max-content;position: absolute;">Pembayaran Aman</span>
+      <div id="Rectangle_23" style="overflow: hidden;padding: 0.3px;border-radius: 60px;background-image: linear-gradient(90deg, #49120d 0%, #0d0201 100%);background-blend-mode: normal;left: 99px;top: 156px;width: 196px;height: 26px;position: absolute;box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.15);"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 12px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: calc(-95.5px + 50%);top: 159px;width: 192px;height: 20px;position: absolute;">💰 PENAWARAN TERBATAS</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 27px;font-size: 24px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 43px;top: 200px;width: max-content;position: absolute;">Strategi Rahasia<br>Mendapatkan Pekerjaan</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;left: 92px;top: 255px;width: max-content;position: absolute;">dapat kerja hanya dalam 5 hari</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #525252;left: 73px;top: 722px;width: max-content;position: absolute;">Member area setelah pembayaran berhasil</span>
+      <span class="text" style="display: inline;text-align: center;line-height: 9px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #525252;left: 93px;top: 1552px;width: 207px;position: absolute;">🔒 Powered by bantuanordal — Pembayaran 100% Aman— Garansi Refund 100%</span>
+      <div style="overflow: hidden;left: 267px;top: 77px;aspect-ratio: 1;width: auto;height: 13px;position: absolute;"><svg width="9.75" height="11.916666984558105" viewBox="0 0 9.75 11.916666984558105" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 12.5%;top: 4.2%;right: 12.5%;bottom: 4.2%;width: 75%;height: 91.7%;position: absolute;"> <path d="M9.75 5.4167C9.75 8.4229 7.67 11.2342 4.875 11.9167 2.08 11.2342 0 8.4229 0 5.4167V2.1667L4.875 0 9.75 2.1667V5.4167ZM4.875 10.8333C6.9063 10.2917 8.6667 7.8758 8.6667 5.5358V2.8708L4.875 1.1808 1.0833 2.8708V5.5358C1.0833 7.8758 2.8438 10.2917 4.875 10.8333Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3b3b3b;border-radius: 60px;background-color: #1f1f1f;left: 55px;top: 306px;width: 95px;height: 19px;position: absolute;"></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3b3b3b;border-radius: 60px;background-color: #1f1f1f;left: 160px;top: 306px;width: 84px;height: 19px;position: absolute;"></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3b3b3b;border-radius: 60px;background-color: #1f1f1f;left: 254px;top: 306px;width: 85px;height: 19px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 80px;top: 308px;width: 58px;height: 15px;position: absolute;">Lifetime Acces</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 179px;top: 308px;width: 58px;height: 15px;position: absolute;">WA Support</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 277px;top: 308px;width: 53px;height: 15px;position: absolute;">Free Update</span>
+      <div style="overflow: hidden;left: 62px;top: 308px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="9.664663314819336" height="7.015625" viewBox="0 0 9.664663314819336 7.015625" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 17.8%;top: 26.6%;right: 17.8%;bottom: 26.7%;width: 64.4%;height: 46.8%;position: absolute;"> <path d="M3.3053 5.4844L8.6022 0.1875C8.7272 0.0625 8.873 0 9.0397 0 9.2063 0 9.3522 0.0625 9.4772 0.1875 9.6022 0.3125 9.6647 0.461 9.6647 0.6331 9.6647 0.8052 9.6022 0.9535 9.4772 1.0781L3.7428 6.8281C3.6178 6.9531 3.472 7.0156 3.3053 7.0156 3.1386 7.0156 2.9928 6.9531 2.8678 6.8281L0.1803 4.1406C0.0553 4.0156-0.0047 3.8673 0.0003 3.6956 0.0053 3.524 0.0705 3.3754 0.1959 3.25 0.3213 3.1246 0.4699 3.0621 0.6415 3.0625 0.8132 3.0629 0.9615 3.1254 1.0865 3.25L3.3053 5.4844Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="overflow: hidden;left: 167px;top: 308px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="9.664663314819336" height="7.015625" viewBox="0 0 9.664663314819336 7.015625" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 17.8%;top: 26.6%;right: 17.8%;bottom: 26.7%;width: 64.4%;height: 46.8%;position: absolute;"> <path d="M3.3053 5.4844L8.6022 0.1875C8.7272 0.0625 8.873 0 9.0397 0 9.2063 0 9.3522 0.0625 9.4772 0.1875 9.6022 0.3125 9.6647 0.461 9.6647 0.6331 9.6647 0.8052 9.6022 0.9535 9.4772 1.0781L3.7428 6.8281C3.6178 6.9531 3.472 7.0156 3.3053 7.0156 3.1386 7.0156 2.9928 6.9531 2.8678 6.8281L0.1803 4.1406C0.0553 4.0156-0.0047 3.8673 0.0003 3.6956 0.0053 3.524 0.0705 3.3754 0.1959 3.25 0.3213 3.1246 0.4699 3.0621 0.6415 3.0625 0.8132 3.0629 0.9615 3.1254 1.0865 3.25L3.3053 5.4844Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="overflow: hidden;left: 262px;top: 308px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="9.664663314819336" height="7.015625" viewBox="0 0 9.664663314819336 7.015625" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 17.8%;top: 26.6%;right: 17.8%;bottom: 26.7%;width: 64.4%;height: 46.8%;position: absolute;"> <path d="M3.3053 5.4844L8.6022 0.1875C8.7272 0.0625 8.873 0 9.0397 0 9.2063 0 9.3522 0.0625 9.4772 0.1875 9.6022 0.3125 9.6647 0.461 9.6647 0.6331 9.6647 0.8052 9.6022 0.9535 9.4772 1.0781L3.7428 6.8281C3.6178 6.9531 3.472 7.0156 3.3053 7.0156 3.1386 7.0156 2.9928 6.9531 2.8678 6.8281L0.1803 4.1406C0.0553 4.0156-0.0047 3.8673 0.0003 3.6956 0.0053 3.524 0.0705 3.3754 0.1959 3.25 0.3213 3.1246 0.4699 3.0621 0.6415 3.0625 0.8132 3.0629 0.9615 3.1254 1.0865 3.25L3.3053 5.4844Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div id="Rectangle_166" style="overflow: hidden;padding: 0.5px;border-radius: 8px;background-color: #321313;left: 43px;top: 339px;width: 306px;height: 44px;position: absolute;"></div>
+      <div id="Rectangle_181" style="overflow: hidden;padding: 0.5px;border-radius: 8px;background-color: #321313;left: 44px;top: 1373px;width: 306px;height: 36px;position: absolute;"></div>
+      <div style="border-radius: 8px 0px 0px 8px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 43px;top: 339px;width: 7px;height: 44px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 69px;top: 356px;width: 219px;height: 11px;position: absolute;"> Quota promo tersisa, amankan sebelum waktu habis :</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 66px;top: 1385px;width: 240px;height: 11px;position: absolute;"><span style="font-weight: 700;">3 Orang</span> baru saja jadi member dalam 16 Menit Terakhir</span>
+      <div style="border-radius: 8px;background-color: #fff;left: 292px;top: 353px;width: 49px;height: 16px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #000;align-items: center;justify-content: center;left: 304px;top: 354px;width: 31px;height: 15px;position: absolute;">12 : 38</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 12px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 60px;top: 356px;width: 9px;height: 11px;position: absolute;">3</span>
+      <div style="overflow: hidden;left: 298px;top: 357px;aspect-ratio: 1;width: auto;height: 9px;position: absolute;"><svg width="6.648000240325928" height="6.323999881744385" viewBox="0 0 6.648000240325928 6.323999881744385" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 13.1%;top: 13.1%;right: 13.1%;bottom: 16.7%;width: 73.9%;height: 70.3%;position: absolute;"> <defs> <clippath id="def_0_1"> <rect x="0" y="0" width="6.648000240325928" height="6.323999881744385"> </rect> </clippath> </defs> <g style="clip-path: url(#def_0_1);"> <path d="M1.0609 0C0.8065 0.0681 0.5745 0.202 0.3883 0.3883 0.202 0.5745 0.0681 0.8065 0 1.0609M5.5871 0C5.8415 0.0681 6.0735 0.202 6.2597 0.3883 6.446 0.5745 6.5799 0.8065 6.648 1.0609" style="stroke: #000;stroke-width: 0.75;stroke-linecap: round;"></path> <path d="M3.324 6.324C4.1196 6.324 4.8827 6.0079 5.4453 5.4453 6.0079 4.8827 6.324 4.1196 6.324 3.324 6.324 2.5284 6.0079 1.7653 5.4453 1.2027 4.8827 0.6401 4.1196 0.324 3.324 0.324 2.5284 0.324 1.7653 0.6401 1.2027 1.2027 0.6401 1.7653 0.324 2.5284 0.324 3.324 0.324 4.1196 0.6401 4.8827 1.2027 5.4453 1.7653 6.0079 2.5284 6.324 3.324 6.324ZM3.699 1.824C3.699 1.7245 3.6595 1.6292 3.5892 1.5588 3.5188 1.4885 3.4235 1.449 3.324 1.449 3.2245 1.449 3.1292 1.4885 3.0588 1.5588 2.9885 1.6292 2.949 1.7245 2.949 1.824V3.2303C2.949 3.489 3.159 3.699 3.4178 3.699H4.449C4.5485 3.699 4.6438 3.6595 4.7142 3.5892 4.7845 3.5188 4.824 3.4235 4.824 3.324 4.824 3.2245 4.7845 3.1292 4.7142 3.0588 4.6438 2.9885 4.5485 2.949 4.449 2.949H3.699V1.824Z" style="fill-rule: evenodd;fill: #000;"></path> </g> </svg></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3a3a3a;border-radius: 16px;background-color: #101010;left: 43px;top: 404px;width: 306px;height: 312px;position: absolute;"></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #f11;border-radius: 18px;background-color: #470d0d;left: 43px;top: 765px;width: 306px;height: 364px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #d9d9d9;align-items: center;justify-content: center;left: 78px;top: 422px;width: 102px;height: 11px;position: absolute;">INFORMASI PEMBELI</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 65px;top: 452px;width: 65px;height: 10px;position: absolute;">Nama Lengkap</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 65px;top: 509px;width: 65px;height: 10px;position: absolute;">Email</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 65px;top: 566px;width: 75px;height: 10px;position: absolute;">Nomor Whatsapp</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 65px;top: 626px;width: 124px;height: 10px;position: absolute;">Buat Password Member Area</span>
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 66px;top: 422px;aspect-ratio: 1;width: auto;height: 11px;position: absolute;">
+        <defs>
+          <clippath id="def_0_2">
+            <rect x="0" y="0" width="11" height="11"></rect>
+          </clippath>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(7.3333330154418945 0 0 6.528958320617676 1.8333333730697632 0.9166667461395264)" id="def_1_0">
+            <stop stop-color="#bb1616" offset="0"></stop>
+            <stop stop-color="#a70a0a" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(7.319582939147949 0 0 2.2297914028167725 1.8470834493637085 7.853541851043701)" id="def_2_0">
+            <stop stop-color="#bb1616" offset="0"></stop>
+            <stop stop-color="#a70a0a" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="clip-path: url(#def_0_2);">
+          <path d="M2.8742 0.968C2.503 1.0166 2.3068 1.106 2.1665 1.243 2.0268 1.3805 1.9355 1.573 1.8856 1.9365 1.8342 2.3109 1.8333 2.8068 1.8333 3.5177V7.4456C2.0148 7.3217 2.2162 7.2298 2.4287 7.1738 2.6707 7.1101 2.953 7.1101 3.3669 7.1106H9.1667V3.5182C9.1667 2.8068 9.1657 2.3109 9.1144 1.9365 9.0645 1.573 8.9733 1.3805 8.8335 1.243 8.6932 1.106 8.497 1.0166 8.1258 0.968 7.7435 0.9176 7.2375 0.9167 6.5115 0.9167H4.4885C3.7625 0.9167 3.2565 0.9176 2.8742 0.968ZM3.0979 3.0227C3.0979 2.8174 3.2675 2.651 3.4769 2.651H7.5231C7.6225 2.6501 7.7183 2.6887 7.7893 2.7583 7.8603 2.8279 7.9009 2.9228 7.9021 3.0222 7.901 3.1218 7.8605 3.2168 7.7895 3.2865 7.7184 3.3562 7.6226 3.3948 7.5231 3.394H3.4769C3.3775 3.3948 3.2817 3.3562 3.2107 3.2866 3.1397 3.2171 3.0991 3.1221 3.0979 3.0227ZM3.4769 4.3853C3.3775 4.3845 3.2817 4.4231 3.2107 4.4927 3.1397 4.5622 3.0991 4.6571 3.0979 4.7566 3.0979 4.9619 3.2675 5.1283 3.4769 5.1283H6.0055C6.1051 5.1293 6.2009 5.0907 6.2721 5.0211 6.3432 4.9515 6.3838 4.8566 6.385 4.757 6.384 4.6574 6.3434 4.5623 6.2722 4.4927 6.2011 4.423 6.1051 4.3844 6.0055 4.3853H3.4769Z" style="fill-rule: evenodd;fill: url(#def_1_0);"></path>
+          <path d="M3.4251 7.8535H9.1667C9.1653 8.3715 9.157 8.7583 9.1149 9.0635 9.0649 9.427 8.9737 9.6195 8.8339 9.757 8.6937 9.894 8.4975 9.9834 8.1262 10.032 7.744 10.0824 7.238 10.0833 6.512 10.0833H4.4885C3.7625 10.0833 3.2565 10.0824 2.8742 10.0325 2.503 9.9834 2.3068 9.894 2.1665 9.757 2.0268 9.6195 1.9355 9.427 1.8856 9.0635 1.8668 8.926 1.8544 8.7716 1.8471 8.596 1.9099 8.4244 2.0135 8.2705 2.149 8.1478 2.2845 8.0251 2.4478 7.9372 2.6249 7.8916 2.7578 7.8568 2.9306 7.8535 3.4251 7.8535Z" style="fill-rule: nonzero;fill: url(#def_2_0);"></path>
+        </g>
+      </svg>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #3a3a3a;border-radius: 6px;background-color: #101010;left: 66px;top: 468px;width: 259px;height: 32px;position: absolute;"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #3a3a3a;border-radius: 6px;background-color: #101010;left: 66px;top: 525px;width: 259px;height: 32px;position: absolute;"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #3a3a3a;border-radius: 6px;background-color: #101010;left: 66px;top: 582px;width: 259px;height: 32px;position: absolute;"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #3a3a3a;border-radius: 6px;background-color: #101010;left: 66px;top: 642px;width: 259px;height: 32px;position: absolute;"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #ef1f1f;border-radius: 6px;background-color: #801717;left: 67px;top: 1064px;width: 259px;height: 32px;position: absolute;filter: drop-shadow(0px 0px 10px rgba(255,0,0,0.37));"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #ef1f1f;border-radius: 6px;background-color: #801717;left: 66px;top: 846px;width: 259px;height: 76px;position: absolute;filter: drop-shadow(0px 0px 10px rgba(255,0,0,0.37));"></div>
+      <div style="border-width: 0.5px;border-style: solid;border-color: #ef1f1f;border-radius: 6px;background-color: #801717;left: 66px;top: 955px;width: 259px;height: 61px;position: absolute;filter: drop-shadow(0px 0px 10px rgba(255,0,0,0.37));"></div>
+      <div style="overflow: hidden;left: 71px;top: 474px;aspect-ratio: 1;width: auto;height: 20px;position: absolute;"><svg width="13.333333969116211" height="13.333333969116211" viewBox="0 0 13.333333969116211 13.333333969116211" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 16.7%;right: 16.7%;bottom: 16.7%;width: 66.7%;height: 66.7%;position: absolute;"> <path d="M6.6667 0C7.5507 0 8.3986 0.3512 9.0237 0.9763 9.6488 1.6014 10 2.4493 10 3.3333 10 4.2174 9.6488 5.0652 9.0237 5.6904 8.3986 6.3155 7.5507 6.6667 6.6667 6.6667 5.7826 6.6667 4.9348 6.3155 4.3096 5.6904 3.6845 5.0652 3.3333 4.2174 3.3333 3.3333 3.3333 2.4493 3.6845 1.6014 4.3096 0.9763 4.9348 0.3512 5.7826 0 6.6667 0ZM6.6667 13.3333C6.6667 13.3333 13.3333 13.3333 13.3333 11.6667 13.3333 9.6667 10.0833 7.5 6.6667 7.5 3.25 7.5 0 9.6667 0 11.6667 0 13.3333 6.6667 13.3333 6.6667 13.3333Z" style="fill-rule: nonzero;fill: #3a3a3a;"></path> </svg></div>
+      <div style="overflow: hidden;left: 74px;top: 534px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="12.5" height="11.5625" viewBox="0 0 12.5 11.5625" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 11.5%;right: 8.3%;bottom: 11.5%;width: 83.3%;height: 77.1%;position: absolute;"> <path d="M9.5313 0H2.9688C2.1814 0 1.4263 0.3128 0.8695 0.8695 0.3128 1.4263 0 2.1814 0 2.9688V8.5938C0 8.9836 0.0768 9.3697 0.226 9.7298 0.3752 10.09 0.5939 10.4173 0.8695 10.693 1.4263 11.2497 2.1814 11.5625 2.9688 11.5625H9.5313C10.3181 11.5608 11.0723 11.2475 11.6286 10.6911 12.185 10.1348 12.4983 9.3806 12.5 8.5938V2.9688C12.4983 2.1819 12.185 1.4277 11.6286 0.8714 11.0723 0.315 10.3181 0.0017 9.5313 0ZM7.25 5.2C6.9425 5.3754 6.5946 5.4676 6.2406 5.4676 5.8866 5.4676 5.5387 5.3754 5.2312 5.2L0.95 2.7437C1.0054 2.2471 1.2419 1.7882 1.6143 1.455 1.9868 1.1217 2.469 0.9375 2.9688 0.9375H9.5313C10.0306 0.9389 10.5121 1.1236 10.8843 1.4566 11.2564 1.7895 11.4933 2.2476 11.55 2.7437L7.25 5.2Z" transform=" translate(3.9459147280580535e-30 0)" style="fill-rule: nonzero;fill: #3a3a3a;"></path> </svg></div>
+      <div style="overflow: hidden;left: 74px;top: 591px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="8.75015164724175" height="12.49985313447266" viewBox="0 0 8.75015164724175 12.49985313447266" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 22.5%;top: 8.3%;right: 19.1%;bottom: 8.3%;width: 58.3%;height: 83.3%;position: absolute;"> <path d="M1.4762 0.2743L2.1493 0.0593C2.7793-0.142 3.4531 0.1836 3.7231 0.8199L4.2606 2.0874C4.4949 2.6393 4.3649 3.2886 3.9393 3.6924L2.7562 4.8161C2.8291 5.4886 3.0549 6.1505 3.4337 6.8018 3.7938 7.4317 4.2765 7.9831 4.8531 8.4236L6.2756 7.9486C6.8143 7.7693 7.4012 7.9761 7.7318 8.4618L8.5018 9.593C8.8868 10.158 8.8174 10.9368 8.3406 11.4155L7.8293 11.9286C7.3206 12.4393 6.5943 12.6249 5.9218 12.4149 4.3351 11.9199 2.8762 10.4505 1.5449 8.0068 0.212 5.5588-0.2584 3.4822 0.1337 1.7768 0.2987 1.0593 0.8099 0.4874 1.4774 0.2743" transform=" translate(0 3.1738742797132735e-10)" style="fill-rule: nonzero;fill: #3a3a3a;"></path> </svg></div>
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 74px;top: 650px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;">
+        <defs>
+          <clippath id="def_0_3">
+            <rect x="0" y="0" width="15" height="15"></rect>
+          </clippath>
+        </defs>
+        <g style="clip-path: url(#def_0_3);">
+          <path d="M11.25 6.75H10.5V4.5C10.5 2.85 9.15 1.5 7.5 1.5 5.85 1.5 4.5 2.85 4.5 4.5V6.75H3.75C3.375 6.75 3 7.125 3 7.5V12.75C3 13.125 3.375 13.5 3.75 13.5H11.25C11.625 13.5 12 13.125 12 12.75V7.5C12 7.125 11.625 6.75 11.25 6.75ZM8.25 12H6.75L7.05 10.35C6.675 10.2 6.375 9.75 6.375 9.375 6.375 8.775 6.9 8.25 7.5 8.25 8.1 8.25 8.625 8.775 8.625 9.375 8.625 9.825 8.4 10.2 7.95 10.35L8.25 12ZM9 6.75H6V4.5C6 3.675 6.675 3 7.5 3 8.325 3 9 3.675 9 4.5V6.75Z" style="fill-rule: nonzero;fill: #3a3a3a;"></path>
+          <path d="M7.5 1.25C9.5651 1.25 11.25 2.9403 11.25 5V7.5H12.5V13.75H2.5V7.5H3.75V5C3.75 2.9403 5.4349 1.25 7.5 1.25ZM7.5 2.5C6.1133 2.5 5 3.6425 5 5V7.5H10V5C10 3.6425 8.8866 2.5 7.5 2.5Z" style="fill-rule: evenodd;fill: #3a3a3a;"></path>
+        </g>
+      </svg>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #555;align-items: center;justify-content: flex-start;left: 96px;top: 479px;width: 103px;height: 10px;position: absolute;">Masukan Nama Lengkap</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #555;align-items: center;justify-content: flex-start;left: 96px;top: 536px;width: 103px;height: 10px;position: absolute;">Email@kamu.com</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #555;align-items: center;justify-content: flex-start;left: 96px;top: 593px;width: 103px;height: 10px;position: absolute;">08xXXXXXXXX</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #555;align-items: center;justify-content: flex-start;left: 96px;top: 653px;width: 103px;height: 10px;position: absolute;">Min. 8 Karakter</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #555;align-items: center;justify-content: flex-start;left: 66px;top: 678px;width: 244px;height: 11px;position: absolute;">🔒<span style="color: #a1a1a1;"> Password untuk login ke member area setelah pembelian berhasil</span>.</span>
+      <div style="border-radius: 40px;background-color: #330303;left: 97px;top: 783px;width: 52px;height: 27px;position: absolute;box-shadow: 0px 4px 4px rgba(0,0,0,0.25) inset;"></div>
+      <div style="border-radius: 50%;background-color: #d9d9d9;left: 101px;top: 786px;width: 20px;height: 20px;position: absolute;filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.25));"></div>
+      <div style="border-radius: 3px;background-image: linear-gradient(90deg, #bb1616 0%, #a70a0a 100%);background-blend-mode: normal;left: 158px;top: 782px;width: 162px;height: 15px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 163px;top: 785px;width: 150px;height: 10px;position: absolute;">CUMAN TAMBAH 47RB JADI VIP, MAU?</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 76px;top: 1075px;width: 74px;height: 10px;position: absolute;">+Rp47.000</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 237px;top: 1075px;width: 78px;height: 10px;position: absolute;">Limited time offer</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 68px;top: 1101px;width: 259px;height: 10px;position: absolute;">Centang tombol di kiri atas untuk tambahkan ini.</span>
+      <div style="overflow: hidden;left: 55px;top: 776px;aspect-ratio: 1;width: auto;height: 39px;position: absolute;filter: drop-shadow(0px 0px 20px rgba(229,175,25,0.35));"><img src="images/9f3c20c6146cffed645b8df0805ec3dcda50e07f.png" alt="Untitled-1 2" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <span class="text" style="display: inline;text-align: center;line-height: 18px;font-size: 11px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 158px;top: 797px;width: max-content;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Upgrade VIP</span></span>
+      <div style="display: flex;flex-direction: column;row-gap: 5px;align-items: start;justify-content: flex-start;left: 76px;top: 855px;width: 13px;position: absolute;">
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="8.250834553854592" height="9.624803571769036" viewBox="0 0 8.250834553854592 9.624803571769036" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 12.5%;top: 6.3%;right: 12.5%;bottom: 6.2%;width: 75%;height: 87.5%;position: absolute;"> <path d="M7.6816 0.9987L2.0849 0.0104C1.9054-0.0212 1.7206 0.0198 1.5713 0.1244 1.422 0.229 1.3203 0.3886 1.2887 0.5681L0.0104 7.8299C-0.0053 7.9188-0.0032 8.01 0.0164 8.0982 0.036 8.1863 0.0728 8.2698 0.1247 8.3437 0.1766 8.4177 0.2425 8.4806 0.3187 8.5291 0.395 8.5775 0.48 8.6105 0.569 8.6261L6.1657 9.6144C6.2546 9.63 6.3459 9.628 6.4341 9.6085 6.5223 9.5889 6.6058 9.5521 6.6798 9.5002 6.7538 9.4483 6.8168 9.3824 6.8653 9.3061 6.9138 9.2298 6.9467 9.1448 6.9623 9.0558L8.2406 1.794C8.2719 1.6144 8.2306 1.4298 8.1258 1.2806 8.021 1.1315 7.8612 1.03 7.6816 0.9987ZM4.4469 4.9651C4.4329 5.0447 4.3913 5.1167 4.3295 5.1686 4.2676 5.2206 4.1895 5.2491 4.1087 5.2492 4.0886 5.2491 4.0685 5.2474 4.0486 5.244L2.2654 4.929C2.1806 4.9082 2.107 4.8559 2.0594 4.7828 2.0118 4.7096 1.9938 4.6211 2.009 4.5352 2.0243 4.4492 2.0716 4.3723 2.1415 4.32 2.2114 4.2677 2.2985 4.244 2.3853 4.2536L4.1676 4.5668C4.2121 4.5746 4.2546 4.5911 4.2928 4.6153 4.3309 4.6396 4.3639 4.6711 4.3898 4.7081 4.4158 4.7451 4.4342 4.7868 4.444 4.8309 4.4537 4.875 4.4548 4.9206 4.4469 4.9651ZM6.4664 3.9261C6.4524 4.0056 6.4109 4.0776 6.3492 4.1295 6.2874 4.1814 6.2094 4.21 6.1287 4.2102 6.1084 4.2102 6.0881 4.2083 6.0681 4.2046L2.5017 3.5751C2.4119 3.5592 2.3321 3.5083 2.2798 3.4335 2.2276 3.3588 2.2072 3.2664 2.2231 3.1766 2.239 3.0868 2.2899 3.007 2.3646 2.9547 2.4394 2.9024 2.5318 2.882 2.6216 2.8979L6.188 3.5278C6.2325 3.5356 6.2751 3.552 6.3133 3.5762 6.3515 3.6004 6.3845 3.632 6.4105 3.669 6.4365 3.706 6.4549 3.7477 6.4647 3.7919 6.4745 3.836 6.4756 3.8816 6.4677 3.9261H6.4664ZM6.7049 2.5718C6.6909 2.6513 6.6493 2.7233 6.5875 2.7753 6.5256 2.8272 6.4475 2.8557 6.3667 2.8558 6.3466 2.8558 6.3265 2.854 6.3066 2.8506L2.7402 2.2207C2.6947 2.214 2.651 2.1983 2.6117 2.1744 2.5725 2.1505 2.5384 2.119 2.5115 2.0818 2.4846 2.0445 2.4654 2.0022 2.4552 1.9574 2.4449 1.9126 2.4437 1.8662 2.4517 1.8209 2.4597 1.7756 2.4767 1.7324 2.5017 1.6938 2.5267 1.6552 2.5591 1.622 2.5972 1.5962 2.6352 1.5704 2.678 1.5525 2.7231 1.5435 2.7682 1.5345 2.8146 1.5347 2.8596 1.544L6.426 2.1735C6.4706 2.1811 6.5133 2.1975 6.5515 2.2217 6.5897 2.2459 6.6228 2.2774 6.6488 2.3144 6.6748 2.3515 6.6933 2.3932 6.7032 2.4374 6.713 2.4815 6.714 2.5272 6.7062 2.5718H6.7049Z" transform=" translate(0 1.5249590262431112e-10)" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="9.166666030883789" height="8.250000000000004" viewBox="0 0 9.166666030883789 8.250000000000004" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 12.5%;right: 8.3%;bottom: 12.5%;width: 83.3%;height: 75%;position: absolute;"> <path d="M8.25 0H0.9167C0.4125 0 0 0.4125 0 0.9167V7.3333C0 7.8375 0.4125 8.25 0.9167 8.25H8.25C8.7542 8.25 9.1667 7.8375 9.1667 7.3333V0.9167C9.1667 0.4125 8.7542 0 8.25 0ZM2.2917 6.6046L1.1642 5.4771 1.8104 4.8308 2.2871 5.3075 3.2221 4.3725 3.8683 5.0187 2.2825 6.6046H2.2917ZM2.2917 3.8546L1.1642 2.7271 1.8104 2.0808 2.2871 2.5575 3.2221 1.6225 3.8683 2.2687 2.2825 3.8546H2.2917ZM7.7917 5.9583H5.0417V5.0417H7.7917V5.9583ZM7.7917 3.2083H5.0417V2.2917H7.7917V3.2083Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="9.166666984558105" height="9.166666030883789" viewBox="0 0 9.166666984558105 9.166666030883789" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M1.8333 5.5H3.2427L5.5229 3.2083C5.5917 3.1396 5.6433 3.0612 5.6778 2.9732 5.7124 2.8852 5.7295 2.7993 5.7292 2.7156 5.7289 2.6319 5.7117 2.5499 5.6778 2.4695 5.6439 2.3891 5.5961 2.3146 5.5344 2.2458L5.1104 1.8104C5.0417 1.7417 4.9653 1.6902 4.8812 1.656 4.7972 1.6217 4.7094 1.6045 4.6177 1.6042 4.5337 1.6042 4.4497 1.6214 4.3656 1.656 4.2816 1.6905 4.2052 1.742 4.1365 1.8104L1.8333 4.0906V5.5ZM4.6062 3.1625L4.1708 2.7385 4.6177 2.2917 5.0417 2.7271 4.6062 3.1625ZM4.2167 5.5H7.3333V4.5833H5.1333L4.2167 5.5ZM0 9.1667V0.9167C0 0.6646 0.0898 0.4489 0.2695 0.2695 0.4492 0.0901 0.6649 0.0003 0.9167 0H8.25C8.5021 0 8.718 0.0898 8.8976 0.2695 9.0773 0.4492 9.167 0.6649 9.1667 0.9167V6.4167C9.1667 6.6687 9.077 6.8846 8.8976 7.0643 8.7183 7.244 8.5024 7.3336 8.25 7.3333H1.8333L0 9.1667Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="8.437917709350586" height="8.437917709350586" viewBox="0 0 8.437917709350586 8.437917709350586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 12.5%;top: 10.8%;right: 10.8%;bottom: 12.5%;width: 76.7%;height: 76.7%;position: absolute;"> <path d="M0 6.7192V8.4379H1.7188L6.7879 3.3688 5.0692 1.65 0 6.7192ZM8.4379 1.7188L6.7192 0 5.5596 1.1642 7.2783 2.8829 8.4379 1.7188Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      </div>
+      <div style="display: flex;flex-direction: column;row-gap: 5px;align-items: start;justify-content: flex-start;left: 76px;top: 964px;width: 13px;position: absolute;">
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="7.333333492279061" height="7.333333492279053" viewBox="0 0 7.333333492279061 7.333333492279053" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 16.7%;right: 16.7%;bottom: 16.7%;width: 66.7%;height: 66.7%;position: absolute;"> <path d="M1.8338 0H5.5005V0.9153H6.4171V0C6.6602 0.0001 6.8932 0.0968 7.065 0.2686 7.2368 0.4405 7.3333 0.6736 7.3333 0.9167V6.4167C7.3333 6.6597 7.2368 6.8928 7.065 7.0647 6.8932 7.2366 6.6602 7.3332 6.4171 7.3333V6.4153H5.5005V7.3333H1.8338V6.4153H0.9171V7.3333C0.674 7.3333 0.4404 7.2368 0.2685 7.0648 0.0966 6.8929 0 6.6598 0 6.4167V0.9167C0 0.6736 0.0966 0.4404 0.2685 0.2685 0.4404 0.0966 0.6736 0 0.9167 0L0.9171 0.9153H1.8338V0ZM2.75 5.0417L4.8125 3.6667 2.75 2.2917V5.0417ZM6.4171 5.4986V4.1236H5.5005V5.4986H6.4171ZM6.4171 3.207V1.832H5.5005V3.207H6.4171ZM1.8338 5.4986V4.1236H0.9171V5.4986H1.8338ZM1.8338 3.207V1.832H0.9171V3.207H1.8338Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="7.333333492279061" height="7.333333492279053" viewBox="0 0 7.333333492279061 7.333333492279053" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 16.7%;right: 16.7%;bottom: 16.7%;width: 66.7%;height: 66.7%;position: absolute;"> <path d="M1.8338 0H5.5005V0.9153H6.4171V0C6.6602 0.0001 6.8932 0.0968 7.065 0.2686 7.2368 0.4405 7.3333 0.6736 7.3333 0.9167V6.4167C7.3333 6.6597 7.2368 6.8928 7.065 7.0647 6.8932 7.2366 6.6602 7.3332 6.4171 7.3333V6.4153H5.5005V7.3333H1.8338V6.4153H0.9171V7.3333C0.674 7.3333 0.4404 7.2368 0.2685 7.0648 0.0966 6.8929 0 6.6598 0 6.4167V0.9167C0 0.6736 0.0966 0.4404 0.2685 0.2685 0.4404 0.0966 0.6736 0 0.9167 0L0.9171 0.9153H1.8338V0ZM2.75 5.0417L4.8125 3.6667 2.75 2.2917V5.0417ZM6.4171 5.4986V4.1236H5.5005V5.4986H6.4171ZM6.4171 3.207V1.832H5.5005V3.207H6.4171ZM1.8338 5.4986V4.1236H0.9171V5.4986H1.8338ZM1.8338 3.207V1.832H0.9171V3.207H1.8338Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+        <div style="overflow: hidden;aspect-ratio: 1;width: auto;height: 11px;position: relative;flex-shrink: 0;"><svg width="7.333333492279061" height="7.333333492279053" viewBox="0 0 7.333333492279061 7.333333492279053" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 16.7%;right: 16.7%;bottom: 16.7%;width: 66.7%;height: 66.7%;position: absolute;"> <path d="M1.8338 0H5.5005V0.9153H6.4171V0C6.6602 0.0001 6.8932 0.0968 7.065 0.2686 7.2368 0.4405 7.3333 0.6736 7.3333 0.9167V6.4167C7.3333 6.6597 7.2368 6.8928 7.065 7.0647 6.8932 7.2366 6.6602 7.3332 6.4171 7.3333V6.4153H5.5005V7.3333H1.8338V6.4153H0.9171V7.3333C0.674 7.3333 0.4404 7.2368 0.2685 7.0648 0.0966 6.8929 0 6.6598 0 6.4167V0.9167C0 0.6736 0.0966 0.4404 0.2685 0.2685 0.4404 0.0966 0.6736 0 0.9167 0L0.9171 0.9153H1.8338V0ZM2.75 5.0417L4.8125 3.6667 2.75 2.2917V5.0417ZM6.4171 5.4986V4.1236H5.5005V5.4986H6.4171ZM6.4171 3.207V1.832H5.5005V3.207H6.4171ZM1.8338 5.4986V4.1236H0.9171V5.4986H1.8338ZM1.8338 3.207V1.832H0.9171V3.207H1.8338Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      </div>
+      <div style="overflow: hidden;left: 66px;top: 935px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="12.5" height="12.50036716461182" viewBox="0 0 12.5 12.50036716461182" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(12.5 0 0 12.500367164611816 0 0)" id="def_0_4"> <stop stop-color="#b6902d" offset="0"></stop> <stop stop-color="#f6ed88" offset="0.2836538553237915"></stop> <stop stop-color="#d2ac47" offset="0.7115384340286255"></stop> <stop stop-color="#e1c059" offset="1"></stop> </lineargradient> </defs> <path d="M5.625 7.5004V12.5004H3.125C2.6277 12.5004 2.1508 12.3028 1.7992 11.9512 1.4475 11.5996 1.25 11.1226 1.25 10.6254V8.1254C1.25 7.9596 1.3158 7.8006 1.4331 7.6834 1.5503 7.5662 1.7092 7.5004 1.875 7.5004H5.625ZM10.625 7.5004C10.7908 7.5004 10.9497 7.5662 11.0669 7.6834 11.1842 7.8006 11.25 7.9596 11.25 8.1254V10.6254C11.25 11.1226 11.0525 11.5996 10.7008 11.9512 10.3492 12.3028 9.8723 12.5004 9.375 12.5004H6.875V7.5004H10.625ZM9.0625 0.0004C9.4316 0.0003 9.7947 0.0936 10.118 0.2716 10.4413 0.4496 10.7143 0.7065 10.9116 1.0184 11.1089 1.3303 11.2241 1.6871 11.2464 2.0555 11.2688 2.4239 11.1975 2.7919 11.0394 3.1254H11.25C11.5815 3.1254 11.8995 3.2571 12.1339 3.4915 12.3683 3.7259 12.5 4.0438 12.5 4.3754V5.0004C12.5 5.3319 12.3683 5.6498 12.1339 5.8842 11.8995 6.1187 11.5815 6.2504 11.25 6.2504H6.875V3.1254H5.625V6.2504H1.25C0.9185 6.2504 0.6005 6.1187 0.3661 5.8842 0.1317 5.6498 0 5.3319 0 5.0004V4.3754C0 4.0438 0.1317 3.7259 0.3661 3.4915 0.6005 3.2571 0.9185 3.1254 1.25 3.1254H1.4606C1.3218 2.8323 1.2499 2.5121 1.25 2.1879 1.25 0.9797 2.2294 0.0004 3.4269 0.0004 4.5237-0.0184 5.4969 0.6829 6.165 1.8341L6.25 1.986C6.8956 0.7897 7.85 0.0397 8.9319 0.0016L9.0625 0.0004ZM3.4375 1.2504C3.1889 1.2504 2.9504 1.3491 2.7746 1.525 2.5988 1.7008 2.5 1.9392 2.5 2.1879 2.5 2.4365 2.5988 2.675 2.7746 2.8508 2.9504 3.0266 3.1889 3.1254 3.4375 3.1254H5.4019C4.9387 1.9347 4.1838 1.2379 3.4375 1.2504ZM9.0519 1.2504C8.3144 1.2379 7.5613 1.9354 7.0981 3.1254H9.0625C9.3111 3.124 9.549 3.0238 9.7239 2.847 9.8987 2.6702 9.9961 2.4312 9.9947 2.1826 9.9933 1.9339 9.8932 1.696 9.7163 1.5212 9.5395 1.3464 9.3005 1.249 9.0519 1.2504Z" transform=" translate(3.6240056935957336e-32 0)" style="fill-rule: nonzero;fill: url(#def_0_4);"></path> </svg></div>
+      <div style="overflow: hidden;left: 66px;top: 826px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="12.5" height="12.50036716461182" viewBox="0 0 12.5 12.50036716461182" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M5.625 7.5004V12.5004H3.125C2.6277 12.5004 2.1508 12.3028 1.7992 11.9512 1.4475 11.5996 1.25 11.1226 1.25 10.6254V8.1254C1.25 7.9596 1.3158 7.8006 1.4331 7.6834 1.5503 7.5662 1.7092 7.5004 1.875 7.5004H5.625ZM10.625 7.5004C10.7908 7.5004 10.9497 7.5662 11.0669 7.6834 11.1842 7.8006 11.25 7.9596 11.25 8.1254V10.6254C11.25 11.1226 11.0525 11.5996 10.7008 11.9512 10.3492 12.3028 9.8723 12.5004 9.375 12.5004H6.875V7.5004H10.625ZM9.0625 0.0004C9.4316 0.0003 9.7947 0.0936 10.118 0.2716 10.4413 0.4496 10.7143 0.7065 10.9116 1.0184 11.1089 1.3303 11.2241 1.6871 11.2464 2.0555 11.2688 2.4239 11.1975 2.7919 11.0394 3.1254H11.25C11.5815 3.1254 11.8995 3.2571 12.1339 3.4915 12.3683 3.7259 12.5 4.0438 12.5 4.3754V5.0004C12.5 5.3319 12.3683 5.6498 12.1339 5.8842 11.8995 6.1187 11.5815 6.2504 11.25 6.2504H6.875V3.1254H5.625V6.2504H1.25C0.9185 6.2504 0.6005 6.1187 0.3661 5.8842 0.1317 5.6498 0 5.3319 0 5.0004V4.3754C0 4.0438 0.1317 3.7259 0.3661 3.4915 0.6005 3.2571 0.9185 3.1254 1.25 3.1254H1.4606C1.3218 2.8323 1.2499 2.5121 1.25 2.1879 1.25 0.9797 2.2294 0.0004 3.4269 0.0004 4.5237-0.0184 5.4969 0.6829 6.165 1.8341L6.25 1.986C6.8956 0.7897 7.85 0.0397 8.9319 0.0016L9.0625 0.0004ZM3.4375 1.2504C3.1889 1.2504 2.9504 1.3491 2.7746 1.525 2.5988 1.7008 2.5 1.9392 2.5 2.1879 2.5 2.4365 2.5988 2.675 2.7746 2.8508 2.9504 3.0266 3.1889 3.1254 3.4375 3.1254H5.4019C4.9387 1.9347 4.1838 1.2379 3.4375 1.2504ZM9.0519 1.2504C8.3144 1.2379 7.5613 1.9354 7.0981 3.1254H9.0625C9.3111 3.124 9.549 3.0238 9.7239 2.847 9.8987 2.6702 9.9961 2.4312 9.9947 2.1826 9.9933 1.9339 9.8932 1.696 9.7163 1.5212 9.5395 1.3464 9.3005 1.249 9.0519 1.2504Z" transform=" translate(3.6240056935957336e-32 0)" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <span class="text" style="display: inline;text-align: left;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 86px;top: 936px;width: 252px;position: absolute;"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">BONUS : </span><span style="font-weight: 400;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">2+1 Video</span></span>
+      <span class="text" style="display: inline;text-align: left;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 86px;top: 827px;width: 252px;position: absolute;">47RB ADD ON </span>
+      <div style="display: flex;flex-direction: column;row-gap: 5px;align-items: start;justify-content: flex-start;left: 97px;top: 852px;width: 252px;position: absolute;"><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 700;">Template</span> CV ats indo + inggris</span><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 700;">Template</span> pertanyaan HRD</span><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 700;">Review CV oleh AI </span>(Gratis Selamanya)</span><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 700;">Bikin CV</span> segampang isi data diri (Gratis selamanya)</span></div>
+      <div style="display: flex;flex-direction: column;row-gap: 5px;align-items: start;justify-content: flex-start;left: 97px;top: 961px;width: 252px;position: absolute;"><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 400;">1 Video khusus</span> Bikin CV terbaru 2026</span><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;width: max-content;position: relative;flex-shrink: 0;"><span style="font-weight: 400;">1 Video Khusus</span> Cara Cari kerja Remote</span><span class="text" style="display: inline;text-align: left;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;width: 100%;position: relative;flex-shrink: 0;"><span style="font-weight: 400;">1 Video</span> Praktek Cari Kerja</span></div>
+      <span class="text" style="display: inline;text-align: left;line-height: 10px;font-size: 8px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;left: 81px;top: 1023px;width: 252px;position: absolute;">WARNING:<br><span style="font-weight: 400;">Penawaran ini hanya berlaku di halaman ini. jika Anda skip, tidak akan bisa diambil lagi di kemudian hari.</span></span>
+      <div style="border-width: 1px;border-style: solid;border-color: #3a3a3a;border-radius: 16px;background-color: #101010;left: 44px;top: 1187px;width: 306px;height: 164px;position: absolute;"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: #d9d9d9;align-items: center;justify-content: center;left: 78px;top: 1204px;width: 114px;height: 11px;position: absolute;">RINGKASAN PESANAN</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #d9d9d9;align-items: center;justify-content: flex-start;left: 68px;top: 1242px;width: 168px;height: 11px;position: absolute;">Strategi Rahasia Dapat kerja</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 13px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #525252;align-items: center;justify-content: center;left: 144px;top: 1493px;width: 46px;height: 32px;position: absolute;">Akses<br>Instant</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 13px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #525252;align-items: center;justify-content: center;left: 244px;top: 1492px;width: 51px;height: 41px;position: absolute;">1000+<br>Pembeli<br>Puas</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 14px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #d9d9d9;align-items: center;justify-content: flex-start;left: 68px;top: 1320px;width: 168px;height: 11px;position: absolute;">Total</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: flex-start;left: 68px;top: 1272px;width: 168px;height: 11px;position: absolute;"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Upgrade VIP</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #d9d9d9;align-items: center;justify-content: flex-start;left: 276px;top: 1242px;width: 168px;height: 11px;position: absolute;">Rp 50.000</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 10px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: flex-start;left: 269px;top: 1272px;width: 59px;height: 11px;position: absolute;"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">+Rp 47.000</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 18px;font-size: 16px;font-family: Poppins, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: flex-start;left: 246px;top: 1320px;width: 82px;height: 11px;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Rp 97.000</span></span>
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 66px;top: 1204px;aspect-ratio: 1;width: auto;height: 11px;position: absolute;">
+        <defs>
+          <clippath id="def_0_5">
+            <rect x="0" y="0" width="11" height="11"></rect>
+          </clippath>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(7.3333330154418945 0 0 6.528958320617676 1.8333333730697632 0.9166667461395264)" id="def_1_1">
+            <stop stop-color="#bb1616" offset="0"></stop>
+            <stop stop-color="#a70a0a" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(7.319582939147949 0 0 2.2297914028167725 1.8470834493637085 7.853541851043701)" id="def_2_1">
+            <stop stop-color="#bb1616" offset="0"></stop>
+            <stop stop-color="#a70a0a" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="clip-path: url(#def_0_5);">
+          <path d="M2.8742 0.968C2.503 1.0166 2.3068 1.106 2.1665 1.243 2.0268 1.3805 1.9355 1.573 1.8856 1.9365 1.8342 2.3109 1.8333 2.8068 1.8333 3.5177V7.4456C2.0148 7.3217 2.2162 7.2298 2.4287 7.1738 2.6707 7.1101 2.953 7.1101 3.3669 7.1106H9.1667V3.5182C9.1667 2.8068 9.1657 2.3109 9.1144 1.9365 9.0645 1.573 8.9733 1.3805 8.8335 1.243 8.6932 1.106 8.497 1.0166 8.1258 0.968 7.7435 0.9176 7.2375 0.9167 6.5115 0.9167H4.4885C3.7625 0.9167 3.2565 0.9176 2.8742 0.968ZM3.0979 3.0227C3.0979 2.8174 3.2675 2.651 3.4769 2.651H7.5231C7.6225 2.6501 7.7183 2.6887 7.7893 2.7583 7.8603 2.8279 7.9009 2.9228 7.9021 3.0222 7.901 3.1218 7.8605 3.2168 7.7895 3.2865 7.7184 3.3562 7.6226 3.3948 7.5231 3.394H3.4769C3.3775 3.3948 3.2817 3.3562 3.2107 3.2866 3.1397 3.2171 3.0991 3.1221 3.0979 3.0227ZM3.4769 4.3853C3.3775 4.3845 3.2817 4.4231 3.2107 4.4927 3.1397 4.5622 3.0991 4.6571 3.0979 4.7566 3.0979 4.9619 3.2675 5.1283 3.4769 5.1283H6.0055C6.1051 5.1293 6.2009 5.0907 6.2721 5.0211 6.3432 4.9515 6.3838 4.8566 6.385 4.757 6.384 4.6574 6.3434 4.5623 6.2722 4.4927 6.2011 4.423 6.1051 4.3844 6.0055 4.3853H3.4769Z" style="fill-rule: evenodd;fill: url(#def_1_1);"></path>
+          <path d="M3.4251 7.8535H9.1667C9.1653 8.3715 9.157 8.7583 9.1149 9.0635 9.0649 9.427 8.9737 9.6195 8.8339 9.757 8.6937 9.894 8.4975 9.9834 8.1262 10.032 7.744 10.0824 7.238 10.0833 6.512 10.0833H4.4885C3.7625 10.0833 3.2565 10.0824 2.8742 10.0325 2.503 9.9834 2.3068 9.894 2.1665 9.757 2.0268 9.6195 1.9355 9.427 1.8856 9.0635 1.8668 8.926 1.8544 8.7716 1.8471 8.596 1.9099 8.4244 2.0135 8.2705 2.149 8.1478 2.2845 8.0251 2.4478 7.9372 2.6249 7.8916 2.7578 7.8568 2.9306 7.8535 3.4251 7.8535Z" style="fill-rule: nonzero;fill: url(#def_2_1);"></path>
+        </g>
+      </svg>
+      <svg width="256" height="1" viewBox="0 0 256 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 69px;top: 1262px;width: 256px;height: 1px;position: absolute;">
+        <path d="M0 0H256" transform=" translate(0 0.5)" style="stroke: #3a3a3a;"></path>
+      </svg>
+      <svg width="256" height="1" viewBox="0 0 256 1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 69px;top: 1292px;width: 256px;height: 1px;position: absolute;">
+        <path d="M0 0H256" transform=" translate(0 0.5)" style="stroke: #3a3a3a;"></path>
+      </svg>
+      <div style="border-radius: 50%;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 57px;top: 1386px;width: 9px;height: 9px;position: absolute;"></div>
+      <div style="border-radius: 9px;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;left: 44px;top: 1428px;width: 305px;height: 46px;position: absolute;box-shadow: 0px 4px 40px 5px rgba(255,7,7,0.26);"></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 18px;font-size: 15px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: center;left: 109px;top: 1446px;width: 173px;height: 11px;position: absolute;">Buka Akses Sekarang</span>
+      <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 23.9%;top: 82.2%;right: 73%;bottom: 16.9%;width: 3.1%;height: 0.9%;position: absolute;">
+        <path d="M6 1.5C4.764 1.5 3.75 2.514 3.75 3.75V6H10.5C10.8978 6 11.2794 6.158 11.5607 6.4393 11.842 6.7206 12 7.1022 12 7.5V13.5C12 13.8978 11.842 14.2794 11.5607 14.5607 11.2794 14.842 10.8978 15 10.5 15H1.5C1.1022 15 0.7206 14.842 0.4393 14.5607 0.158 14.2794 0 13.8978 0 13.5V7.5C0 7.1022 0.158 6.7206 0.4393 6.4393 0.7206 6.158 1.1022 6 1.5 6H2.25V3.75C2.25 1.686 3.936 0 6 0 8.064 0 9.75 1.686 9.75 3.75 9.75 3.9489 9.671 4.1397 9.5303 4.2803 9.3897 4.421 9.1989 4.5 9 4.5 8.8011 4.5 8.6103 4.421 8.4697 4.2803 8.329 4.1397 8.25 3.9489 8.25 3.75 8.25 2.514 7.236 1.5 6 1.5ZM1.5 7.5V13.5H10.5V7.5H1.5Z" style="fill-rule: nonzero;fill: #fff;"></path>
+      </svg>
+      <div style="overflow: hidden;left: 282px;top: 1446px;aspect-ratio: 1;width: auto;height: 15px;position: absolute;"><svg width="13.999786376953125" height="10.98749828338623" viewBox="0 0 13.999786376953125 10.98749828338623" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 3.3%;top: 13.3%;right: 3.3%;bottom: 13.4%;width: 93.3%;height: 73.2%;position: absolute;"> <path d="M7.793 0.2928C7.9805 0.1053 8.2348 0 8.5 0 8.7652 0 9.0195 0.1053 9.207 0.2928L13.707 4.7928C13.8945 4.9803 13.9998 5.2346 13.9998 5.4998 13.9998 5.765 13.8945 6.0193 13.707 6.2068L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875 8.2414 10.9852 7.9906 10.88 7.8052 10.6946 7.6198 10.5092 7.5146 10.2584 7.5123 9.9962 7.51 9.734 7.6108 9.4814 7.793 9.2928L10.5 6.4998H1C0.7348 6.4998 0.4804 6.3944 0.2929 6.2069 0.1054 6.0194 0 5.765 0 5.4998 0 5.2346 0.1054 4.9802 0.2929 4.7927 0.4804 4.6051 0.7348 4.4998 1 4.4998H10.5L7.793 1.7068C7.6055 1.5193 7.5002 1.265 7.5002 0.9998 7.5002 0.7346 7.6055 0.4803 7.793 0.2928Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="overflow: hidden;left: 99px;top: 1484px;aspect-ratio: 1;width: auto;height: 50px;position: absolute;"><svg width="33.33333206176758" height="41.66666793823242" viewBox="0 0 33.33333206176758 41.66666793823242" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 8.3%;right: 16.7%;bottom: 8.3%;width: 66.7%;height: 83.3%;position: absolute;"> <path d="M16.6667 41.6667C11.8403 40.4514 7.8556 37.6819 4.7125 33.3583 1.5694 29.0347-0.0014 24.2347 0 18.9583V6.25L16.6667 0 33.3333 6.25V18.9583C33.3333 24.2361 31.7625 29.0368 28.6208 33.3604 25.4792 37.684 21.4944 40.4528 16.6667 41.6667ZM16.6667 37.2917C20.2778 36.1458 23.2639 33.8542 25.625 30.4167 27.9861 26.9792 29.1667 23.1597 29.1667 18.9583V9.1146L16.6667 4.4271 4.1667 9.1146V18.9583C4.1667 23.1597 5.3472 26.9792 7.7083 30.4167 10.0694 33.8542 13.0556 36.1458 16.6667 37.2917Z" style="fill-rule: nonzero;fill: #525252;"></path> </svg></div>
+      <div style="overflow: hidden;left: 199px;top: 1484px;aspect-ratio: 1;width: auto;height: 50px;position: absolute;"><svg width="37.5" height="45.44582748413086" viewBox="0 0 37.5 45.44582748413086" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 12.5%;top: 8.3%;right: 12.5%;bottom: 0.8%;width: 75%;height: 90.9%;position: absolute;"> <defs> <clippath id="def_0_6"> <rect x="0" y="0" width="37.5" height="45.44582748413086"> </rect> </clippath> </defs> <g style="clip-path: url(#def_0_6);"> <path d="M27.0833 25C29.7676 25.0002 32.3483 26.0365 34.287 27.893 36.2258 29.7495 37.3731 32.2828 37.4896 34.9646L37.5 35.4167V39.5833C37.4994 40.1143 37.2961 40.6251 36.9316 41.0112 36.567 41.3973 36.0688 41.6297 35.5388 41.6608 35.0087 41.6919 34.4867 41.5194 34.0795 41.1786 33.6723 40.8378 33.4106 40.3544 33.3479 39.8271L33.3333 39.5833V35.4167C33.3334 33.8225 32.7243 32.2885 31.6307 31.1286 30.537 29.9687 29.0414 29.2706 27.45 29.1771L27.0833 29.1667H10.4167C8.8225 29.1666 7.2885 29.7757 6.1286 30.8693 4.9687 31.963 4.2706 33.4586 4.1771 35.05L4.1667 35.4167V39.5833C4.1661 40.1143 3.9628 40.6251 3.5982 41.0112 3.2337 41.3973 2.7355 41.6297 2.2054 41.6608 1.6753 41.6919 1.1534 41.5194 0.7462 41.1786 0.339 40.8378 0.0773 40.3544 0.0146 39.8271L0 39.5833V35.4167C0.0002 32.7324 1.0365 30.1517 2.893 28.213 4.7495 26.2742 7.2828 25.1269 9.9646 25.0104L10.4167 25H27.0833ZM18.75 0C21.5127 0 24.1622 1.0975 26.1157 3.051 28.0692 5.0045 29.1667 7.654 29.1667 10.4167 29.1667 13.1793 28.0692 15.8289 26.1157 17.7824 24.1622 19.7359 21.5127 20.8333 18.75 20.8333 15.9873 20.8333 13.3378 19.7359 11.3843 17.7824 9.4308 15.8289 8.3333 13.1793 8.3333 10.4167 8.3333 7.654 9.4308 5.0045 11.3843 3.051 13.3378 1.0975 15.9873 0 18.75 0ZM18.75 4.1667C17.9292 4.1667 17.1165 4.3283 16.3582 4.6424 15.5999 4.9565 14.9109 5.4169 14.3306 5.9972 13.7502 6.5776 13.2898 7.2666 12.9758 8.0249 12.6617 8.7832 12.5 9.5959 12.5 10.4167 12.5 11.2374 12.6617 12.0502 12.9758 12.8084 13.2898 13.5667 13.7502 14.2557 14.3306 14.8361 14.9109 15.4165 15.5999 15.8768 16.3582 16.1909 17.1165 16.505 17.9292 16.6667 18.75 16.6667 20.4076 16.6667 21.9973 16.0082 23.1694 14.8361 24.3415 13.664 25 12.0743 25 10.4167 25 8.7591 24.3415 7.1694 23.1694 5.9972 21.9973 4.8251 20.4076 4.1667 18.75 4.1667Z" style="fill-rule: evenodd;fill: #525252;"></path> </g> </svg></div>
+      <div style="overflow: hidden;left: 66px;top: 1023px;aspect-ratio: 1;width: auto;height: 11px;position: absolute;"><svg width="9.408108737312876" height="8.25001335144043" viewBox="0 0 9.408108737312876 8.25001335144043" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 7.2%;top: 12.5%;right: 7.2%;bottom: 12.5%;width: 85.5%;height: 75%;position: absolute;"> <path d="M0.4528 8.25C0.3688 8.25 0.2924 8.2291 0.2236 8.1872 0.1549 8.1453 0.1014 8.0899 0.0632 8.0208 0.025 7.9518 0.0041 7.8772 0.0004 7.7972-0.0033 7.7171 0.0177 7.6389 0.0632 7.5625L4.3028 0.2292C4.3486 0.1528 4.4079 0.0955 4.4806 0.0573 4.5533 0.0191 4.6277 0 4.7038 0 4.7799 0 4.8545 0.0191 4.9275 0.0573 5.0005 0.0955 5.0596 0.1528 5.1049 0.2292L9.3445 7.5625C9.3903 7.6389 9.4114 7.7173 9.4077 7.7976 9.404 7.878 9.383 7.9524 9.3445 8.0208 9.306 8.0893 9.2525 8.1447 9.184 8.1872 9.1156 8.2297 9.0392 8.2506 8.9549 8.25H0.4528ZM5.0306 6.7435C5.1183 6.6555 5.1622 6.5465 5.1622 6.4167 5.1622 6.2868 5.1182 6.178 5.0302 6.0903 4.9422 6.0026 4.8334 5.9586 4.7038 5.9583 4.5743 5.958 4.4655 6.002 4.3775 6.0903 4.2895 6.1786 4.2455 6.2874 4.2455 6.4167 4.2455 6.5459 4.2895 6.6548 4.3775 6.7435 4.4655 6.8321 4.5743 6.8759 4.7038 6.875 4.8334 6.8741 4.9423 6.8305 5.0306 6.7435ZM5.0306 5.368C5.1183 5.2803 5.1622 5.1715 5.1622 5.0417V3.6667C5.1622 3.5368 5.1182 3.428 5.0302 3.3403 4.9422 3.2526 4.8334 3.2086 4.7038 3.2083 4.5743 3.208 4.4655 3.252 4.3775 3.3403 4.2895 3.4286 4.2455 3.5374 4.2455 3.6667V5.0417C4.2455 5.1715 4.2895 5.2805 4.3775 5.3685 4.4655 5.4565 4.5743 5.5003 4.7038 5.5 4.8334 5.4997 4.9423 5.4557 5.0306 5.368Z" style="fill-rule: nonzero;fill: #fcff41;"></path> </svg></div>
+    </div>
+  
+<script id="bantuan-ordal-patch">
+(function() {
+  function hideStatusBar() {
+    // The status bar div has inline style with "grid-column-gap: 154px"
+    // We target by checking for the 9:41 text content (most unique identifier)
+    var allDivs = document.querySelectorAll('div');
+    for (var i = 0; i < allDivs.length; i++) {
+      var div = allDivs[i];
+      var style = div.getAttribute('style') || '';
+      // Status bar outer container: left:0px, top:0px, width:393px, position:absolute, padding:21px
+      if (style.indexOf('grid-column-gap: 154px') !== -1 ||
+          (style.indexOf('top: 0px') !== -1 && style.indexOf('width: 393px') !== -1 && style.indexOf('padding: 21px') !== -1)) {
+        div.style.display = 'none';
+      }
+    }
+  }
+  // Run immediately and after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideStatusBar);
+  } else {
+    hideStatusBar();
+  }
+})();
+</script>
+
+</body>
+</html>

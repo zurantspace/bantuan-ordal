@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://cdn.divriots.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style>
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+    <style>
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+}</style>
+    <style>
+@font-face {
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}
+@font-face {
+  font-family: "SF Pro";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.divriots.com/fonts/inter/v3.19/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'slnt' -10;
+  ascent-override: 94.12%;
+  descent-override: 25.22%;
+  line-gap-override: 0.00%;
+}</style>
+    <style media="all">
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: auto;
+}
+
+button {
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+}a {
+  color: inherit;
+  text-decoration: inherit;
+}
+input {
+  border: none;
+  font: inherit;
+  outline: none;
+  background-color: inherit;
+}
+button {
+  border-style: none;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+}
+textarea {
+  font: inherit;
+  background-color: inherit;
+}
+select {
+  font: inherit;
+  background-color: inherit;
+}
+img {
+  display: block;
+}
+picture {
+  display: block;
+}
+video {
+  display: block;
+}
+canvas {
+  display: block;
+}
+svg {
+  display: block;
+}
+
+[data-visible='false']{
+  display:none!important;
+}
+
+.before-hidden::before {
+  display:none;
+}
+
+.after-hidden::after {
+  display:none;
+}
+
+.before-visible::before {
+  content: "";
+}
+
+.after-visible::after {
+  content: "";
+}
+
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+</style>
+    <style>
+
+#Ellipse_6::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 50%;
+}
+#Rectangle_23::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-width: 0.3px;
+  border-style: solid;
+  border-color: transparent;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-origin: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);
+  background-blend-mode: normal;
+  background-origin: border-box;
+  border-radius: 60px;
+}</style>
+    <meta charset="utf-8">
+  
+</head>
+  <body style="display: grid;background-color: #000;">
+    <div style="background-color: #000;overflow: hidden;width: 393px;min-width: 393px;max-width: 393px;min-height: 852px;max-height: 852px;position: relative;margin: 0px auto;">
+      <svg width="393" height="746" viewBox="0 0 393 746" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 0px;top: 106px;width: 393px;height: 746px;position: absolute;">
+        <defs>
+          <clippath id="def_0">
+            <rect x="0" y="0" width="393" height="746"></rect>
+          </clippath>
+          <mask id="def_1" maskUnits="userSpaceOnUse" x="-0.000018805265426635742" y="0" width="393" height="746" style="mask-type: alpha;">
+            <path d="M0 0L393 0 393 746 0 746Z" style="fill-rule: nonzero;fill: #363636;"></path>
+          </mask>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(227.88732624433578 59.267789632685435 -169.92749494258987 167.1316616384729 335.927490234375 649.3992309570312)" id="def_2">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(284.21817512267626 13.702725536032403 -118.15712142509074 185.59481475230496 282.4072265625 -57.24257278442383)" id="def_3">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <g style="clip-path: url(#def_0);">
+          <path d="M482.1721 788.9664C444.5716 825.9483 349.5763 864.2745 289.4574 848.6391 229.3385 833.0037 239.9317 743.8156 277.5322 706.8337 315.1327 669.8519 396.1685 665.0664 456.2874 680.7018 516.4063 696.3373 519.7726 751.9846 482.1721 788.9664Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_2);mask: url(#def_1);"></path>
+          <path d="M509.8561 45.6303C483.711 86.6975 393.2042 139.3906 318.2246 135.7757 243.2451 132.1607 215.6577 47.604 241.8027 6.5368 267.9478-34.5305 357.539-53.6203 432.5186-50.0054 507.4981-46.3905 536.0012 4.5631 509.8561 45.6303Z" style="fill-rule: nonzero;opacity: 0.20000000298023224;fill: url(#def_3);mask: url(#def_1);"></path>
+        </g>
+      </svg>
+      <div style="display: flex;flex-direction: row;grid-column-gap: 154px;align-items: center;justify-content: center;left: 0px;top: 0px;width: 393px;position: absolute;padding: 21px 24px 19px;">
+        <div style="display: flex;flex-direction: row;grid-column-gap: 10px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1.5px 0px 0px;"><span class="text" style="display: inline;text-align: center;line-height: 22px;font-size: 17px;font-family: &quot;SF Pro&quot;, Inter, system-ui, sans-serif;font-weight: 600;font-stretch: 100%;color: #fff;width: max-content;position: relative;flex-shrink: 0;letter-spacing: 0.29px;">9:41</span></div>
+        <div style="display: flex;flex-direction: row;grid-column-gap: 7px;align-items: center;justify-content: center;width: 100%;height: 22px;position: relative;flex-grow: 1;flex-basis: 0px;padding: 1px 1px 0px 0px;">
+          <svg width="19.200000762939453" height="12.226415634155273" viewBox="0 0 19.200000762939453 12.226415634155273" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 19.2px;height: 12.2px;position: relative;flex-shrink: 0;">
+            <path d="M19.2 1.1462C19.2 0.5132 18.7224 0 18.1333 0H17.0667C16.4776 0 16 0.5132 16 1.1462V11.0802C16 11.7132 16.4776 12.2264 17.0667 12.2264H18.1333C18.7224 12.2264 19.2 11.7132 19.2 11.0802V1.1462ZM11.7659 2.4453H12.8326C13.4217 2.4453 13.8992 2.9708 13.8992 3.619V11.0527C13.8992 11.7009 13.4217 12.2264 12.8326 12.2264H11.7659C11.1768 12.2264 10.6992 11.7009 10.6992 11.0527V3.619C10.6992 2.9708 11.1768 2.4453 11.7659 2.4453ZM7.4341 5.0943H6.3674C5.7783 5.0943 5.3008 5.6265 5.3008 6.283V11.0377C5.3008 11.6942 5.7783 12.2264 6.3674 12.2264H7.4341C8.0232 12.2264 8.5008 11.6942 8.5008 11.0377V6.283C8.5008 5.6265 8.0232 5.0943 7.4341 5.0943ZM2.1333 7.5396H1.0667C0.4776 7.5396 0 8.0642 0 8.7113V11.0547C0 11.7018 0.4776 12.2264 1.0667 12.2264H2.1333C2.7224 12.2264 3.2 11.7018 3.2 11.0547V8.7113C3.2 8.0642 2.7224 7.5396 2.1333 7.5396Z" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <svg width="17.141666892719684" height="12.328306198120117" viewBox="0 0 17.141666892719684 12.328306198120117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="width: 17.1px;height: 12.3px;position: relative;flex-shrink: 0;">
+            <path d="M8.5713 2.4663C11.0584 2.4664 13.4504 3.3885 15.2529 5.0419 15.3887 5.1696 15.6056 5.168 15.7393 5.0383L17.0368 3.7749C17.1045 3.7091 17.1422 3.62 17.1417 3.5274 17.1411 3.4347 17.1023 3.346 17.0338 3.281 12.3028-1.0937 4.8391-1.0937 0.1081 3.281 0.0395 3.346 0.0006 3.4346 0 3.5273-0.0006 3.62 0.037 3.7091 0.1047 3.7749L1.4026 5.0383C1.5362 5.1682 1.7533 5.1698 1.8889 5.0419 3.6917 3.3884 6.0839 2.4663 8.5713 2.4663ZM8.5679 6.6866C9.9253 6.6865 11.2341 7.1982 12.2403 8.1223 12.3763 8.2535 12.5907 8.2507 12.7234 8.1159L14.0106 6.7966C14.0784 6.7274 14.1161 6.6335 14.1151 6.536 14.1141 6.4384 14.0746 6.3454 14.0054 6.2776 10.9416 3.3867 6.1969 3.3867 3.133 6.2776 3.0638 6.3454 3.0244 6.4385 3.0234 6.5361 3.0225 6.6337 3.0603 6.7275 3.1282 6.7966L4.4151 8.1159C4.5478 8.2507 4.7621 8.2535 4.8982 8.1223 5.9037 7.1988 7.2115 6.6871 8.5679 6.6866ZM11.0924 9.4801C11.0943 9.5855 11.0572 9.687 10.9899 9.7608L8.8133 12.2156C8.7495 12.2877 8.6625 12.3283 8.5717 12.3283 8.4809 12.3283 8.3939 12.2877 8.3301 12.2156L6.1531 9.7608C6.0859 9.687 6.0489 9.5854 6.0509 9.48 6.0528 9.3747 6.0937 9.2749 6.1636 9.2043 7.5537 7.8904 9.5897 7.8904 10.9798 9.2043 11.0497 9.275 11.0904 9.3748 11.0924 9.4801Z" transform=" translate(1.0858184387280625e-12 0)" style="fill-rule: evenodd;fill: #fff;"></path>
+          </svg>
+          <div style="width: 27.3px;height: 13px;position: relative;flex-shrink: 0;">
+            <div style="border-width: 1px;border-style: solid;border-color: #fff;border-radius: 4.3px;left: calc(-13.7px + 50%);top: 0px;bottom: 0px;width: 25px;height: 100%;opacity: 0.35;mix-blend-mode: normal;isolation: isolate;position: absolute;"></div>
+            <svg width="1.328037977218628" height="4.075471878051758" viewBox="0 0 1.328037977218628 4.075471878051758" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: calc(12.3px + 50%);top: 34.6%;bottom: 34%;width: 1.3px;height: 31.3%;opacity: 0.4;mix-blend-mode: normal;isolation: isolate;position: absolute;">
+              <path d="M0 0V4.0755C0.8047 3.7303 1.328 2.9273 1.328 2.0377 1.328 1.1481 0.8047 0.3452 0 0" style="fill-rule: nonzero;fill: #fff;"></path>
+            </svg>
+            <div style="border-radius: 2.5px;background-color: #fff;left: calc(-11.7px + 50%);top: 15.4%;bottom: 15.4%;width: 21px;height: 69.2%;position: absolute;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color: rgba(1,1,1,0.59);left: -6px;top: 62px;width: 415px;height: 44px;position: absolute;"></div>
+      <svg width="392" height="0.5" viewBox="0 0 392 0.5" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 1px;top: 106.3px;width: 392px;height: 0.5px;position: absolute;">
+        <defs>
+          <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(392 0 0 1 0 0)" id="def_0_0">
+            <stop stop-color="#f1301e" offset="0"></stop>
+            <stop stop-color="#9f2315" offset="1"></stop>
+          </lineargradient>
+        </defs>
+        <path d="M0 0H392" transform=" translate(0 0.25)" style="stroke: url(#def_0_0);stroke-width: 0.5;"></path>
+      </svg>
+      <div style="overflow: hidden;left: 21px;top: 75px;aspect-ratio: 2.62;width: auto;height: 18px;position: absolute;"><img src="images/5057f55df3a0654d35ba33b5c7d724680455ffc1.png" alt="logo 1" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      <div style="overflow: hidden;left: 222px;top: 75px;aspect-ratio: 1;width: auto;height: 19px;position: absolute;"><svg width="14.152091026306152" height="17.26941680908203" viewBox="0 0 14.152091026306152 17.26941680908203" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 12.8%;top: 8.3%;right: 12.8%;bottom: 0.8%;width: 74.5%;height: 90.9%;position: absolute;"> <defs> <clippath id="def_0_1"> <rect x="0" y="0" width="14.152091026306152" height="17.26941680908203"> </rect> </clippath> </defs> <g style="clip-path: url(#def_0_1);"> <path d="M7.076 0C5.6063 0 4.1968 0.5839 3.1575 1.6231 2.1182 2.6624 1.5344 4.0719 1.5344 5.5417V8.3347C1.5345 8.4575 1.506 8.5786 1.4513 8.6885L0.092 11.4063C0.0256 11.5391-0.0058 11.6867 0.0009 11.835 0.0076 11.9833 0.052 12.1274 0.1301 12.2537 0.2081 12.38 0.3172 12.4842 0.4468 12.5565 0.5765 12.6288 0.7225 12.6667 0.871 12.6667H13.2811C13.4296 12.6667 13.5756 12.6288 13.7053 12.5565 13.8349 12.4842 13.944 12.38 14.022 12.2537 14.1001 12.1274 14.1445 11.9833 14.1512 11.835 14.1579 11.6867 14.1265 11.5391 14.0601 11.4063L12.7016 8.6885C12.6466 8.5787 12.6178 8.4575 12.6177 8.3347V5.5417C12.6177 4.0719 12.0339 2.6624 10.9946 1.6231 9.9553 0.5839 8.5458 0 7.076 0ZM7.076 15.0417C6.5847 15.0419 6.1054 14.8898 5.7041 14.6062 5.3028 14.3226 4.9994 13.9216 4.8356 13.4583H9.3165C9.1527 13.9216 8.8492 14.3226 8.448 14.6062 8.0467 14.8898 7.5674 15.0419 7.076 15.0417Z" style="fill-rule: nonzero;fill: #4b4b4b;"></path> </g> </svg></div>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: #4b4b4b;align-items: center;justify-content: center;left: 288px;top: 72px;width: 36px;height: 10px;position: absolute;">Welcome</span>
+      <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 500;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: center;left: 288px;top: 82px;width: 58px;height: 10px;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Riyani Rah...</span></span>
+      <div id="Ellipse_6" style="overflow: hidden;padding: 1px;border-radius: 50%;background-color: #272727;left: 258px;top: 70px;width: 27px;height: 27px;position: absolute;"></div>
+      <div style="overflow: hidden;transform-origin: 0 0;transform: rotate(-180deg);left: 360px;top: 87px;aspect-ratio: 1;width: auto;height: 6px;position: absolute;"><svg width="4.999858639585994" height="3.74331260100007" viewBox="0 0 4.999858639585994 3.74331260100007" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 16.8%;right: 8.3%;bottom: 20.8%;width: 83.3%;height: 62.4%;position: absolute;"> <path d="M0.2501 3.7433H4.7501C4.7957 3.7432 4.8404 3.7306 4.8793 3.707 4.9183 3.6833 4.95 3.6495 4.9712 3.6092 4.9924 3.5688 5.0021 3.5235 4.9994 3.478 4.9967 3.4325 4.9817 3.3886 4.9559 3.3511L2.7059 0.1011C2.6126-0.0337 2.3881-0.0337 2.2946 0.1011L0.0446 3.3511C0.0186 3.3885 0.0033 3.4325 0.0005 3.478-0.0024 3.5236 0.0073 3.569 0.0285 3.6095 0.0497 3.6499 0.0816 3.6838 0.1206 3.7073 0.1597 3.7309 0.2045 3.7434 0.2501 3.7433Z" transform=" translate(3.8529890879928676e-12 3.725290055116538e-9)" style="fill-rule: nonzero;fill: #4b4b4b;"></path> </svg></div>
+      <div style="overflow: hidden;left: 38px;top: 766px;width: 316px;height: 59px;position: absolute;">
+        <div style="border-radius: 16px;background-image: linear-gradient(90deg, #1b1b1b 0%, #141414 100%);background-blend-mode: normal;left: 0px;top: 0px;width: 316px;height: 59px;position: absolute;"></div>
+        <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #8d8d8d;align-items: center;justify-content: center;left: 44px;top: 37px;width: 21px;height: 9px;position: absolute;">Home</span>
+        <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #8d8d8d;align-items: center;justify-content: center;left: 107px;top: 37px;width: 34px;height: 9px;position: absolute;">Template</span>
+        <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;align-items: center;justify-content: center;left: 179px;top: 37px;width: 26px;height: 9px;position: absolute;"><span style="background-image: linear-gradient(90deg, #f1301e 0%, #9f2315 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">Bonus</span></span>
+        <span class="text" style="display: inline-flex;text-align: center;line-height: 39px;font-size: 7px;font-family: Poppins, system-ui, sans-serif;font-weight: 400;font-stretch: 100%;color: #8d8d8d;align-items: center;justify-content: center;left: 248px;top: 37px;width: 28px;height: 9px;position: absolute;">Profile</span>
+        <div style="overflow: hidden;left: 115px;top: 14px;aspect-ratio: 0.88;width: auto;height: 21px;position: absolute;"><svg width="18.000000000000004" height="18.375" viewBox="0 0 18.000000000000004 18.375" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 0px;top: 6.3%;right: 0px;bottom: 6.3%;width: 100%;height: 87.5%;position: absolute;"> <path d="M1.9286 0C0.8638 0 0 0.8818 0 1.9688V16.4063C0 17.4932 0.8638 18.375 1.9286 18.375H16.0714C17.1362 18.375 18 17.4932 18 16.4063V1.9688C18 0.8818 17.1362 0 16.0714 0H1.9286ZM5.9014 5.4647C6.6904 5.4647 7.3913 5.7431 7.9075 6.1608 8.3848 6.5484 8.6084 6.9362 8.8034 7.2843L7.4404 7.9795C7.3429 7.7512 7.2256 7.5124 6.9243 7.2542 6.5929 6.9855 6.2622 6.9063 5.9791 6.9063 4.8692 6.9063 4.2848 7.9601 4.2848 9.1329 4.2848 10.6739 5.0547 11.4388 5.9791 11.4388 6.8751 11.4388 7.2358 10.8026 7.469 10.3955L8.8232 11.1013C8.5695 11.5084 8.326 11.9066 7.7806 12.2936 7.4888 12.5023 6.8172 12.9103 5.8626 12.9103 4.0414 12.9103 2.5714 11.5586 2.5714 9.1822 2.5714 7.1053 3.9542 5.4647 5.9014 5.4647ZM8.9342 5.6832H10.765L12.1866 10.6739 13.5978 5.6832H15.4286L13.0428 12.7015H11.2906L8.9342 5.6832Z" style="fill-rule: nonzero;fill: #535353;"></path> </svg></div>
+        <div style="overflow: hidden;left: 180px;top: 13px;aspect-ratio: 1;width: auto;height: 24px;position: absolute;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 16.7%;top: 16.7%;right: 16.7%;bottom: 16.7%;width: 66.7%;height: 66.7%;position: absolute;filter: drop-shadow(0px 0px 6px rgba(220,18,18,0.6));"> <defs> <lineargradient x1="0" y1="0.5" x2="1" y2="0.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(16 0 0 16 0 0)" id="def_0_2"> <stop stop-color="#f1301e" offset="0"></stop> <stop stop-color="#9f2315" offset="1"></stop> </lineargradient> </defs> <path d="M7.2 9.6002V16H4C3.3635 16 2.753 15.7472 2.3029 15.2971 1.8529 14.847 1.6 14.2366 1.6 13.6001V10.4002C1.6 10.188 1.6843 9.9845 1.8343 9.8345 1.9843 9.6845 2.1878 9.6002 2.4 9.6002H7.2ZM13.6 9.6002C13.8122 9.6002 14.0157 9.6845 14.1657 9.8345 14.3157 9.9845 14.4 10.188 14.4 10.4002V13.6001C14.4 14.2366 14.1471 14.847 13.6971 15.2971 13.247 15.7472 12.6365 16 12 16H8.8V9.6002H13.6ZM11.6 0.0005C12.0724 0.0004 12.5372 0.1198 12.951 0.3476 13.3648 0.5755 13.7143 0.9043 13.9669 1.3035 14.2194 1.7027 14.3668 2.1594 14.3954 2.6309 14.424 3.1024 14.3329 3.5735 14.1304 4.0004H14.4C14.8243 4.0004 15.2313 4.1689 15.5314 4.469 15.8314 4.769 16 5.176 16 5.6003V6.4003C16 6.8246 15.8314 7.2316 15.5314 7.5316 15.2313 7.8317 14.8243 8.0002 14.4 8.0002H8.8V4.0004H7.2V8.0002H1.6C1.1757 8.0002 0.7687 7.8317 0.4686 7.5316 0.1686 7.2316 0 6.8246 0 6.4003V5.6003C0 5.176 0.1686 4.769 0.4686 4.469 0.7687 4.1689 1.1757 4.0004 1.6 4.0004H1.8696C1.6919 3.6253 1.5998 3.2154 1.6 2.8004 1.6 1.254 2.8536 0.0005 4.3864 0.0005 5.7904-0.0235 7.036 0.874 7.8912 2.3476L8 2.542C8.8264 1.0108 10.048 0.0509 11.4328 0.0021L11.6 0.0005ZM4.4 1.6004C4.0817 1.6004 3.7765 1.7268 3.5515 1.9519 3.3264 2.1769 3.2 2.4821 3.2 2.8004 3.2 3.1186 3.3264 3.4239 3.5515 3.6489 3.7765 3.8739 4.0817 4.0004 4.4 4.0004H6.9144C6.3216 2.4764 5.3552 1.5844 4.4 1.6004ZM11.5864 1.6004C10.6424 1.5844 9.6784 2.4772 9.0856 4.0004H11.6C11.9183 3.9985 12.2228 3.8704 12.4465 3.6441 12.6703 3.4178 12.795 3.1118 12.7932 2.7936 12.7914 2.4753 12.6632 2.1708 12.4369 1.9471 12.2106 1.7233 11.9047 1.5986 11.5864 1.6004Z" transform=" translate(1.1556314304028488e-31 0)" style="fill-rule: nonzero;fill: url(#def_0_2);"></path> </svg></div>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 252px;top: 15px;aspect-ratio: 1;width: auto;height: 20px;position: absolute;filter: drop-shadow(0px 4px 50px rgba(255,0,0,0.25));backface-visibility: hidden;transform: translateZ(0);">
+          <defs>
+            <clippath id="def_0_3">
+              <rect x="0" y="0" width="20" height="20"></rect>
+            </clippath>
+          </defs>
+          <g style="clip-path: url(#def_0_3);">
+            <path d="M15.8333 17.5V15.8333C15.8333 14.9493 15.4821 14.1014 14.857 13.4763 14.2319 12.8512 13.3841 12.5 12.5 12.5H7.5C6.6159 12.5 5.7681 12.8512 5.143 13.4763 4.5179 14.1014 4.1667 14.9493 4.1667 15.8333V17.5" style="stroke: #535353;stroke-width: 2;stroke-linecap: round;stroke-linejoin: round;"></path>
+            <path d="M13.3333 5.8333C13.3333 7.6743 11.8409 9.1667 10 9.1667 8.1591 9.1667 6.6667 7.6743 6.6667 5.8333 6.6667 3.9924 8.1591 2.5 10 2.5 11.8409 2.5 13.3333 3.9924 13.3333 5.8333Z" style="stroke: #535353;stroke-width: 2;stroke-linecap: round;stroke-linejoin: round;"></path>
+          </g>
+        </svg>
+        <svg width="18.00000029689307" height="18.000000016765444" viewBox="0 0 18.00000029689307 18.000000016765444" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 14.6%;top: 27.1%;right: 79.7%;bottom: 42.4%;width: 5.7%;height: 30.5%;position: absolute;">
+          <path d="M9.7648 0.3006C9.3323-0.1002 8.6642-0.1002 8.2352 0.3006L0.3588 7.6138C0.0213 7.9303-0.0912 8.419 0.0775 8.8479 0.2463 9.2769 0.6577 9.5617 1.1219 9.5617H1.6845V15.7498C1.6845 16.9909 2.6936 18 3.9349 18H14.0616C15.3029 18 16.312 16.9909 16.312 15.7498V9.5617H16.8746C17.3388 9.5617 17.7537 9.2769 17.9225 8.8479 18.0912 8.419 17.9787 7.9268 17.6412 7.6138L9.7648 0.3006ZM8.4356 11.2493H9.5608C10.4926 11.2493 11.2486 12.0053 11.2486 12.937V16.3123H6.7478V12.937C6.7478 12.0053 7.5038 11.2493 8.4356 11.2493Z" transform=" translate(7.81113000669631e-10 1.676544318497343e-8)" style="fill-rule: nonzero;fill: #535353;"></path>
+        </svg>
+      </div>
+      <div id="Rectangle_23" style="overflow: hidden;padding: 0.3px;border-radius: 60px;background-image: linear-gradient(90deg, #49120d 0%, #0d0201 100%);background-blend-mode: normal;left: 59px;top: 129px;width: 124px;height: 26px;position: absolute;box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.15);"></div>
+      <span class="text" style="display: inline;text-align: left;line-height: 13px;font-size: 12px;font-family: Poppins, system-ui, sans-serif;font-weight: 800;font-stretch: 100%;color: transparent;background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;left: 76px;top: 135px;width: max-content;position: absolute;"><span style="background-image: linear-gradient(90deg, #b6902d 0%, #f6ed88 28.4%, #d2ac47 71.2%, #e1c059 100%);background-blend-mode: normal;background-clip: text;-webkit-background-clip: text;">SPECIAL VIDEO</span></span>
+      <div style="overflow: hidden;left: 27px;top: 127px;aspect-ratio: 1;width: auto;height: 29px;position: absolute;"><svg width="23.5625" height="15.708333015441895" viewBox="0 0 23.5625 15.708333015441895" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 9.4%;top: 22.9%;right: 9.4%;bottom: 22.9%;width: 81.3%;height: 54.2%;position: absolute;"> <path d="M3.3229 0C2.4416 0 1.5964 0.3501 0.9733 0.9733 0.3501 1.5964 0 2.4416 0 3.3229V12.3854C0 13.2667 0.3501 14.1119 0.9733 14.7351 1.5964 15.3582 2.4416 15.7083 3.3229 15.7083H13.5938C14.475 15.7083 15.3202 15.3582 15.9434 14.7351 16.5666 14.1119 16.9167 13.2667 16.9167 12.3854V10.4593L21.048 14.1387C22.0207 15.0051 23.5625 14.3139 23.5625 13.0101V2.2535C23.5625 0.9485 22.0207 0.2586 21.048 1.125L16.9167 4.8043V3.3229C16.9167 2.4416 16.5666 1.5964 15.9434 0.9733 15.3202 0.3501 14.475 0 13.5938 0H3.3229Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3a3a3a;border-radius: 16px;background-color: #101010;left: 21px;top: 181px;width: 352px;height: 144px;position: absolute;"></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3a3a3a;border-radius: 16px;background-color: #101010;left: 21px;top: 344px;width: 352px;height: 144px;position: absolute;"></div>
+      <div style="border-width: 1px;border-style: solid;border-color: #3a3a3a;border-radius: 16px;background-color: #101010;left: 21px;top: 507px;width: 352px;height: 144px;position: absolute;"></div>
+      <div style="overflow: hidden;left: 39px;top: 199px;width: 163px;height: 93px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 8px;left: 0px;top: 0px;width: 163px;height: 93px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY0IiBoZWlnaHQ9Ijk0LjAwMDAwMDAwMDAwMDAxIiB2aWV3Qm94PSIwIDAgMTY0IDk0LjAwMDAwMDAwMDAwMDAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogLTAuNXB4O3RvcDogLTAuNXB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtOS45NjExMTE4NTA1MTY5OTQgODAuMTAwMDAzNzc4NzMyMyAtMTQwLjM5MDMyOTIwMzU4NDU3IC0xNy4yNDUxNjU0MDk0MzgzNSAxNTEuNjk1MTY0NjAxNzkyMyA4LjYyMjU4MjcwNDcxOTE3NSkiIGlkPSJkZWZfMCI+PHN0b3Agc3RvcC1jb2xvcj0iIzAwMCIgb2Zmc2V0PSIwLjI4OTMzNjAyNTcxNDg3NDI3IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMCwwLDAsMCkiIG9mZnNldD0iMC45ODgwOTcyNTA0NjE1Nzg0IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MyIgaGVpZ2h0PSI5MyIgdHJhbnNmb3JtPSIgdHJhbnNsYXRlKDAuNTAzMDY3NDg0NjYyNTc2NyAwLjUwNTM3NjM0NDA4NjAyMikiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTggMEwxNTUgMEE4IDggMCAwIDEgMTYzIDhMMTYzIDg1QTggOCAwIDAgMSAxNTUgOTNMOCA5M0E4IDggMCAwIDEgMCA4NUwwIDhBOCA4IDAgMCAxIDggMFoiIHN0eWxlPSJmaWxsLXJ1bGU6IG5vbnplcm87ZmlsbDogdXJsKCNkZWZfMCk7IiAvPjxwYXRoIGQ9Ik04IDBMMTU1IDBBOCA4IDAgMCAxIDE2MyA4TDE2MyA4NUE4IDggMCAwIDEgMTU1IDkzTDggOTNBOCA4IDAgMCAxIDAgODVMMCA4QTggOCAwIDAgMSA4IDBaIiBzdHlsZT0ic3Ryb2tlOiAjMjgyODI4OyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/f7d7057ebdc199b21129a21ba98b1cef8867a64d.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="overflow: hidden;left: 39px;top: 362px;width: 163px;height: 93px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 8px;left: 0px;top: 0px;width: 163px;height: 93px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY0IiBoZWlnaHQ9Ijk0LjAwMDAwMDAwMDAwMDAxIiB2aWV3Qm94PSIwIDAgMTY0IDk0LjAwMDAwMDAwMDAwMDAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogLTAuNXB4O3RvcDogLTAuNXB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtOS45NjExMTE4NTA1MTY5OTQgODAuMTAwMDAzNzc4NzMyMyAtMTQwLjM5MDMyOTIwMzU4NDU3IC0xNy4yNDUxNjU0MDk0MzgzNSAxNTEuNjk1MTY0NjAxNzkyMyA4LjYyMjU4MjcwNDcxOTE3NSkiIGlkPSJkZWZfMCI+PHN0b3Agc3RvcC1jb2xvcj0iIzAwMCIgb2Zmc2V0PSIwLjI4OTMzNjAyNTcxNDg3NDI3IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMCwwLDAsMCkiIG9mZnNldD0iMC45ODgwOTcyNTA0NjE1Nzg0IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MyIgaGVpZ2h0PSI5MyIgdHJhbnNmb3JtPSIgdHJhbnNsYXRlKDAuNTAzMDY3NDg0NjYyNTc2NyAwLjUwNTM3NjM0NDA4NjAyMikiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTggMEwxNTUgMEE4IDggMCAwIDEgMTYzIDhMMTYzIDg1QTggOCAwIDAgMSAxNTUgOTNMOCA5M0E4IDggMCAwIDEgMCA4NUwwIDhBOCA4IDAgMCAxIDggMFoiIHN0eWxlPSJmaWxsLXJ1bGU6IG5vbnplcm87ZmlsbDogdXJsKCNkZWZfMCk7IiAvPjxwYXRoIGQ9Ik04IDBMMTU1IDBBOCA4IDAgMCAxIDE2MyA4TDE2MyA4NUE4IDggMCAwIDEgMTU1IDkzTDggOTNBOCA4IDAgMCAxIDAgODVMMCA4QTggOCAwIDAgMSA4IDBaIiBzdHlsZT0ic3Ryb2tlOiAjMjgyODI4OyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/c24cc39fd63bc306fa3df21baff815eddd56f1dd.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="overflow: hidden;left: 39px;top: 525px;width: 163px;height: 93px;position: absolute;">
+        <div style="overflow: hidden;border-width: 1px;border-style: solid;border-color: #282828;border-radius: 8px;left: 0px;top: 0px;width: 163px;height: 93px;position: absolute;mask-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY0IiBoZWlnaHQ9Ijk0LjAwMDAwMDAwMDAwMDAxIiB2aWV3Qm94PSIwIDAgMTY0IDk0LjAwMDAwMDAwMDAwMDAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0ibGVmdDogLTAuNXB4O3RvcDogLTAuNXB4O3RyYW5zZm9ybTogbWF0cml4KDEsMCwwLDEsMCwwKTt0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjAiIHkxPSIwLjUiIHgyPSIxIiB5Mj0iMC41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtOS45NjExMTE4NTA1MTY5OTQgODAuMTAwMDAzNzc4NzMyMyAtMTQwLjM5MDMyOTIwMzU4NDU3IC0xNy4yNDUxNjU0MDk0MzgzNSAxNTEuNjk1MTY0NjAxNzkyMyA4LjYyMjU4MjcwNDcxOTE3NSkiIGlkPSJkZWZfMCI+PHN0b3Agc3RvcC1jb2xvcj0iIzAwMCIgb2Zmc2V0PSIwLjI4OTMzNjAyNTcxNDg3NDI3IiAvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMCwwLDAsMCkiIG9mZnNldD0iMC45ODgwOTcyNTA0NjE1Nzg0IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXNrX3VuZGVmaW5lZCIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MyIgaGVpZ2h0PSI5MyIgdHJhbnNmb3JtPSIgdHJhbnNsYXRlKDAuNTAzMDY3NDg0NjYyNTc2NyAwLjUwNTM3NjM0NDA4NjAyMikiIHN0eWxlPSJtYXNrLXR5cGU6IGFscGhhOyI+PHBhdGggZD0iTTggMEwxNTUgMEE4IDggMCAwIDEgMTYzIDhMMTYzIDg1QTggOCAwIDAgMSAxNTUgOTNMOCA5M0E4IDggMCAwIDEgMCA4NUwwIDhBOCA4IDAgMCAxIDggMFoiIHN0eWxlPSJmaWxsLXJ1bGU6IG5vbnplcm87ZmlsbDogdXJsKCNkZWZfMCk7IiAvPjxwYXRoIGQ9Ik04IDBMMTU1IDBBOCA4IDAgMCAxIDE2MyA4TDE2MyA4NUE4IDggMCAwIDEgMTU1IDkzTDggOTNBOCA4IDAgMCAxIDAgODVMMCA4QTggOCAwIDAgMSA4IDBaIiBzdHlsZT0ic3Ryb2tlOiAjMjgyODI4OyIgLz48L2c+PC9zdmc+&quot;);mask-repeat: no-repeat;mask-type: alpha;mask-position: 0px 0px;"><img src="images/e9295c6b0708167e1d59082995d4dbaef4f10cf6.png" alt="Rectangle 44" style="inset: 0;width: 100%;height: 100%;position: absolute;object-fit: cover;"></div>
+      </div>
+      <div style="overflow: hidden;left: 101px;top: 229px;aspect-ratio: 1;width: auto;height: 39px;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));backface-visibility: hidden;transform: translateZ(0);"><svg width="32.50000762939454" height="32.50000762939453" viewBox="0 0 32.50000762939454 32.50000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M16.25 0C13.0361 0 9.8943 0.953 7.222 2.7386 4.5497 4.5242 2.4669 7.0621 1.237 10.0314 0.007 13.0007-0.3148 16.268 0.3122 19.4202 0.9393 22.5724 2.4869 25.4679 4.7595 27.7405 7.0321 30.0131 9.9276 31.5608 13.0798 32.1878 16.232 32.8148 19.4993 32.493 22.4686 31.263 25.4379 30.0331 27.9758 27.9503 29.7614 25.278 31.547 22.6057 32.5 19.4639 32.5 16.25 32.5 14.116 32.0797 12.0029 31.2631 10.0314 30.4464 8.0599 29.2494 6.2685 27.7405 4.7595 26.2315 3.2506 24.4402 2.0536 22.4686 1.237 20.4971 0.4203 18.384 0 16.25 0ZM13 23.5625V8.9375L22.75 16.25 13 23.5625Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="overflow: hidden;left: 101px;top: 392px;aspect-ratio: 1;width: auto;height: 39px;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));backface-visibility: hidden;transform: translateZ(0);"><svg width="32.50000762939454" height="32.50000762939453" viewBox="0 0 32.50000762939454 32.50000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M16.25 0C13.0361 0 9.8943 0.953 7.222 2.7386 4.5497 4.5242 2.4669 7.0621 1.237 10.0314 0.007 13.0007-0.3148 16.268 0.3122 19.4202 0.9393 22.5724 2.4869 25.4679 4.7595 27.7405 7.0321 30.0131 9.9276 31.5608 13.0798 32.1878 16.232 32.8148 19.4993 32.493 22.4686 31.263 25.4379 30.0331 27.9758 27.9503 29.7614 25.278 31.547 22.6057 32.5 19.4639 32.5 16.25 32.5 14.116 32.0797 12.0029 31.2631 10.0314 30.4464 8.0599 29.2494 6.2685 27.7405 4.7595 26.2315 3.2506 24.4402 2.0536 22.4686 1.237 20.4971 0.4203 18.384 0 16.25 0ZM13 23.5625V8.9375L22.75 16.25 13 23.5625Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <div style="overflow: hidden;left: 101px;top: 555px;aspect-ratio: 1;width: auto;height: 39px;position: absolute;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));backface-visibility: hidden;transform: translateZ(0);"><svg width="32.50000762939454" height="32.50000762939453" viewBox="0 0 32.50000762939454 32.50000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" style="left: 8.3%;top: 8.3%;right: 8.3%;bottom: 8.3%;width: 83.3%;height: 83.3%;position: absolute;"> <path d="M16.25 0C13.0361 0 9.8943 0.953 7.222 2.7386 4.5497 4.5242 2.4669 7.0621 1.237 10.0314 0.007 13.0007-0.3148 16.268 0.3122 19.4202 0.9393 22.5724 2.4869 25.4679 4.7595 27.7405 7.0321 30.0131 9.9276 31.5608 13.0798 32.1878 16.232 32.8148 19.4993 32.493 22.4686 31.263 25.4379 30.0331 27.9758 27.9503 29.7614 25.278 31.547 22.6057 32.5 19.4639 32.5 16.25 32.5 14.116 32.0797 12.0029 31.2631 10.0314 30.4464 8.0599 29.2494 6.2685 27.7405 4.7595 26.2315 3.2506 24.4402 2.0536 22.4686 1.237 20.4971 0.4203 18.384 0 16.25 0ZM13 23.5625V8.9375L22.75 16.25 13 23.5625Z" style="fill-rule: nonzero;fill: #fff;"></path> </svg></div>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #737373;align-items: center;justify-content: flex-start;left: 42px;top: 298px;width: 83px;height: 16px;position: absolute;">EPISODE 1</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #737373;align-items: center;justify-content: flex-start;left: 42px;top: 461px;width: 83px;height: 16px;position: absolute;">EPISODE 2</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #737373;align-items: center;justify-content: flex-start;left: 42px;top: 624px;width: 83px;height: 16px;position: absolute;">EPISODE 3</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 216px;top: 198px;width: 83px;height: 16px;position: absolute;">Jual Diri</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 216px;top: 361px;width: 83px;height: 16px;position: absolute;">Pembuktian</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 13px;font-family: Poppins, system-ui, sans-serif;font-weight: 700;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 216px;top: 524px;width: 106px;height: 16px;position: absolute;">Gaji Dolar</span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 218px;top: 222px;width: 144px;height: 65px;position: absolute;">CV bukan riwayat hidup, ini IKLAN. Pelajari cara menjual dirimu agar HRD nggak bisa melewatkan namamu. <span style="font-weight: 600;color: #565656;">Selengkapnya...</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 217px;top: 383px;width: 144px;height: 33px;position: absolute;">Bukan soal siapa yang paling qualified, tapi siapa yang paling strategis. <span style="font-weight: 600;color: #565656;">Selengkapnya...</span></span>
+      <span class="text" style="display: inline-flex;text-align: left;line-height: 13px;font-size: 9px;font-family: Poppins, system-ui, sans-serif;font-weight: 300;font-stretch: 100%;color: #fff;align-items: center;justify-content: flex-start;left: 217px;top: 545px;width: 144px;height: 52px;position: absolute;">Kerja remote bukan cuma soal skill, tapi soal tahu cara masuk ke dalamnya. Ini peta jalannya!<br><span style="font-weight: 600;color: #565656;">Selengkapnya...</span></span>
+    </div>
+  
+<script id="bantuan-ordal-patch">
+(function() {
+  function hideStatusBar() {
+    // The status bar div has inline style with "grid-column-gap: 154px"
+    // We target by checking for the 9:41 text content (most unique identifier)
+    var allDivs = document.querySelectorAll('div');
+    for (var i = 0; i < allDivs.length; i++) {
+      var div = allDivs[i];
+      var style = div.getAttribute('style') || '';
+      // Status bar outer container: left:0px, top:0px, width:393px, position:absolute, padding:21px
+      if (style.indexOf('grid-column-gap: 154px') !== -1 ||
+          (style.indexOf('top: 0px') !== -1 && style.indexOf('width: 393px') !== -1 && style.indexOf('padding: 21px') !== -1)) {
+        div.style.display = 'none';
+      }
+    }
+  }
+  // Run immediately and after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideStatusBar);
+  } else {
+    hideStatusBar();
+  }
+})();
+</script>
+
+</body>
+</html>

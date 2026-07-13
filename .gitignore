@@ -1,17 +1,20 @@
-# Project raw materials
-/Assets/
-/brief/
-
 # dependencies
-/web/node_modules/
-/web/.pnp
-/web/.pnp.*
-/web/.yarn/*
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+coverage/
 
 # next.js build
-/web/.next/
-/web/out/
-/web/build/
+.next/
+out/
+build/
 
 # IDEs & System files
 .DS_Store
@@ -20,15 +23,26 @@
 *.log
 *.zip
 *.ppk
-*.jpeg
-*.jpg
-*.png
-*.mp4
-*.mp3
-*.mov
-*.JPG
-*.MOV
 
 # local env
-/web/.env*
-/web/.vercel
+.env*
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Raw materials and non-website files
+Assets/
+brief/
+pages/
+patch-statusbar.js
+check-btn.js
+fix-clickable.js
+convert.js
+find-video.js
+fix-buttons.js
+fix-statusbar.js
+fix-svg.js
+replace-video.js
+btn-out.txt
