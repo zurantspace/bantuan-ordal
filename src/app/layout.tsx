@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import Script from 'next/script';
+import { Outfit, Anton } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const anton = Anton({
+  variable: "--font-anton",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -20,10 +27,16 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${outfit.variable} h-full antialiased`}
+      className={`${outfit.variable} ${anton.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#090909] text-slate-200 selection:bg-rose-500/30">
+      <body className="bg-black text-slate-200 selection:bg-rose-500/30">
         {children}
+        {/* Midtrans Snap.js — loaded globally so checkout popup works anywhere */}
+        <Script
+          src={process.env.NEXT_PUBLIC_MIDTRANS_SNAP_URL || 'https://app.sandbox.midtrans.com/snap/snap.js'}
+          data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { isAdmin } from '@/lib/auth';
+import { getUser } from '@/lib/auth';
 
 const NAV_ITEMS = [
   { icon: '📊', label: 'Dashboard',  path: '/admin/dashboard' },
@@ -22,16 +22,28 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const isAdminLoginPage = pathname === '/admin/login';
+
   useEffect(() => {
     setMounted(true);
-    if (!isAdmin()) {
-      // Redirect non-admin ke login (bukan ke /home, karena mungkin belum login sama sekali)
-      router.replace('/login?from=admin');
-    }
-  }, [router]);
+    if (isAdminLoginPage) return;
+    (async () => {
+      const u = await getUser();
+      if (!u || u.role !== 'ADMIN') {
+        router.replace('/admin/login');
+      }
+    })();
+  }, [router, pathname, isAdminLoginPage]);
 
   // Jangan render apapun sampai client-side check selesai (mencegah flash konten admin)
-  if (!mounted || !isAdmin()) return null;
+  if (!mounted) return null;
+
+  // Jika di halaman login admin, langsung render children (halaman login) tanpa layout admin dashboard
+  if (isAdminLoginPage) {
+    return <>{children}</>;
+  }
+
+  if (!isAdminLoginPage && !mounted) return null;
 
   return (
     <div style={{

@@ -1,131 +1,105 @@
 'use client';
 
-// Simple mock auth using localStorage
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 export interface AuthUser {
   id: string;
   name: string;
   email: string;
   phone: string;
   tier: 'standard' | 'premium';
+  role: 'MEMBER' | 'ADMIN';
   isAffiliate: boolean;
   affiliateCode?: string;
+  affiliate?: {
+    id: string;
+    referralCode: string;
+    status: string;
+    balance: number;
+    totalClicks: number;
+    totalOrders: number;
+    totalCommission: number;
+  } | null;
 }
 
-export function login(email: string, password: string): { success: boolean; message?: string; user?: AuthUser } {
-  // Check for demo credentials or any registered user
-  if (typeof window !== 'undefined') {
-    // Check stored user (registered via checkout)
-    const stored = localStorage.getItem('bantuan_ordal_user');
-    if (stored) {
-      try {
-        const existingUser = JSON.parse(stored) as AuthUser & { passwordHash?: string };
-        if (existingUser.email === email) {
-          localStorage.setItem('bantuan_ordal_token', 'mock-token-' + Date.now());
-          return { success: true, user: existingUser };
-        }
-      } catch { /* ignore */ }
-    }
-  }
+// ─── Auth API calls ───────────────────────────────────────────────────────────
 
-  // Demo credentials — ONLY accept exact match
-  const isDemoCredentials =
-    (email === 'demo@bantuanordal.com' && password === 'demo1234');
-
-  if (!isDemoCredentials) {
-    return { success: false, message: 'Email atau password salah. Gunakan demo@bantuanordal.com / demo1234' };
-  }
-
-  const user: AuthUser = {
-    id: 'user-001',
-    name: 'Riyani Rahayu',
-    email: email,
-    phone: '08123456789',
-    tier: 'standard',
-    isAffiliate: true,
-    affiliateCode: 'RIYANI2026',
-  };
-  
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('bantuan_ordal_user', JSON.stringify(user));
-    localStorage.setItem('bantuan_ordal_token', 'mock-token-' + Date.now());
-  }
-  
-  return { success: true, user };
-}
-
-export function logout(): void {
-  if (typeof window !== 'undefined') {
-    localStorage.removeItem('bantuan_ordal_user');
-    localStorage.removeItem('bantuan_ordal_token');
-  }
-}
-
-export function getUser(): AuthUser | null {
-  if (typeof window === 'undefined') return null;
-  
-  const stored = localStorage.getItem('bantuan_ordal_user');
-  if (!stored) return null;
-  
+export async function login(
+  email: string,
+  password: string
+): Promise<{ success: boolean; message?: string; user?: AuthUser }> {
   try {
-    return JSON.parse(stored) as AuthUser;
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+      credentials: 'include',
+    });
+    const data = await res.json();
+    return data;
+  } catch {
+    return { success: false, message: 'Gagal terhubung ke server. Coba lagi.' };
+  }
+}
+
+export async function loginAdmin(
+  email: string,
+  password: string
+): Promise<{ success: boolean; message?: string }> {
+  try {
+    const res = await fetch('/api/auth/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+      credentials: 'include',
+    });
+    const data = await res.json();
+    return data;
+  } catch {
+    return { success: false, message: 'Gagal terhubung ke server.' };
+  }
+}
+
+export async function logout(): Promise<void> {
+  try {
+    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+  } catch {
+    // Silently fail
+  }
+}
+
+export async function getUser(): Promise<AuthUser | null> {
+  try {
+    const res = await fetch('/api/auth/me', { credentials: 'include', cache: 'no-store' });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.success ? data.user : null;
   } catch {
     return null;
   }
 }
 
-export function isAuthenticated(): boolean {
-  if (typeof window === 'undefined') return false;
-  return !!localStorage.getItem('bantuan_ordal_token');
-}
+// ─── Episode Progress ─────────────────────────────────────────────────────────
 
-/** Cek apakah user yang sedang login adalah admin.
- *  Admin punya token terpisah — user biasa yang sudah login tidak otomatis jadi admin. */
-export function isAdmin(): boolean {
-  if (typeof window === 'undefined') return false;
-  return !!localStorage.getItem('bantuan_ordal_admin_token');
-}
-
-/** Login sebagai admin (untuk demo: admin@bantuanordal.com / admin9999) */
-export function loginAdmin(email: string, password: string): boolean {
-  const isAdminCredentials = email === 'admin@bantuanordal.com' && password === 'admin9999';
-  if (!isAdminCredentials) return false;
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('bantuan_ordal_admin_token', 'admin-token-' + Date.now());
+export async function setEpisodeProgress(
+  episodeId: string,
+  progressSeconds: number,
+  totalSeconds: number
+): Promise<void> {
+  try {
+    await fetch('/api/member/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ episodeId, progressSeconds, totalSeconds }),
+      credentials: 'include',
+    });
+  } catch {
+    // Silently fail
   }
-  return true;
 }
 
-export function registerFromCheckout(name: string, email: string, phone: string, password: string): AuthUser {
-  const user: AuthUser = {
-    id: 'user-' + Date.now(),
-    name,
-    email,
-    phone,
-    tier: 'standard',
-    isAffiliate: false,
-  };
-  
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('bantuan_ordal_user', JSON.stringify(user));
-    localStorage.setItem('bantuan_ordal_token', 'mock-token-' + Date.now());
-  }
-  
-  return user;
-}
+// ─── UTM Tracking ─────────────────────────────────────────────────────────────
 
-export function getEpisodeProgress(episodeId: number): number {
-  if (typeof window === 'undefined') return 0;
-  const key = `episode_progress_${episodeId}`;
-  return parseInt(localStorage.getItem(key) || '0', 10);
-}
-
-export function setEpisodeProgress(episodeId: number, progress: number): void {
-  if (typeof window === 'undefined') return;
-  const key = `episode_progress_${episodeId}`;
-  localStorage.setItem(key, progress.toString());
-}
-
-// UTM tracking
 export function captureUTM(): void {
   if (typeof window === 'undefined') return;
   const params = new URLSearchParams(window.location.search);
@@ -134,21 +108,32 @@ export function captureUTM(): void {
     utm_medium: params.get('utm_medium') || 'none',
     utm_campaign: params.get('utm_campaign') || 'none',
     utm_content: params.get('utm_content') || 'none',
-    ref: params.get('ref') || null,
+    ref: params.get('ref') || getCookie('ref') || null,
     landing_url: window.location.href,
     referrer_url: document.referrer,
   };
-  
-  if (!localStorage.getItem('utmData')) {
-    localStorage.setItem('utmData', JSON.stringify(utmData));
+
+  // Only capture first touch
+  if (!sessionStorage.getItem('utmData')) {
+    sessionStorage.setItem('utmData', JSON.stringify(utmData));
   }
 }
 
 export function getUTMData(): Record<string, string | null> {
   if (typeof window === 'undefined') return {};
   try {
-    return JSON.parse(localStorage.getItem('utmData') || '{}');
+    return JSON.parse(sessionStorage.getItem('utmData') || '{}');
   } catch {
     return {};
   }
+}
+
+function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
+export function getAffiliateCode(): string | null {
+  return getCookie('ref');
 }

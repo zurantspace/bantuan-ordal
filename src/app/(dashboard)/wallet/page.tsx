@@ -1,108 +1,284 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { AFFILIATE_STATS } from '@/lib/mockData';
-import ScaledIframeCanvas from '@/app/components/ScaledIframeCanvas';
+import { getUser } from '@/lib/auth';
+import { AFFILIATE_STATS, WITHDRAWAL_HISTORY } from '@/lib/mockData';
+import type { AuthUser } from '@/lib/auth';
 
-const CANVAS_WIDTH  = 393;
-const CANVAS_HEIGHT = 936;
+const RED = '#f1301e';
+const RED_DARK = '#9f2315';
+const CARD_BG = '#101010';
+const BORDER = '#3a3a3a';
+const BORDER_DARK = '#1f1f1f';
+
+function formatRp(n: number) {
+  return 'Rp ' + n.toLocaleString('id-ID');
+}
+
+type Method = { id: string; label: string; placeholder: string };
+const METHODS: Method[] = [
+  { id: 'gopay',   label: 'GoPay',               placeholder: '08xxxxxxxxxx' },
+  { id: 'ovo',     label: 'OVO',                 placeholder: '08xxxxxxxxxx' },
+  { id: 'bca',     label: 'Transfer Bank BCA',   placeholder: 'Nomor rekening BCA' },
+  { id: 'bri',     label: 'Transfer Bank BRI',   placeholder: 'Nomor rekening BRI' },
+  { id: 'mandiri', label: 'Transfer Bank Mandiri', placeholder: 'Nomor rekening Mandiri' },
+];
+
+const MIN_WITHDRAW = 50000;
+
+function SidebarProfile({ user, router }: { user: AuthUser | null; router: ReturnType<typeof useRouter> }) {
+  const now = new Date();
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+
+  return (
+    <div style={{ width: '260px', flexShrink: 0, marginRight: 'clamp(20px, 3vw, 40px)' }}>
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+          <div style={{
+            width: '52px', height: '52px', borderRadius: '50%', flexShrink: 0,
+            background: '#272727', border: `2px solid ${RED}55`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', color: '#fff',
+          }}>{user?.name?.[0] || '👤'}</div>
+          <div style={{ minWidth: 0 }}>
+            <p style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user?.name || 'Member'}</p>
+            <p style={{ fontSize: '10px', color: '#737373', marginTop: '2px' }}>Member since {months[now.getMonth()]} {now.getDate()}, {now.getFullYear()}</p>
+            <p style={{ fontSize: '10px', fontWeight: 700, color: user?.tier === 'premium' ? '#fbbf24' : '#fff', marginTop: '4px' }}>
+              {user?.tier === 'premium' ? 'VIP Premium' : 'Standard'}
+            </p>
+          </div>
+        </div>
+
+        {[
+          { label: 'Watch',     path: '/home',      icon: '▶' },
+          { label: 'Wallet',    path: '/wallet',    icon: '💰' },
+          { label: 'Affiliate', path: '/affiliate', icon: '🤝' },
+          { label: 'Setting',   path: '/settings',  icon: '⚙️' },
+        ].map(item => (
+          <button key={item.path} onClick={() => router.push(item.path)} style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: '10px',
+            padding: '10px 0', background: 'none', border: 'none', cursor: 'pointer',
+            fontSize: '13px', color: item.path === '/wallet' ? '#fff' : '#888', fontFamily: 'Poppins, sans-serif', textAlign: 'left',
+            borderBottom: '1px solid #1a1a1a', transition: 'color 0.2s',
+          }}
+            onMouseEnter={e => (e.currentTarget as HTMLButtonElement).style.color = '#fff'}
+            onMouseLeave={e => { if (item.path !== '/wallet') (e.currentTarget as HTMLButtonElement).style.color = '#888'; }}
+          >
+            <span style={{ fontSize: '14px', width: '20px' }}>{item.icon}</span>
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function WalletPage() {
   const router = useRouter();
-  const [modal, setModal] = useState(false);
-  const [method, setMethod] = useState('gopay');
-  const [account, setAccount] = useState('');
-  const [amount, setAmount] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [method, setMethod]       = useState(METHODS[0]);
+  const [account, setAccount]     = useState('');
+  const [amount, setAmount]       = useState('');
+  const [step, setStep]           = useState<'form' | 'confirm' | 'success'>('form');
 
-  const handleWithdraw = (e: React.FormEvent) => {
-    e.preventDefault();
-    const amt = parseInt(amount, 10);
-    if (amt < 50000) { setError('Minimum pencairan Rp50.000'); return; }
-    if (amt > AFFILIATE_STATS.balance) { setError('Saldo tidak mencukupi'); return; }
-    if (!account.trim()) { setError('Nomor akun wajib diisi'); return; }
-    setSubmitted(true);
-    setError('');
-  };
+  useEffect(() => {
+    (async () => { const u = await getUser(); if (u) setUser(u); })();
+  }, []);
+
+  const balance   = AFFILIATE_STATS.unpaidCommission;
+  const amountNum = parseInt(amount.replace(/\D/g, ''), 10) || 0;
+  const isValid   = account.length >= 8 && amountNum >= MIN_WITHDRAW && amountNum <= balance;
+
+  function handleClose() {
+    setShowModal(false); setStep('form'); setAccount(''); setAmount('');
+  }
+
+  const STATS = [
+    { label: 'Total Commission',    value: formatRp(AFFILIATE_STATS.totalEarned) },
+    { label: 'Paid Commission',     value: formatRp(AFFILIATE_STATS.paidCommission) },
+    { label: 'Unpaid Commission',   value: formatRp(AFFILIATE_STATS.unpaidCommission) },
+    { label: 'Total Leads',         value: String(AFFILIATE_STATS.totalLeads) },
+    { label: 'Lead Verified',       value: String(AFFILIATE_STATS.leadsVerified) },
+    { label: 'Lead Unverified',     value: String(AFFILIATE_STATS.leadsUnverified) },
+  ];
 
   return (
-    <>
-      <ScaledIframeCanvas
-        src="/design/wallet/index.html"
-        canvasWidth={CANVAS_WIDTH}
-        canvasHeight={CANVAS_HEIGHT}
-      >
-        {/* Profile sub-nav tabs */}
-        <button id="tab-watch"     onClick={() => router.push('/watch/1')}   style={{ position: 'absolute', top: 428, left: 20,  width: 90, height: 34, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-        <button id="tab-wallet"    onClick={() => {}}                        style={{ position: 'absolute', top: 428, left: 118, width: 90, height: 34, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-        <button id="tab-affiliate" onClick={() => router.push('/affiliate')} style={{ position: 'absolute', top: 428, left: 218, width: 90, height: 34, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
-        <button id="tab-setting"   onClick={() => router.push('/settings')}  style={{ position: 'absolute', top: 428, left: 318, width: 75, height: 34, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }} />
+    <div style={{ fontFamily: 'Poppins, sans-serif' }}>
 
-        {/* Cairkan Dana */}
-        <button id="btn-cairkan" onClick={() => setModal(true)}
-          style={{ position: 'absolute', top: 753, left: 203, width: 169, height: 53, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }}
-          aria-label="Cairkan Dana" />
+      <div style={{
+        display: 'flex', maxWidth: '1200px', margin: '0 auto',
+        padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 40px)',
+        paddingBottom: '120px', alignItems: 'flex-start',
+      }}>
+        {/* Sidebar — hidden on mobile */}
+        <div style={{ display: 'none' }} className="wallet-sidebar">
+          <SidebarProfile user={user} router={router} />
+        </div>
 
-        {/* Apa itu affiliate */}
-        <button id="btn-affiliate-info" onClick={() => router.push('/affiliate')}
-          style={{ position: 'absolute', top: 753, left: 20, width: 168, height: 53, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }}
-          aria-label="Apa Itu Affiliate?" />
-      </ScaledIframeCanvas>
+        {/* Main content */}
+        <div style={{ flex: 1, minWidth: 0 }}>
 
-      {/* ══ Withdrawal Modal ══ */}
-      {modal && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.9)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-          <div style={{ width: '100%', maxWidth: '480px', background: '#0d0d0d', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', padding: '24px 20px 40px', border: '1px solid #2a2a2a' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 700, color: '#fff', margin: 0 }}>Cairkan Dana</h2>
-              <button onClick={() => { setModal(false); setSubmitted(false); setError(''); }}
-                style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '20px' }}>✕</button>
-            </div>
+          {/* Summary heading */}
+          <h1 style={{ fontSize: 'clamp(18px, 2.5vw, 28px)', fontWeight: 700, color: '#fff', marginBottom: '20px' }}>Summary</h1>
 
-            {!submitted ? (
-              <form onSubmit={handleWithdraw}>
-                <label style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', fontWeight: 700, color: '#fff', display: 'block', marginBottom: '8px' }}>Metode Pembayaran</label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginBottom: '16px' }}>
-                  {[{ val: 'gopay', label: 'GoPay 💚' }, { val: 'ovo', label: 'OVO 💜' }, { val: 'bank', label: 'Bank 🏦' }].map(m => (
-                    <button key={m.val} type="button" onClick={() => setMethod(m.val)}
-                      style={{ height: '36px', borderRadius: '8px', border: method === m.val ? 'none' : '1px solid #2a2a2a', background: method === m.val ? 'linear-gradient(90deg, #f1301e, #9f2315)' : '#0a0a0a', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '9px', fontWeight: 600, color: '#fff' }}>
-                      {m.label}
-                    </button>
-                  ))}
+          {/* 6-stat grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(160px, 100%), 1fr))',
+            gap: 'clamp(10px, 2vw, 16px)',
+            marginBottom: 'clamp(24px, 3vw, 40px)',
+          }}>
+            {STATS.map(s => (
+              <div key={s.label} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '12px', padding: '14px 16px' }}>
+                <p style={{ fontSize: 'clamp(9px, 1vw, 11px)', color: '#737373', marginBottom: '6px', lineHeight: 1.3 }}>{s.label}</p>
+                <p style={{ fontSize: 'clamp(14px, 1.8vw, 20px)', fontWeight: 800, color: '#fff' }}>{s.value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Cairkan Dana button */}
+          <button
+            id="btn-cairkan"
+            onClick={() => { setShowModal(true); setStep('form'); }}
+            disabled={balance < MIN_WITHDRAW}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              width: '100%', maxWidth: '320px', height: '48px',
+              borderRadius: '60px', border: 'none',
+              background: balance >= MIN_WITHDRAW ? `linear-gradient(90deg, ${RED}, ${RED_DARK})` : '#1a1a1a',
+              color: balance >= MIN_WITHDRAW ? '#fff' : '#555',
+              fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(13px, 1.4vw, 16px)', fontWeight: 700,
+              cursor: balance >= MIN_WITHDRAW ? 'pointer' : 'not-allowed',
+              boxShadow: balance >= MIN_WITHDRAW ? '0 0 24px rgba(241,48,30,0.35)' : 'none',
+              marginBottom: 'clamp(24px, 3vw, 40px)',
+            }}
+          >
+            Cairkan Dana
+          </button>
+
+          {/* "Apa Itu Affiliate?" */}
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: 'clamp(16px, 2.5vw, 24px)', marginBottom: 'clamp(20px, 3vw, 32px)' }}>
+            <h2 style={{ fontSize: 'clamp(15px, 2vw, 20px)', fontWeight: 700, color: '#fff', marginBottom: '12px' }}>Apa Itu Affiliate?</h2>
+            <p style={{ fontSize: 'clamp(12px, 1.3vw, 15px)', color: '#737373', lineHeight: 1.6 }}>
+              Program afiliasi Bantuan Ordal memungkinkan kamu mendapatkan komisi <strong style={{ color: '#fff' }}>50% per transaksi</strong> dengan cara mempromosikan link referral kamu kepada orang lain. Setiap kali seseorang membeli melalui link kamu, komisi langsung masuk ke saldo afiliasimu secara otomatis.
+            </p>
+          </div>
+
+          {/* History */}
+          <h2 style={{ fontSize: 'clamp(15px, 2vw, 20px)', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>History</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {WITHDRAWAL_HISTORY.length === 0 && (
+              <div style={{ textAlign: 'center', padding: '32px', color: '#737373', fontSize: '13px' }}>Belum ada riwayat penarikan</div>
+            )}
+            {WITHDRAWAL_HISTORY.map(wd => (
+              <div key={wd.id} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '12px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div style={{ fontSize: '22px', flexShrink: 0 }}>💸</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: 'clamp(12px, 1.3vw, 14px)', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>{wd.method}</p>
+                  <p style={{ fontSize: 'clamp(10px, 1.1vw, 12px)', color: '#737373' }}>{wd.date} · {wd.account}</p>
+                </div>
+                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <p style={{ fontSize: 'clamp(13px, 1.4vw, 16px)', fontWeight: 800, color: '#fff', marginBottom: '4px' }}>{formatRp(wd.amount)}</p>
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: '#4ade80', background: 'rgba(74,222,128,0.08)', border: '1px solid #4ade8033', borderRadius: '20px', padding: '2px 8px' }}>✓ Selesai</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Withdrawal Modal */}
+      {showModal && (
+        <div
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}
+          onClick={e => { if (e.target === e.currentTarget) handleClose(); }}
+        >
+          <div style={{
+            background: '#0d0d0d', borderRadius: '24px',
+            padding: 'clamp(20px, 3vw, 32px)', width: '100%', maxWidth: '480px',
+            border: `1px solid ${BORDER_DARK}`,
+          }}>
+            <div style={{ width: '40px', height: '4px', background: '#333', borderRadius: '2px', margin: '0 auto 24px' }} />
+
+            {step === 'form' && (
+              <>
+                <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '20px' }}>Cairkan Dana</h2>
+
+                <div style={{ marginBottom: '14px' }}>
+                  <label style={{ fontSize: '10px', fontWeight: 700, color: '#737373', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>METODE PEMBAYARAN</label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {METHODS.map(m => (
+                      <button key={m.id} id={`method-${m.id}`} onClick={() => setMethod(m)} style={{
+                        display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px',
+                        background: method.id === m.id ? 'rgba(241,48,30,0.08)' : '#0a0a0a',
+                        border: `1px solid ${method.id === m.id ? RED + '55' : BORDER_DARK}`,
+                        borderRadius: '12px', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', textAlign: 'left',
+                      }}>
+                        <span style={{ fontSize: '12px', fontWeight: 700, color: method.id === m.id ? '#fff' : '#888' }}>{m.label}</span>
+                        {method.id === m.id && <span style={{ marginLeft: 'auto', color: RED, fontSize: '14px' }}>✓</span>}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <label style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', fontWeight: 700, color: '#fff', display: 'block', marginBottom: '6px' }}>
-                  {method === 'bank' ? 'Nomor Rekening' : 'Nomor Akun'}
-                </label>
-                <input type="text" placeholder={method === 'bank' ? '1234567890' : '08xxxxxxxxx'}
-                  value={account} onChange={e => setAccount(e.target.value)}
-                  style={{ width: '100%', height: '40px', borderRadius: '10px', border: '1px solid #3a3a3a', background: '#0a0a0a', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', padding: '0 12px', outline: 'none', boxSizing: 'border-box', marginBottom: '16px' }} />
+                <div style={{ marginBottom: '14px' }}>
+                  <label style={{ fontSize: '10px', fontWeight: 700, color: '#737373', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>NOMOR AKUN</label>
+                  <input id="input-account" type="text" placeholder={method.placeholder} value={account} onChange={e => setAccount(e.target.value)}
+                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: `1px solid ${BORDER_DARK}`, borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
+                </div>
 
-                <label style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', fontWeight: 700, color: '#fff', display: 'block', marginBottom: '6px' }}>Jumlah (Rp)</label>
-                <input type="number" placeholder="50000" value={amount} onChange={e => setAmount(e.target.value)}
-                  style={{ width: '100%', height: '40px', borderRadius: '10px', border: '1px solid #3a3a3a', background: '#0a0a0a', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', padding: '0 12px', outline: 'none', boxSizing: 'border-box', marginBottom: '4px' }} />
-                <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '9px', color: '#555', marginBottom: '14px' }}>
-                  Saldo: Rp{AFFILIATE_STATS.balance.toLocaleString('id-ID')} | Min. Rp50.000
-                </p>
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={{ fontSize: '10px', fontWeight: 700, color: '#737373', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>JUMLAH (Saldo: {formatRp(balance)})</label>
+                  <input id="input-amount" type="number" placeholder={`Min. ${formatRp(MIN_WITHDRAW)}`} value={amount} onChange={e => setAmount(e.target.value)}
+                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: `1px solid ${BORDER_DARK}`, borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
+                  {amountNum > 0 && amountNum < MIN_WITHDRAW && <p style={{ fontSize: '10px', color: '#ef4444', marginTop: '4px' }}>⚠ Minimum {formatRp(MIN_WITHDRAW)}</p>}
+                </div>
 
-                {error && <p style={{ color: '#ef4444', fontSize: '11px', marginBottom: '10px' }}>⚠️ {error}</p>}
+                <button id="btn-lanjut" onClick={() => isValid && setStep('confirm')} disabled={!isValid} style={{
+                  width: '100%', height: '48px', borderRadius: '60px', border: 'none',
+                  background: isValid ? `linear-gradient(90deg, ${RED}, ${RED_DARK})` : '#1a1a1a',
+                  color: isValid ? '#fff' : '#444',
+                  fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, cursor: isValid ? 'pointer' : 'not-allowed',
+                }}>Lanjut ke Konfirmasi</button>
+              </>
+            )}
 
-                <button type="submit" style={{ width: '100%', height: '44px', borderRadius: '12px', background: 'linear-gradient(90deg, #f1301e, #9f2315)', border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, color: '#fff' }}>
-                  Ajukan Pencairan
-                </button>
-              </form>
-            ) : (
+            {step === 'confirm' && (
+              <>
+                <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '20px' }}>Konfirmasi Penarikan</h2>
+                <div style={{ background: '#0a0a0a', border: `1px solid ${BORDER_DARK}`, borderRadius: '14px', padding: '18px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {[{ label: 'Metode', value: method.label }, { label: 'Nomor Akun', value: account }, { label: 'Jumlah', value: formatRp(amountNum) }].map(r => (
+                    <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ fontSize: '12px', color: '#737373' }}>{r.label}</span>
+                      <span style={{ fontSize: '12px', fontWeight: 700, color: '#fff' }}>{r.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button onClick={() => setStep('form')} style={{ flex: 1, height: '44px', borderRadius: '12px', background: '#111', border: `1px solid ${BORDER_DARK}`, color: '#888', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>Kembali</button>
+                  <button id="btn-konfirmasi" onClick={() => setStep('success')} style={{ flex: 2, height: '44px', borderRadius: '12px', background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`, border: 'none', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>Ya, Cairkan</button>
+                </div>
+              </>
+            )}
+
+            {step === 'success' && (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <span style={{ fontSize: '48px', display: 'block', marginBottom: '12px' }}>✅</span>
-                <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, color: '#4ade80', marginBottom: '8px' }}>Permintaan Terkirim!</h3>
-                <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', color: '#888' }}>Dana akan masuk dalam 1×24 jam kerja.</p>
+                <div style={{ fontSize: '56px', marginBottom: '16px' }}>🎉</div>
+                <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>Permintaan Dikirim!</h2>
+                <p style={{ fontSize: '13px', color: '#888', marginBottom: '24px', lineHeight: 1.6 }}>Dana akan diproses dalam 1×24 jam kerja.</p>
+                <button id="btn-selesai" onClick={handleClose} style={{ width: '100%', height: '44px', borderRadius: '60px', background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`, border: 'none', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}>Selesai</button>
               </div>
             )}
           </div>
         </div>
       )}
-    </>
+
+      <style>{`
+        @media (min-width: 900px) {
+          .wallet-sidebar { display: block !important; }
+        }
+      `}</style>
+    </div>
   );
 }

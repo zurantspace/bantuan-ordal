@@ -4,144 +4,267 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getUser, logout } from '@/lib/auth';
 import type { AuthUser } from '@/lib/auth';
-import ScaledIframeCanvas from '@/app/components/ScaledIframeCanvas';
 
-const CANVAS_WIDTH  = 393;
-const CANVAS_HEIGHT = 1767;
+const RED = '#f1301e';
+const RED_DARK = '#9f2315';
+const CARD_BG = '#101010';
+const BORDER = '#3a3a3a';
+const BORDER_DARK = '#1f1f1f';
+
+function inputStyle(disabled = false): React.CSSProperties {
+  return {
+    width: '100%', height: '48px', background: disabled ? '#080808' : '#0a0a0a',
+    border: `1px solid ${disabled ? '#1a1a1a' : BORDER_DARK}`,
+    borderRadius: '10px', padding: '0 14px', color: disabled ? '#444' : '#fff',
+    fontFamily: 'Poppins, sans-serif', fontSize: '13px',
+    outline: 'none', boxSizing: 'border-box',
+    cursor: disabled ? 'not-allowed' : 'text',
+  };
+}
+
+function SidebarProfile({ user, router }: { user: AuthUser | null; router: ReturnType<typeof useRouter> }) {
+  const now = new Date();
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+
+  return (
+    <div style={{ width: '260px', flexShrink: 0, marginRight: 'clamp(20px, 3vw, 40px)' }}>
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+          <div style={{
+            width: '52px', height: '52px', borderRadius: '50%', flexShrink: 0,
+            background: '#272727', border: `2px solid ${RED}55`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', color: '#fff',
+          }}>{user?.name?.[0] || '👤'}</div>
+          <div style={{ minWidth: 0 }}>
+            <p style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user?.name || 'Member'}</p>
+            <p style={{ fontSize: '10px', color: '#737373', marginTop: '2px' }}>Member since {months[now.getMonth()]} {now.getDate()}, {now.getFullYear()}</p>
+            <p style={{ fontSize: '10px', fontWeight: 700, color: user?.tier === 'premium' ? '#fbbf24' : '#fff', marginTop: '4px' }}>
+              {user?.tier === 'premium' ? 'VIP Premium' : 'Standard'}
+            </p>
+          </div>
+        </div>
+
+        {[
+          { label: 'Watch',     path: '/home',      icon: '▶' },
+          { label: 'Wallet',    path: '/wallet',    icon: '💰' },
+          { label: 'Affiliate', path: '/affiliate', icon: '🤝' },
+          { label: 'Setting',   path: '/settings',  icon: '⚙️' },
+        ].map(item => (
+          <button key={item.path} onClick={() => router.push(item.path)} style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: '10px',
+            padding: '10px 0', background: 'none', border: 'none', cursor: 'pointer',
+            fontSize: '13px', color: item.path === '/settings' ? '#fff' : '#888', fontFamily: 'Poppins, sans-serif', textAlign: 'left',
+            borderBottom: '1px solid #1a1a1a', transition: 'color 0.2s',
+          }}
+            onMouseEnter={e => (e.currentTarget as HTMLButtonElement).style.color = '#fff'}
+            onMouseLeave={e => { if (item.path !== '/settings') (e.currentTarget as HTMLButtonElement).style.color = '#888'; }}
+          >
+            <span style={{ fontSize: '14px', width: '20px' }}>{item.icon}</span>
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function SettingsPage() {
   const router = useRouter();
   const [user, setUser] = useState<AuthUser | null>(null);
-  const [form, setForm] = useState({ name: '', email: '', phone: '' });
-  const [passwords, setPasswords] = useState({ current: '', new: '', confirm: '' });
-  const [saved, setSaved] = useState(false);
+  const [profileForm, setProfileForm] = useState({ username: '', email: '', name: '' });
+  const [pwForm, setPwForm] = useState({ current: '', next: '', confirm: '' });
+  const [profileSaved, setProfileSaved] = useState(false);
   const [pwSaved, setPwSaved] = useState(false);
   const [pwError, setPwError] = useState('');
-  const [modal, setModal] = useState<'profile' | 'password' | null>(null);
+  const [photoName, setPhotoName] = useState('');
 
   useEffect(() => {
-    const u = getUser();
-    setUser(u);
-    if (u) setForm({ name: u.name, email: u.email, phone: u.phone });
+    (async () => {
+      const u = await getUser();
+      setUser(u);
+      if (u) setProfileForm({
+        username: u.email?.split('@')[0] || '',
+        email: u.email || '',
+        name: u.name || '',
+      });
+    })();
   }, []);
 
-  const handleSaveProfile = (e: React.FormEvent) => {
+  async function saveProfile(e: React.FormEvent) {
     e.preventDefault();
-    if (user && typeof window !== 'undefined') {
-      const updated = { ...user, ...form };
-      localStorage.setItem('bantuan_ordal_user', JSON.stringify(updated));
-      setUser(updated);
-      setSaved(true);
-      setTimeout(() => { setSaved(false); setModal(null); }, 1500);
-    }
-  };
+    if (!user) return;
+    try {
+      const res = await fetch('/api/member/profile', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: profileForm.name }),
+        credentials: 'include',
+      });
+      const data = await res.json();
+      if (data.success) {
+        setUser({ ...user, name: profileForm.name });
+        setProfileSaved(true);
+        setTimeout(() => setProfileSaved(false), 2500);
+      }
+    } catch { /* ignore */ }
+  }
 
-  const handleChangePassword = (e: React.FormEvent) => {
+  function changePassword(e: React.FormEvent) {
     e.preventDefault();
     setPwError('');
-    if (passwords.new.length < 8) { setPwError('Password minimal 8 karakter'); return; }
-    if (passwords.new !== passwords.confirm) { setPwError('Password tidak cocok'); return; }
+    if (pwForm.next.length < 8) { setPwError('Password baru minimal 8 karakter'); return; }
+    if (pwForm.next !== pwForm.confirm) { setPwError('Konfirmasi password tidak cocok'); return; }
+    const raw = localStorage.getItem('bantuan_ordal_user');
+    if (raw) {
+      const u = JSON.parse(raw);
+      if (u.password && u.password !== pwForm.current) { setPwError('Password saat ini salah'); return; }
+      localStorage.setItem('bantuan_ordal_user', JSON.stringify({ ...u, password: pwForm.next }));
+    }
+    setPwForm({ current: '', next: '', confirm: '' });
     setPwSaved(true);
-    setPasswords({ current: '', new: '', confirm: '' });
-    setTimeout(() => { setPwSaved(false); setModal(null); }, 1500);
-  };
+    setTimeout(() => setPwSaved(false), 2500);
+  }
 
-  const handleLogout = () => { logout(); router.replace('/login'); };
+  function handleLogout() { logout(); router.replace('/login'); }
 
-  const INPUT_STYLE: React.CSSProperties = {
-    width: '100%', height: '40px', borderRadius: '10px',
-    border: '1px solid #3a3a3a', background: '#0a0a0a',
-    color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px',
-    padding: '0 12px', outline: 'none', boxSizing: 'border-box',
+  const saveBtnStyle: React.CSSProperties = {
+    width: '100%', height: '48px', borderRadius: '6px', border: 'none', marginTop: '20px',
+    background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`, color: '#fff',
+    fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
   };
 
   return (
-    <>
-      <ScaledIframeCanvas
-        src="/design/settings/index.html"
-        canvasWidth={CANVAS_WIDTH}
-        canvasHeight={CANVAS_HEIGHT}
-      >
-        {/* Profile form area click target */}
-        <button id="btn-edit-profile" onClick={() => setModal('profile')}
-          style={{ position: 'absolute', top: 280, left: 20, width: 353, height: 400, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }}
-          aria-label="Edit Profil" />
+    <div style={{ fontFamily: 'Poppins, sans-serif' }}>
+      <div style={{
+        display: 'flex', maxWidth: '1100px', margin: '0 auto',
+        padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 40px)',
+        paddingBottom: '120px', alignItems: 'flex-start',
+      }}>
+        {/* Sidebar — hidden on mobile */}
+        <div style={{ display: 'none' }} className="settings-sidebar">
+          <SidebarProfile user={user} router={router} />
+        </div>
 
-        {/* Password form area */}
-        <button id="btn-edit-password" onClick={() => setModal('password')}
-          style={{ position: 'absolute', top: 760, left: 20, width: 353, height: 350, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }}
-          aria-label="Ganti Password" />
+        {/* Main content */}
+        <div style={{ flex: 1, minWidth: 0 }}>
 
-        {/* Logout */}
-        <button id="btn-logout" onClick={handleLogout}
-          style={{ position: 'absolute', top: 1640, left: 20, width: 353, height: 60, background: 'transparent', border: 'none', cursor: 'pointer', pointerEvents: 'auto' }}
-          aria-label="Keluar" />
+          {/* ─── Foto Profile ── */}
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: 'clamp(16px, 2.5vw, 24px)', marginBottom: '20px' }}>
+            <p style={{ fontSize: 'clamp(11px, 1.2vw, 14px)', fontWeight: 700, color: '#737373', letterSpacing: '1px', marginBottom: '16px' }}>Foto Profile</p>
 
-        {/* Nav bar handled by (dashboard)/layout.tsx — no duplicate overlay needed */}
-      </ScaledIframeCanvas>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{
+                width: '72px', height: '72px', borderRadius: '50%', flexShrink: 0,
+                background: '#272727', border: `2px solid ${RED}55`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px', color: '#fff',
+              }}>{user?.name?.[0] || '👤'}</div>
 
-      {/* ══ Profile Edit Modal ══ */}
-      {modal === 'profile' && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-          <div style={{ width: '100%', maxWidth: '480px', background: '#0d0d0d', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', padding: '24px 20px 40px', border: '1px solid #2a2a2a' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 700, color: '#fff', margin: 0 }}>Edit Profil</h2>
-              <button onClick={() => setModal(null)} style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '20px' }}>✕</button>
+              <div style={{ flex: 1 }}>
+                <label htmlFor="photo-upload" style={{
+                  display: 'inline-block', padding: '8px 20px', borderRadius: '6px',
+                  background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`, color: '#fff',
+                  fontSize: '12px', fontWeight: 700, cursor: 'pointer', marginBottom: '8px',
+                }}>Pilih Foto</label>
+                <input id="photo-upload" type="file" accept="image/png,image/jpeg,image/webp" style={{ display: 'none' }}
+                  onChange={e => setPhotoName(e.target.files?.[0]?.name || '')} />
+                {photoName && <p style={{ fontSize: '11px', color: '#737373', marginBottom: '6px' }}>{photoName}</p>}
+                <button style={{ display: 'block', padding: '8px 20px', borderRadius: '6px', background: '#1a1a1a', border: `1px solid ${BORDER_DARK}`, color: '#888', fontSize: '12px', fontWeight: 700, cursor: 'pointer', fontFamily: 'Poppins, sans-serif' }}>
+                  Simpan Foto
+                </button>
+                <p style={{ fontSize: '10px', color: '#737373', marginTop: '6px' }}>Format : JPG, PNG, WebP, Maks 2MB</p>
+              </div>
             </div>
-            <form onSubmit={handleSaveProfile}>
-              {[
-                { label: 'Nama Lengkap', key: 'name' as const, type: 'text', ph: 'Nama kamu' },
-                { label: 'Email', key: 'email' as const, type: 'email', ph: 'email@kamu.com' },
-                { label: 'Nomor WhatsApp', key: 'phone' as const, type: 'tel', ph: '08xxxxxxxxx' },
-              ].map(f => (
-                <div key={f.key} style={{ marginBottom: '14px' }}>
-                  <label style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', fontWeight: 700, color: '#fff', display: 'block', marginBottom: '6px' }}>{f.label}</label>
-                  <input type={f.type} placeholder={f.ph} value={form[f.key]}
-                    onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
-                    style={INPUT_STYLE} />
+          </div>
+
+          {/* ─── Profile ── */}
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: 'clamp(16px, 2.5vw, 24px)', marginBottom: '20px' }}>
+            <p style={{ fontSize: 'clamp(11px, 1.2vw, 14px)', fontWeight: 700, color: '#737373', letterSpacing: '1px', marginBottom: '20px' }}>Profile</p>
+
+            <form onSubmit={saveProfile}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Username</label>
+                  <input id="settings-username" type="text" value={profileForm.username}
+                    onChange={e => setProfileForm(p => ({ ...p, username: e.target.value }))}
+                    style={inputStyle()} />
                 </div>
-              ))}
-              <button type="submit" style={{
-                width: '100%', height: '44px', borderRadius: '12px', marginTop: '8px',
-                background: saved ? '#4ade80' : 'linear-gradient(90deg, #f1301e, #9f2315)',
-                border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, color: '#fff',
-              }}>{saved ? '✓ Tersimpan!' : 'Simpan Profil'}</button>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Email</label>
+                  <input type="email" value={profileForm.email} disabled style={inputStyle(true)} />
+                  <p style={{ fontSize: '10px', color: '#737373', marginTop: '4px' }}>Email tidak bisa diubah.</p>
+                </div>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Nama Lengkap</label>
+                  <input id="settings-name" type="text" value={profileForm.name}
+                    onChange={e => setProfileForm(p => ({ ...p, name: e.target.value }))}
+                    style={inputStyle()} />
+                </div>
+              </div>
+              <button id="btn-save-profile" type="submit" style={saveBtnStyle}>
+                {profileSaved ? '✓ Tersimpan!' : 'Simpan Profile'}
+              </button>
             </form>
           </div>
-        </div>
-      )}
 
-      {/* ══ Password Modal ══ */}
-      {modal === 'password' && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-          <div style={{ width: '100%', maxWidth: '480px', background: '#0d0d0d', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', padding: '24px 20px 40px', border: '1px solid #2a2a2a' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 700, color: '#fff', margin: 0 }}>Ganti Password</h2>
-              <button onClick={() => { setModal(null); setPwError(''); }} style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '20px' }}>✕</button>
-            </div>
-            <form onSubmit={handleChangePassword}>
-              {[
-                { label: 'Password Saat Ini', key: 'current' as const, ph: '••••••••' },
-                { label: 'Password Baru', key: 'new' as const, ph: 'Min. 8 karakter' },
-                { label: 'Konfirmasi Password Baru', key: 'confirm' as const, ph: '••••••••' },
-              ].map(f => (
-                <div key={f.key} style={{ marginBottom: '14px' }}>
-                  <label style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', fontWeight: 700, color: '#fff', display: 'block', marginBottom: '6px' }}>{f.label}</label>
-                  <input type="password" placeholder={f.ph} value={passwords[f.key]}
-                    onChange={e => setPasswords(p => ({ ...p, [f.key]: e.target.value }))}
-                    style={INPUT_STYLE} />
+          {/* ─── Ganti Password ── */}
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: 'clamp(16px, 2.5vw, 24px)', marginBottom: '20px' }}>
+            <p style={{ fontSize: 'clamp(11px, 1.2vw, 14px)', fontWeight: 700, color: '#737373', letterSpacing: '1px', marginBottom: '20px' }}>Ganti Password</p>
+
+            <form onSubmit={changePassword}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Password Saat Ini</label>
+                  <input id="pw-current" type="password" value={pwForm.current} onChange={e => setPwForm(p => ({ ...p, current: e.target.value }))} style={inputStyle()} />
                 </div>
-              ))}
-              {pwError && <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '11px', color: '#ef4444', marginBottom: '10px' }}>⚠️ {pwError}</p>}
-              <button type="submit" style={{
-                width: '100%', height: '44px', borderRadius: '12px', marginTop: '8px',
-                background: pwSaved ? '#166534' : 'linear-gradient(90deg, #f1301e, #9f2315)',
-                border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700, color: '#fff',
-              }}>{pwSaved ? '✓ Password Diperbarui!' : 'Ganti Password'}</button>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Password Baru</label>
+                  <input id="pw-new" type="password" value={pwForm.next} onChange={e => setPwForm(p => ({ ...p, next: e.target.value }))} style={inputStyle()} />
+                  <p style={{ fontSize: '10px', color: '#737373', marginTop: '4px' }}>Minimal 8 Karakter</p>
+                </div>
+                <div>
+                  <label style={{ fontSize: '11px', fontWeight: 600, color: '#737373', display: 'block', marginBottom: '7px' }}>Konfirmasi Password Baru</label>
+                  <input id="pw-confirm" type="password" value={pwForm.confirm} onChange={e => setPwForm(p => ({ ...p, confirm: e.target.value }))} style={inputStyle()} />
+                </div>
+                {pwError && <p style={{ fontSize: '11px', color: '#ef4444' }}>⚠ {pwError}</p>}
+              </div>
+              <button id="btn-save-password" type="submit" style={saveBtnStyle}>
+                {pwSaved ? '✓ Password Diperbarui!' : 'Simpan Password Baru'}
+              </button>
             </form>
           </div>
+
+          {/* ─── Delete Account (per Figma: "Permanently" + 1 button) ── */}
+          <div style={{ background: CARD_BG, border: `1px solid #2a0a0a`, borderRadius: '16px', padding: 'clamp(16px, 2.5vw, 24px)', marginBottom: '20px' }}>
+            <p style={{ fontSize: 'clamp(11px, 1.2vw, 14px)', fontWeight: 700, color: '#737373', letterSpacing: '1px', marginBottom: '8px' }}>Delete Account</p>
+            <p style={{ fontSize: '12px', color: '#ef4444', marginBottom: '16px', fontWeight: 600 }}>Permanently</p>
+            <button id="btn-delete-account" style={{
+              width: '100%', height: '48px', borderRadius: '6px', border: '1px solid #ef444433',
+              background: 'rgba(239,68,68,0.06)', color: '#ef4444',
+              fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+            }}>Delete Account</button>
+          </div>
+
+          {/* Logout */}
+          <button id="btn-logout" onClick={handleLogout} style={{
+            width: '100%', height: '48px', borderRadius: '14px',
+            background: '#0a0a0a', border: `1px solid #2a0a0a`, cursor: 'pointer',
+            fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, color: '#ef4444',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+            transition: 'background 0.2s',
+          }}
+            onMouseEnter={e => (e.currentTarget as HTMLButtonElement).style.background = '#150505'}
+            onMouseLeave={e => (e.currentTarget as HTMLButtonElement).style.background = '#0a0a0a'}
+          >
+            ⬅ Keluar dari Akun
+          </button>
         </div>
-      )}
-    </>
+      </div>
+
+      <style>{`
+        @media (min-width: 900px) {
+          .settings-sidebar { display: block !important; }
+        }
+      `}</style>
+    </div>
   );
 }

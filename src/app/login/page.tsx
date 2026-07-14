@@ -2,19 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { login, isAuthenticated } from '@/lib/auth';
+import { login, getUser } from '@/lib/auth';
 
 export default function LoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    if (isAuthenticated()) {
-      router.replace('/home');
-    }
+    (async () => {
+      const u = await getUser();
+      if (u) router.replace('/home');
+    })();
   }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,8 +25,7 @@ export default function LoginPage() {
     }
     setLoading(true);
     setError('');
-    await new Promise(r => setTimeout(r, 1000));
-    const result = login(form.email, form.password);
+    const result = await login(form.email, form.password);
     if (result.success) {
       router.replace('/home');
     } else {

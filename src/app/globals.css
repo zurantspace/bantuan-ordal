@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-anton: var(--font-anton), ui-sans-serif, system-ui, sans-serif;
   
   /* Brand colors */
   --color-brand-red: #E11D48; /* rose-600 */
@@ -21,42 +22,13 @@ html, body {
   padding: 0;
   background-color: #000;
   color: var(--foreground);
-  overflow-x: hidden;
-}
-
-/* =============================================
-   LANDING PAGE SCALE SHELL
-   The landing page is a 393px-wide absolute-positioned
-   canvas. We use CSS transform to scale it to fill
-   the full viewport width on every screen size.
-   JS in page.tsx sets --scale-factor dynamically.
-   ============================================= */
-
-/* The outer page shell - contains scaled canvas */
-.page-shell {
-  display: block;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: #000;
-  position: relative;
-  /* Desktop: subtle dark bg to show content is centered */
-  background-image: radial-gradient(ellipse at 50% 0%, rgba(241,48,30,0.04) 0%, transparent 60%);
-}
-
-.page-container {
-  /* Fixed 393px canvas - scaled via transform */
-  width: 393px;
-  position: relative;
-  transform-origin: top left;
-  /* transform: scale(X) is set inline by JS */
 }
 
 /* =============================================
    DASHBOARD SHELL
-   Dashboard pages (home, watch, bonus, etc.) are
-   flexbox-based. On mobile they are full-width,
-   on desktop they expand to fill the screen with
-   a sidebar-like layout.
+   Responsive full-viewport shell for dashboard pages.
+   Replaced landing page "scale shell" with native
+   React+Tailwind responsive layout (see page.tsx).
    ============================================= */
 
 .dashboard-shell {
@@ -78,20 +50,14 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Tablet & Desktop: full-width fluid — scaling handled by ScaledIframeCanvas JS */
-@media (min-width: 600px) {
-  .dashboard-shell {
-    background-color: #040404;
+/* Desktop: full-width, content auto-constrains per page */
+@media (min-width: 768px) {
+  .dashboard-container {
+    max-width: none;
+    margin: 0;
   }
-  /* No max-width constraint — let the iframe canvas scale to fill */
 }
 
-/* Bottom nav always spans full container width */
-.dashboard-nav-bar {
-  left: 0 !important;
-  transform: none !important;
-  width: 100% !important;
-}
 
 
 /* vietnamese */

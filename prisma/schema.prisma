@@ -1,0 +1,318 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum UserRole {
+  MEMBER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  EXPIRED
+}
+
+enum AffiliateStatus {
+  PENDING
+  APPROVED
+  SUSPENDED
+}
+
+enum CommissionStatus {
+  PENDING
+  APPROVED
+  PAID
+}
+
+enum WithdrawalStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  REJECTED
+}
+
+// ─── Models ───────────────────────────────────────────────────────────────────
+
+model User {
+  id                String    @id @default(cuid())
+  name              String
+  email             String    @unique
+  phone             String
+  passwordHash      String
+  role              UserRole  @default(MEMBER)
+  tier              String    @default("standard") // standard | premium
+  isActive          Boolean   @default(true)
+  avatarUrl         String?   // R2 key or URL
+
+  // 1-device policy
+  activeDeviceToken String?
+  lastLoginIp       String?
+  lastLoginAt       DateTime?
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  orders            Order[]
+  watchProgress     WatchProgress[]
+  affiliate         Affiliate?
+  emailLogs         EmailLog[]
+  waLogs            WALog[]
+
+  @@index([email])
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  slug        String   @unique // main_course | order_bump | premium_upgrade
+  name        String
+  description String?
+  price       Int      // dalam Rupiah (satuan terendah)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orders      Order[]
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderId       String      @unique // ORD-{timestamp}-{userId}
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id])
+  productId     String
+  product       Product     @relation(fields: [productId], references: [id])
+
+  // Customer snapshot (bisa beda dari User jika user belum ada)
+  customerName  String
+  customerEmail String
+  customerPhone String
+
+  // Pricing
+  amount          Int         // total bayar dalam Rupiah
+  hasOrderBump    Boolean     @default(false)
+  orderBumpAmount Int         @default(0)
+  promoDiscount   Int         @default(0)
+  promoCode       String?
+
+  // Midtrans
+  status          OrderStatus @default(PENDING)
+  midtransToken   String?     // snap token dari Midtrans
+  midtransOrderId String?     // order_id yang dikirim ke Midtrans (bisa sama dengan orderId)
+  paymentType     String?     // gopay | bank_transfer | credit_card | dll
+  fraudStatus     String?     // accept | challenge | deny
+  midtransRawJson Json?       // raw notification JSON dari Midtrans
+
+  // UTM & Attribution
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  utmContent    String?
+  referrerUrl   String?
+  landingUrl    String?
+  affiliateCode String?
+
+  // Abandoned checkout
+  abandonedAt   DateTime?
+  followupSent  Int       @default(0) // bitmask flags untuk tracking mana yang sudah dikirim
+
+  paidAt        DateTime?
+  invoiceUrl    String?   // R2 key: "invoices/{orderId}.pdf"
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  affiliateTransactions AffiliateTransaction[]
+  promoSchedules        PromoSchedule[]
+
+  @@index([status])
+  @@index([customerEmail])
+  @@index([affiliateCode])
+  @@index([createdAt])
+}
+
+model Episode {
+  id          String   @id @default(cuid())
+  number      Int      @unique
+  title       String
+  subtitle    String?
+  description String?
+  videoUrl    String?  // URL dari Bunny.net / Vimeo
+  thumbnail   String?
+  duration    String?  // "45 menit"
+  tier        String   @default("standard") // standard | premium
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  watchProgress WatchProgress[]
+}
+
+model WatchProgress {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  episodeId       String
+  episode         Episode   @relation(fields: [episodeId], references: [id])
+
+  progressSeconds Int       @default(0)
+  totalSeconds    Int       @default(0)
+  progressPct     Float     @default(0)  // 0–100
+  completed       Boolean   @default(false)
+  completedAt     DateTime?
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@unique([userId, episodeId])
+  @@index([userId])
+}
+
+model BonusResource {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  fileUrl     String?
+  fileType    String?  // pdf | docx
+  tier        String   @default("standard") // standard | premium
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Affiliate {
+  id            String          @id @default(cuid())
+  userId        String          @unique
+  user          User            @relation(fields: [userId], references: [id])
+  referralCode  String          @unique
+  status        AffiliateStatus @default(PENDING)
+
+  // Payout info
+  bankName      String?
+  bankAccount   String?
+  bankHolder    String?
+  gopayNumber   String?
+
+  // Denormalized stats (updated via cron)
+  totalClicks     Int @default(0)
+  totalOrders     Int @default(0)
+  totalCommission Int @default(0) // lifetime earned, in Rupiah
+  balance         Int @default(0) // available to withdraw
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  clicks       AffiliateClick[]
+  transactions AffiliateTransaction[]
+  withdrawals  Withdrawal[]
+
+  @@index([referralCode])
+}
+
+model AffiliateClick {
+  id          String    @id @default(cuid())
+  affiliateId String
+  affiliate   Affiliate @relation(fields: [affiliateId], references: [id])
+  ip          String
+  userAgent   String?
+  createdAt   DateTime  @default(now())
+
+  @@index([affiliateId, createdAt])
+  @@index([ip, affiliateId, createdAt]) // anti-fraud: 1 click per IP per hour
+}
+
+model AffiliateTransaction {
+  id               String           @id @default(cuid())
+  affiliateId      String
+  affiliate        Affiliate        @relation(fields: [affiliateId], references: [id])
+  orderId          String
+  order            Order            @relation(fields: [orderId], references: [id])
+  type             String           // transaction | click_bonus
+  commissionAmount Int              // dalam Rupiah
+  status           CommissionStatus @default(PENDING)
+  createdAt        DateTime         @default(now())
+  approvedAt       DateTime?
+  paidAt           DateTime?
+
+  @@index([affiliateId, status])
+}
+
+model Withdrawal {
+  id          String           @id @default(cuid())
+  affiliateId String
+  affiliate   Affiliate        @relation(fields: [affiliateId], references: [id])
+  amount      Int
+  method      String           // gopay | bank_transfer | ovo
+  account     String           // nomor rekening / GoPay
+  holderName  String?
+  status      WithdrawalStatus @default(PENDING)
+  note        String?
+  createdAt   DateTime         @default(now())
+  processedAt DateTime?
+
+  @@index([affiliateId])
+}
+
+model EmailLog {
+  id           String   @id @default(cuid())
+  userId       String?
+  user         User?    @relation(fields: [userId], references: [id])
+  toEmail      String
+  subject      String
+  templateCode String   // E01–E11
+  status       String   // sent | failed
+  messageId    String?
+  error        String?
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([templateCode])
+}
+
+model WALog {
+  id           String   @id @default(cuid())
+  userId       String?
+  user         User?    @relation(fields: [userId], references: [id])
+  toPhone      String
+  message      String   @db.Text
+  templateCode String   // W01–W08
+  status       String   // sent | failed | queued
+  error        String?
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([toPhone, createdAt]) // rate limiting check
+}
+
+model PromoSchedule {
+  id             String    @id @default(cuid())
+  orderId        String
+  order          Order     @relation(fields: [orderId], references: [id])
+  triggerType    String    // day3_99k | day5_expire | day10_79k | day11_expire
+  scheduledAt    DateTime
+  executedAt     DateTime?
+  discountAmount Int       // harga yang berlaku saat promo
+  promoToken     String    @unique // token untuk lock harga di checkout URL
+  expiresAt      DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@index([orderId])
+  @@index([scheduledAt])
+}
+
+model AppSetting {
+  key       String   @id
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
+}
