@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 
-const RED = '#f1301e';
+const RED      = '#f1301e';
 const RED_DARK = '#9f2315';
-const CARD_BG = '#0d0d0d';
-const BORDER = '#282828';
-const BORDER_MID = '#1f1f1f';
+const CARD_BG  = '#101010';
+const BORDER   = '#3a3a3a';
+const BORDER_MID = '#2b2b2b';
+
 
 function formatRp(n: number) {
   return 'Rp ' + n.toLocaleString('id-ID');

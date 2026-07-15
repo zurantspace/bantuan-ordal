@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-const RED = '#f1301e';
+const RED      = '#f1301e';
 const RED_DARK = '#9f2315';
-const CARD_BG = '#0d0d0d';
-const BORDER = '#282828';
-const BORDER_MID = '#1f1f1f';
+const CARD_BG  = '#101010';
+const BORDER   = '#3a3a3a';
+const BORDER_MID = '#2b2b2b';
 
 function formatRp(n: number) {
   return 'Rp ' + n.toLocaleString('id-ID');
@@ -43,25 +44,24 @@ const METHODS: WithdrawalMethod[] = [
 const MIN_WITHDRAW = 50000;
 
 export default function ProfileWalletPage() {
-  const [stats, setStats] = useState<AffiliateStats | null>(null);
-  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const [stats, setStats]           = useState<AffiliateStats | null>(null);
+  const [loading, setLoading]       = useState(true);
   const [notAffiliate, setNotAffiliate] = useState(false);
 
-  const [showModal, setShowModal] = useState(false);
-  const [method, setMethod]       = useState(METHODS[0]);
-  const [account, setAccount]     = useState('');
-  const [amount, setAmount]       = useState('');
-  const [step, setStep]           = useState<'form' | 'confirm' | 'success'>('form');
+  const [showModal, setShowModal]   = useState(false);
+  const [method, setMethod]         = useState(METHODS[0]);
+  const [account, setAccount]       = useState('');
+  const [amount, setAmount]         = useState('');
+  const [step, setStep]             = useState<'form' | 'confirm' | 'success'>('form');
   const [withdrawError, setWithdrawError] = useState('');
   const [withdrawLoading, setWithdrawLoading] = useState(false);
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
+  useEffect(() => { fetchStats(); }, []);
 
   async function fetchStats() {
     try {
-      const res = await fetch('/api/affiliate/stats', { credentials: 'include' });
+      const res  = await fetch('/api/affiliate/stats', { credentials: 'include' });
       const data = await res.json();
       if (data.success) {
         if (!data.affiliate) setNotAffiliate(true);
@@ -79,7 +79,7 @@ export default function ProfileWalletPage() {
     if (!stats) return;
     setWithdrawLoading(true); setWithdrawError('');
     try {
-      const res = await fetch('/api/affiliate/withdraw', {
+      const res  = await fetch('/api/affiliate/withdraw', {
         method: 'POST', credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: amountNum, method: method.method, account }),
@@ -94,17 +94,19 @@ export default function ProfileWalletPage() {
   const balance   = stats?.balance ?? 0;
   const amountNum = parseInt(amount.replace(/\D/g, ''), 10) || 0;
   const isValid   = account.length >= 8 && amountNum >= MIN_WITHDRAW && amountNum <= balance;
+  const canWithdraw = balance >= MIN_WITHDRAW && stats?.status === 'APPROVED';
 
-  const STAT_CARDS = stats ? [
-    { label: 'Total Komisi',    value: formatRp(stats.totalCommission),  sub: 'akumulasi semua waktu' },
-    { label: 'Saldo Tersedia',  value: formatRp(stats.balance),          sub: 'bisa dicairkan', accent: RED },
-    { label: 'Pending',         value: formatRp(stats.pendingCommission), sub: 'sedang diproses' },
-    { label: 'Total Order',     value: String(stats.totalOrders),        sub: 'transaksi via link kamu' },
-    { label: 'Total Klik',      value: stats.totalClicks.toLocaleString('id-ID'), sub: 'semua klik link referral' },
+  const STAT_GRID = stats ? [
+    { label: 'Total Commission',  value: formatRp(stats.totalCommission),                                      grad: true  },
+    { label: 'Unpaid Commission', value: formatRp(stats.pendingCommission),                                    grad: true  },
+    { label: 'Paid Commission',   value: formatRp(Math.max(0, stats.totalCommission - stats.pendingCommission)), grad: true  },
+    { label: 'Total Leads',       value: String(stats.totalOrders),                                            grad: true  },
+    { label: 'Lead Verified',     value: String(stats.totalOrders),                                            grad: true  },
+    { label: 'Lead Unverified',   value: String(stats.totalClicks),                                            grad: false },
   ] : [];
 
   return (
-    <div style={{ fontFamily: 'Poppins, sans-serif' }}>
+    <div style={{ fontFamily: 'Poppins, sans-serif', paddingBottom: '8px' }}>
 
       {loading && (
         <div style={{ display: 'flex', justifyContent: 'center', padding: '60px 0', color: '#555', fontSize: '13px' }}>
@@ -127,76 +129,87 @@ export default function ProfileWalletPage() {
 
       {!loading && stats && (
         <>
-          {/* Balance Hero Card */}
-          <div style={{
-            background: `linear-gradient(135deg, rgba(241,48,30,0.15) 0%, rgba(0,0,0,0) 100%)`,
-            border: `1px solid ${RED}33`, borderRadius: '20px',
-            padding: '24px', marginBottom: '16px',
-          }}>
-            <div style={{ fontSize: '11px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '8px' }}>
-              SALDO TERSEDIA
+          {/* ── Summary Section ── */}
+          <div style={{ marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '17px', fontWeight: 600, color: '#fff', marginBottom: '14px' }}>Summary</h2>
+
+            {/* 2-col Stats Grid matching design template */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '14px' }}>
+              {STAT_GRID.map((s, i) => (
+                <div key={i} style={{
+                  background: CARD_BG, border: `1px solid ${BORDER_MID}`,
+                  borderRadius: '11px', padding: '12px 14px',
+                }}>
+                  <p style={{ fontSize: '10px', fontWeight: 600, color: '#535353', marginBottom: '6px' }}>{s.label}</p>
+                  {s.grad ? (
+                    <p style={{
+                      fontSize: '14px', fontWeight: 600,
+                      background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
+                      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                    }}>{s.value}</p>
+                  ) : (
+                    <p style={{ fontSize: '14px', fontWeight: 600, color: '#fff' }}>{s.value}</p>
+                  )}
+                </div>
+              ))}
             </div>
-            <div style={{ fontSize: '36px', fontWeight: 800, color: '#fff', marginBottom: '4px' }}>
-              {formatRp(balance)}
-            </div>
+
+            {/* Status badge if not approved */}
             {stats.status !== 'APPROVED' && (
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: '6px',
                 background: 'rgba(251,191,36,0.1)', border: '1px solid #fbbf2433',
-                borderRadius: '20px', padding: '4px 12px',
-                fontSize: '10px', fontWeight: 700, color: '#fbbf24', marginTop: '8px',
+                borderRadius: '20px', padding: '6px 14px',
+                fontSize: '11px', fontWeight: 700, color: '#fbbf24', marginBottom: '12px',
               }}>
-                ⏳ Status affiliate: {stats.status}
+                ⏳ Status: {stats.status}
               </div>
             )}
-          </div>
 
-          {/* Stats Grid */}
-          <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(150px, 100%), 1fr))',
-            gap: '10px', marginBottom: '20px',
-          }}>
-            {STAT_CARDS.map(s => (
-              <div key={s.label} style={{
-                background: CARD_BG, border: `1px solid ${BORDER}`,
-                borderRadius: '12px', padding: '14px 16px',
-              }}>
-                <p style={{ fontSize: '10px', color: '#555', marginBottom: '4px', lineHeight: 1.3 }}>{s.label}</p>
-                <p style={{ fontSize: '20px', fontWeight: 800, color: s.accent || '#fff', marginBottom: '2px' }}>{s.value}</p>
-                <p style={{ fontSize: '9px', color: '#333' }}>{s.sub}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Cairkan Dana Button */}
-          <button
-            id="btn-cairkan"
-            onClick={() => { setShowModal(true); setStep('form'); }}
-            disabled={balance < MIN_WITHDRAW || stats.status !== 'APPROVED'}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-              width: '100%', height: '52px', borderRadius: '60px', border: 'none',
-              background: balance >= MIN_WITHDRAW && stats.status === 'APPROVED'
-                ? `linear-gradient(90deg, ${RED}, ${RED_DARK})`
-                : '#1a1a1a',
-              color: balance >= MIN_WITHDRAW && stats.status === 'APPROVED' ? '#fff' : '#555',
-              fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 700,
-              cursor: balance >= MIN_WITHDRAW && stats.status === 'APPROVED' ? 'pointer' : 'not-allowed',
-              boxShadow: balance >= MIN_WITHDRAW && stats.status === 'APPROVED' ? '0 0 24px rgba(241,48,30,0.35)' : 'none',
-              marginBottom: '24px', transition: 'all 0.2s',
-            }}
-          >
-            💸 Cairkan Dana
-          </button>
-
-          {/* Recent Transactions */}
-          <div style={{ marginBottom: '16px' }}>
-            <div style={{ fontSize: '11px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '12px' }}>
-              TRANSAKSI TERBARU
+            {/* Two action buttons — matches design template */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <button
+                id="btn-cairkan"
+                onClick={() => { setShowModal(true); setStep('form'); }}
+                disabled={!canWithdraw}
+                style={{
+                  height: '52px', borderRadius: '11px', border: 'none',
+                  background: canWithdraw ? `linear-gradient(90deg, ${RED}, ${RED_DARK})` : '#1a1a1a',
+                  color: canWithdraw ? '#fff' : '#555',
+                  fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 600,
+                  cursor: canWithdraw ? 'pointer' : 'not-allowed',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                  boxShadow: canWithdraw ? '0 0 20px rgba(241,48,30,0.3)' : 'none',
+                  transition: 'all 0.2s',
+                }}
+              >
+                💸 Cairkan Dana
+              </button>
+              <button
+                id="btn-apa-affiliate"
+                onClick={() => router.push('/profile/affiliate')}
+                style={{
+                  height: '52px', borderRadius: '11px',
+                  border: `1px solid ${BORDER_MID}`,
+                  background: CARD_BG,
+                  color: '#ccc',
+                  fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 600,
+                  cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                }}
+              >
+                🔗 Apa Itu Affiliate?
+              </button>
             </div>
+          </div>
+
+          {/* ── History Section ── */}
+          <div style={{ marginBottom: '16px' }}>
+            <h2 style={{ fontSize: '17px', fontWeight: 600, color: '#fff', marginBottom: '12px' }}>History</h2>
+
             {stats.recentTransactions.length === 0 ? (
               <div style={{
-                background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '12px',
+                background: CARD_BG, border: `1px solid ${BORDER_MID}`, borderRadius: '12px',
                 padding: '24px', textAlign: 'center', color: '#555', fontSize: '12px',
               }}>
                 Belum ada transaksi
@@ -205,23 +218,24 @@ export default function ProfileWalletPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {stats.recentTransactions.map(tx => (
                   <div key={tx.id} style={{
-                    background: CARD_BG, border: `1px solid ${BORDER}`,
+                    background: CARD_BG, border: `1px solid ${BORDER_MID}`,
                     borderRadius: '12px', padding: '14px 16px',
                     display: 'flex', alignItems: 'center', gap: '12px',
                   }}>
                     <div style={{
-                      width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
-                      background: 'rgba(241,48,30,0.1)', border: `1px solid ${RED}33`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px',
+                      width: '40px', height: '40px', borderRadius: '8px', flexShrink: 0,
+                      background: `linear-gradient(135deg, rgba(241,48,30,0.15), rgba(0,0,0,0.3))`,
+                      border: `1px solid ${RED}33`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px',
                     }}>💰</div>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ fontSize: '12px', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>Komisi Referral</p>
-                      <p style={{ fontSize: '10px', color: '#555' }}>
+                      <p style={{ fontSize: '13px', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>Komisi Referral</p>
+                      <p style={{ fontSize: '10px', color: '#535353' }}>
                         {new Date(tx.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                       </p>
                     </div>
                     <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <p style={{ fontSize: '14px', fontWeight: 800, color: '#fff', marginBottom: '4px' }}>
+                      <p style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>
                         +{formatRp(tx.commissionAmount)}
                       </p>
                       <span style={{
@@ -240,16 +254,15 @@ export default function ProfileWalletPage() {
             )}
           </div>
 
-          {/* Referral Link */}
-          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '14px', padding: '16px 18px' }}>
-            <p style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '10px' }}>
+          {/* ── Referral Link ── */}
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER_MID}`, borderRadius: '14px', padding: '16px 18px' }}>
+            <p style={{ fontSize: '10px', fontWeight: 700, color: '#535353', letterSpacing: '1px', marginBottom: '10px' }}>
               LINK REFERRAL KAMU
             </p>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '8px' }}>
               <div style={{
-                flex: 1, minWidth: '180px', background: '#0a0a0a',
-                border: `1px solid ${BORDER_MID}`, borderRadius: '10px',
-                padding: '10px 12px', fontFamily: 'monospace', fontSize: '11px', color: '#555',
+                flex: 1, background: '#0a0a0a', border: `1px solid ${BORDER_MID}`, borderRadius: '10px',
+                padding: '10px 12px', fontFamily: 'monospace', fontSize: '11px', color: '#535353',
                 overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
               }}>
                 {stats.referralLink}
@@ -269,16 +282,15 @@ export default function ProfileWalletPage() {
         </>
       )}
 
-      {/* Withdrawal Modal */}
+      {/* ── Withdrawal Modal ── */}
       {showModal && (
         <div
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 200, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', padding: '0' }}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 200, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}
           onClick={e => { if (e.target === e.currentTarget) handleClose(); }}
         >
           <div style={{
-            background: '#0d0d0d', borderRadius: '24px 24px 0 0',
-            padding: '24px', width: '100%', maxWidth: '500px',
-            border: `1px solid ${BORDER_MID}`, borderBottom: 'none',
+            background: '#0d0d0d', borderRadius: '24px 24px 0 0', padding: '24px',
+            width: '100%', maxWidth: '500px', border: '1px solid #1f1f1f', borderBottom: 'none',
             maxHeight: '90vh', overflowY: 'auto',
           }}>
             <div style={{ width: '40px', height: '4px', background: '#333', borderRadius: '2px', margin: '0 auto 24px' }} />
@@ -286,7 +298,6 @@ export default function ProfileWalletPage() {
             {step === 'form' && (
               <>
                 <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '20px' }}>Cairkan Dana</h2>
-
                 <div style={{ marginBottom: '14px' }}>
                   <label style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>METODE PEMBAYARAN</label>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -294,7 +305,7 @@ export default function ProfileWalletPage() {
                       <button key={m.id} id={`method-${m.id}`} onClick={() => setMethod(m)} style={{
                         display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px',
                         background: method.id === m.id ? 'rgba(241,48,30,0.08)' : '#0a0a0a',
-                        border: `1px solid ${method.id === m.id ? RED + '55' : BORDER_MID}`,
+                        border: `1px solid ${method.id === m.id ? RED + '55' : '#1f1f1f'}`,
                         borderRadius: '12px', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', textAlign: 'left',
                       }}>
                         <span style={{ fontSize: '12px', fontWeight: 700, color: method.id === m.id ? '#fff' : '#888' }}>{m.label}</span>
@@ -303,22 +314,18 @@ export default function ProfileWalletPage() {
                     ))}
                   </div>
                 </div>
-
                 <div style={{ marginBottom: '14px' }}>
                   <label style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>NOMOR AKUN</label>
                   <input id="input-account" type="text" placeholder={method.placeholder} value={account} onChange={e => setAccount(e.target.value)}
-                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: `1px solid ${BORDER_MID}`, borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
+                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: '1px solid #1f1f1f', borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
                 </div>
-
                 <div style={{ marginBottom: '20px' }}>
                   <label style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>JUMLAH (Saldo: {formatRp(balance)})</label>
                   <input id="input-amount" type="number" placeholder={`Min. ${formatRp(MIN_WITHDRAW)}`} value={amount} onChange={e => setAmount(e.target.value)}
-                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: `1px solid ${BORDER_MID}`, borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
+                    style={{ width: '100%', height: '44px', background: '#0a0a0a', border: '1px solid #1f1f1f', borderRadius: '12px', padding: '0 14px', color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }} />
                   {amountNum > 0 && amountNum < MIN_WITHDRAW && <p style={{ fontSize: '10px', color: '#ef4444', marginTop: '4px' }}>⚠ Minimum {formatRp(MIN_WITHDRAW)}</p>}
                 </div>
-
                 {withdrawError && <p style={{ fontSize: '11px', color: '#ef4444', marginBottom: '12px' }}>⚠ {withdrawError}</p>}
-
                 <button id="btn-lanjut" onClick={() => isValid && setStep('confirm')} disabled={!isValid} style={{
                   width: '100%', height: '48px', borderRadius: '60px', border: 'none',
                   background: isValid ? `linear-gradient(90deg, ${RED}, ${RED_DARK})` : '#1a1a1a',
@@ -331,7 +338,7 @@ export default function ProfileWalletPage() {
             {step === 'confirm' && (
               <>
                 <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '20px' }}>Konfirmasi Penarikan</h2>
-                <div style={{ background: '#0a0a0a', border: `1px solid ${BORDER_MID}`, borderRadius: '14px', padding: '18px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ background: '#0a0a0a', border: '1px solid #1f1f1f', borderRadius: '14px', padding: '18px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {[{ label: 'Metode', value: method.label }, { label: 'Nomor Akun', value: account }, { label: 'Jumlah', value: formatRp(amountNum) }].map(r => (
                     <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ fontSize: '12px', color: '#555' }}>{r.label}</span>
@@ -341,7 +348,7 @@ export default function ProfileWalletPage() {
                 </div>
                 {withdrawError && <p style={{ fontSize: '11px', color: '#ef4444', marginBottom: '12px' }}>⚠ {withdrawError}</p>}
                 <div style={{ display: 'flex', gap: '10px' }}>
-                  <button onClick={() => setStep('form')} style={{ flex: 1, height: '44px', borderRadius: '12px', background: '#111', border: `1px solid ${BORDER_MID}`, color: '#888', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>Kembali</button>
+                  <button onClick={() => setStep('form')} style={{ flex: 1, height: '44px', borderRadius: '12px', background: '#111', border: '1px solid #1f1f1f', color: '#888', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>Kembali</button>
                   <button id="btn-konfirmasi" onClick={handleWithdraw} disabled={withdrawLoading} style={{
                     flex: 2, height: '44px', borderRadius: '12px',
                     background: withdrawLoading ? '#333' : `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
@@ -372,3 +379,4 @@ export default function ProfileWalletPage() {
     </div>
   );
 }
+

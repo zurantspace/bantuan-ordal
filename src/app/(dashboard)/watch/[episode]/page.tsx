@@ -75,40 +75,7 @@ export default function WatchPage() {
           )}
         </div>
 
-        {/* ── Putar + Template buttons (per Figma) ── */}
-        <div style={{ display: 'flex', gap: '10px', padding: '14px 20px 8px' }}>
-          <button
-            id="btn-putar"
-            style={{
-              flex: 1, height: '36px', borderRadius: '8px',
-              background: 'none', border: '1px solid #3a3a3a',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-              cursor: 'pointer', color: '#ccc', fontSize: '12px', fontWeight: 600,
-              fontFamily: 'Poppins, sans-serif',
-            }}
-          >
-            <svg width="10" height="12" viewBox="0 0 6 8" fill="currentColor"><path d="M0 0v7.583l5.958-3.791L0 0z" /></svg>
-            Putar
-          </button>
-          <button
-            id="btn-go-template"
-            onClick={() => router.push('/template')}
-            style={{
-              flex: 1, height: '36px', borderRadius: '8px',
-              background: `linear-gradient(90deg, #f1301e, #9f2315)`,
-              border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-              cursor: 'pointer', color: '#fff', fontSize: '12px', fontWeight: 600,
-              fontFamily: 'Poppins, sans-serif',
-            }}
-          >
-            <svg width="12" height="14" viewBox="0 0 18 18.375" fill="none">
-              <rect x="0" y="0" width="18" height="18.375" rx="1.969" fill="rgba(255,255,255,0.25)" />
-              <path d="M5.9 5.465c.79 0 1.49.278 2.007.696.477.388.701.775.896 1.123l-1.363.695c-.097-.228-.215-.466-.516-.725-.323-.269-.653-.349-.936-.349-1.11 0-1.694 1.054-1.694 2.227 0 1.541.77 2.306 1.694 2.306.896 0 1.257-.636 1.49-1.043l1.354.706c-.253.407-.497.805-1.042 1.192-.292.21-.963.618-1.917.618-1.822 0-3.292-1.352-3.292-3.729 0-2.077 1.383-3.717 3.33-3.717zm3.033.218h1.831l1.421 4.991 1.411-4.991H15.43l-2.386 7.018H11.32L8.933 5.683z" fill="white" />
-            </svg>
-            Template
-          </button>
-        </div>
+
 
         {/* ── Video Player ── */}
         <div style={{ padding: '0 20px 0' }}>
@@ -117,7 +84,6 @@ export default function WatchPage() {
             border: '1px solid ' + BORDER, borderBottom: 'none',
             position: 'relative',
             aspectRatio: '16/9',
-            maxHeight: '240px',
             background: '#0a0a0a',
             boxShadow: '0 0 40px rgba(241,48,30,0.08)',
           }}>
@@ -168,6 +134,41 @@ export default function WatchPage() {
               }}
             />
           </div>
+        </div>
+
+        {/* ── Putar + Template buttons — below video per design template ── */}
+        <div style={{ display: 'flex', gap: '10px', padding: '12px 20px 4px', justifyContent: 'flex-start' }}>
+          <button
+            id="btn-putar"
+            style={{
+              height: '36px', padding: '0 20px', borderRadius: '8px',
+              background: 'none', border: '1px solid #3a3a3a',
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              cursor: 'pointer', color: '#ccc', fontSize: '12px', fontWeight: 600,
+              fontFamily: 'Poppins, sans-serif',
+            }}
+          >
+            <svg width="10" height="12" viewBox="0 0 6 8" fill="currentColor"><path d="M0 0v7.583l5.958-3.791L0 0z" /></svg>
+            Putar
+          </button>
+          <button
+            id="btn-go-template"
+            onClick={() => router.push('/template')}
+            style={{
+              height: '36px', padding: '0 20px', borderRadius: '8px',
+              background: `linear-gradient(90deg, #f1301e, #9f2315)`,
+              border: 'none',
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              cursor: 'pointer', color: '#fff', fontSize: '12px', fontWeight: 600,
+              fontFamily: 'Poppins, sans-serif',
+            }}
+          >
+            <svg width="12" height="14" viewBox="0 0 18 18.375" fill="none">
+              <rect x="0" y="0" width="18" height="18.375" rx="1.969" fill="rgba(255,255,255,0.25)" />
+              <path d="M5.9 5.465c.79 0 1.49.278 2.007.696.477.388.701.775.896 1.123l-1.363.695c-.097-.228-.215-.466-.516-.725-.323-.269-.653-.349-.936-.349-1.11 0-1.694 1.054-1.694 2.227 0 1.541.77 2.306 1.694 2.306.896 0 1.257-.636 1.49-1.043l1.354.706c-.253.407-.497.805-1.042 1.192-.292.21-.963.618-1.917.618-1.822 0-3.292-1.352-3.292-3.729 0-2.077 1.383-3.717 3.33-3.717zm3.033.218h1.831l1.421 4.991 1.411-4.991H15.43l-2.386 7.018H11.32L8.933 5.683z" fill="white" />
+            </svg>
+            Template
+          </button>
         </div>
 
         {/* ── Apa yang dipelajari disini? (per Figma 170:210) ── */}

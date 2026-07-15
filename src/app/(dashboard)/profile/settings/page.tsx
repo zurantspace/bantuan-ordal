@@ -5,20 +5,21 @@ import { useRouter } from 'next/navigation';
 import { getUser, logout } from '@/lib/auth';
 import type { AuthUser } from '@/lib/auth';
 
-const RED = '#f1301e';
+const RED      = '#f1301e';
 const RED_DARK = '#9f2315';
-const CARD_BG = '#0d0d0d';
-const BORDER = '#282828';
-const BORDER_MID = '#1f1f1f';
+const CARD_BG  = '#101010';
+const BORDER   = '#3a3a3a';
+const BORDER_MID = '#3a3a3a';
+
 
 function inputStyle(focused = false, disabled = false): React.CSSProperties {
   return {
     width: '100%', height: '48px',
-    background: disabled ? '#080808' : '#0a0a0a',
-    border: `1px solid ${focused ? RED + '55' : disabled ? '#111' : BORDER_MID}`,
-    borderRadius: '12px', padding: '0 14px',
-    color: disabled ? '#444' : '#fff',
-    fontFamily: 'Poppins, sans-serif', fontSize: '13px',
+    background: disabled ? '#0a0a0a' : '#101010',
+    border: `1px solid ${focused ? RED + '88' : BORDER_MID}`,
+    borderRadius: '8px', padding: '0 14px',
+    color: disabled ? '#767676' : '#fff',
+    fontFamily: 'Poppins, sans-serif', fontSize: '14px',
     outline: 'none', boxSizing: 'border-box',
     cursor: disabled ? 'not-allowed' : 'text',
     transition: 'border-color 0.2s',
@@ -88,39 +89,47 @@ export default function ProfileSettingsPage() {
     <div style={{ fontFamily: 'Poppins, sans-serif', display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
       {/* ── Photo Card ── */}
-      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '16px' }}>FOTO PROFIL</p>
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px 20px 20px' }}>
+        <p style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '16px' }}>Foto Profile</p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <div style={{
-            width: '72px', height: '72px', borderRadius: '50%', flexShrink: 0,
-            background: '#1a1a1a', border: '2px solid transparent',
-            backgroundImage: `linear-gradient(#1a1a1a, #1a1a1a), linear-gradient(135deg, ${RED}, ${RED_DARK})`,
-            backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px', color: '#fff',
+            width: '82px', height: '82px', borderRadius: '50%', flexShrink: 0,
+            background: '#212121',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px', color: '#fff',
           }}>
             {user?.name?.[0]?.toUpperCase() || '👤'}
           </div>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label htmlFor="photo-upload" style={{
-              display: 'inline-block', padding: '8px 20px', borderRadius: '8px',
-              background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
-              color: '#fff', fontSize: '12px', fontWeight: 700, cursor: 'pointer', marginBottom: '6px',
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              padding: '8px 14px', borderRadius: '8px',
+              background: '#2a2a2a', border: `1px solid ${BORDER}`,
+              color: '#b7b7b7', fontSize: '13px', fontWeight: 500, cursor: 'pointer',
+              width: 'fit-content',
             }}>Pilih Foto</label>
             <input id="photo-upload" type="file" accept="image/png,image/jpeg,image/webp" style={{ display: 'none' }}
               onChange={e => setPhotoName(e.target.files?.[0]?.name || '')} />
-            {photoName && <p style={{ fontSize: '10px', color: '#555', marginBottom: '6px' }}>{photoName}</p>}
-            <p style={{ fontSize: '10px', color: '#555' }}>Format: JPG, PNG, WebP · Maks 2MB</p>
+            {photoName && <p style={{ fontSize: '10px', color: '#555' }}>{photoName}</p>}
           </div>
         </div>
+        <button style={{
+          marginTop: '16px', height: '33px', padding: '0 20px', borderRadius: '8px', border: 'none',
+          background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
+          color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '12px', fontWeight: 600, cursor: 'pointer',
+        }}>Simpan Foto</button>
       </div>
 
       {/* ── Profile Form ── */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '18px' }}>PROFIL</p>
+        <p style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '18px' }}>Profile</p>
         <form onSubmit={saveProfile}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
-              <label style={{ fontSize: '11px', fontWeight: 600, color: '#555', display: 'block', marginBottom: '6px' }}>Nama Lengkap</label>
+              <label style={{ fontSize: '11px', fontWeight: 700, color: '#767676', display: 'block', marginBottom: '8px' }}>Username</label>
+              <input type="text" value={user?.email?.split('@')[0] || ''} disabled style={inputStyle(false, true)} />
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 700, color: '#767676', display: 'block', marginBottom: '8px' }}>Nama Lengkap</label>
               <input
                 id="settings-name" type="text" value={profileForm.name}
                 onChange={e => setProfileForm(p => ({ ...p, name: e.target.value }))}
@@ -129,35 +138,37 @@ export default function ProfileSettingsPage() {
                 style={inputStyle(focusedField === 'name')}
               />
             </div>
-            <div>
-              <label style={{ fontSize: '11px', fontWeight: 600, color: '#555', display: 'block', marginBottom: '6px' }}>Email</label>
-              <input type="email" value={profileForm.email} disabled style={inputStyle(false, true)} />
-              <p style={{ fontSize: '10px', color: '#444', marginTop: '4px' }}>Email tidak bisa diubah.</p>
-            </div>
           </div>
           <button id="btn-save-profile" type="submit" disabled={profileLoading} style={{
-            width: '100%', height: '48px', borderRadius: '60px', border: 'none', marginTop: '18px',
+            height: '33px', padding: '0 20px', borderRadius: '8px', border: 'none', marginTop: '18px',
             background: profileLoading ? '#333' : `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
-            color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700,
+            color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '12px', fontWeight: 600,
             cursor: profileLoading ? 'not-allowed' : 'pointer',
           }}>
-            {profileSaved ? '✓ Profil Tersimpan!' : profileLoading ? '⏳ Menyimpan...' : 'Simpan Profil'}
+            {profileSaved ? '✓ Tersimpan!' : profileLoading ? '⏳ Menyimpan...' : 'Simpan Profile'}
           </button>
         </form>
       </div>
 
+      {/* ── Email Card ── */}
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
+        <p style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '18px' }}>Email</p>
+        <input type="email" value={profileForm.email} disabled style={inputStyle(false, true)} />
+        <p style={{ fontSize: '11px', fontWeight: 400, color: '#767676', marginTop: '6px' }}>Email tidak bisa diubah.</p>
+      </div>
+
       {/* ── Change Password ── */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, color: '#555', letterSpacing: '1px', marginBottom: '18px' }}>GANTI PASSWORD</p>
+        <p style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '18px' }}>Ganti Password</p>
         <form onSubmit={changePassword}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {[
-              { id: 'pw-current', label: 'Password Saat Ini',    key: 'current', hint: '' },
-              { id: 'pw-new',     label: 'Password Baru',         key: 'next',    hint: 'Minimal 8 karakter' },
+              { id: 'pw-current', label: 'Password Saat Ini',       key: 'current', hint: '' },
+              { id: 'pw-new',     label: 'Password Baru',           key: 'next',    hint: 'Minimal 8 Karakter' },
               { id: 'pw-confirm', label: 'Konfirmasi Password Baru', key: 'confirm', hint: '' },
             ].map(f => (
               <div key={f.key}>
-                <label style={{ fontSize: '11px', fontWeight: 600, color: '#555', display: 'block', marginBottom: '6px' }}>{f.label}</label>
+                <label style={{ fontSize: '11px', fontWeight: 700, color: '#767676', display: 'block', marginBottom: '8px' }}>{f.label}</label>
                 <input
                   id={f.id}
                   type="password"
@@ -167,34 +178,35 @@ export default function ProfileSettingsPage() {
                   onBlur={() => setFocusedField(null)}
                   style={inputStyle(focusedField === f.key)}
                 />
-                {f.hint && <p style={{ fontSize: '10px', color: '#444', marginTop: '4px' }}>{f.hint}</p>}
+                {f.hint && <p style={{ fontSize: '10px', fontWeight: 300, color: '#767676', marginTop: '4px' }}>{f.hint}</p>}
               </div>
             ))}
             {pwError && <p style={{ fontSize: '11px', color: '#ef4444' }}>⚠ {pwError}</p>}
           </div>
           <button id="btn-save-password" type="submit" style={{
-            width: '100%', height: '48px', borderRadius: '60px', border: 'none', marginTop: '18px',
+            height: '33px', padding: '0 20px', borderRadius: '8px', border: 'none', marginTop: '18px',
             background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
-            color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+            color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '12px', fontWeight: 600, cursor: 'pointer',
           }}>
             {pwSaved ? '✓ Password Diperbarui!' : 'Simpan Password Baru'}
           </button>
         </form>
       </div>
 
-      {/* ── Danger Zone ── */}
-      <div style={{ background: 'rgba(239,68,68,0.03)', border: '1px solid #ef444422', borderRadius: '16px', padding: '20px' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, color: '#ef4444', letterSpacing: '1px', marginBottom: '6px' }}>DANGER ZONE</p>
-        <p style={{ fontSize: '12px', color: '#555', marginBottom: '16px' }}>
-          Menghapus akun bersifat permanen dan tidak dapat dibatalkan.
-        </p>
-        <button id="btn-delete-account" style={{
-          width: '100%', height: '44px', borderRadius: '12px',
-          border: '1px solid #ef444433', background: 'rgba(239,68,68,0.06)',
-          color: '#ef4444', fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
-        }}>
-          Hapus Akun
-        </button>
+      {/* ── Danger Zone / Delete Account ── */}
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+          <div>
+            <p style={{ fontSize: '14px', fontWeight: 500, color: '#fff', marginBottom: '2px' }}>Delete Account</p>
+            <p style={{ fontSize: '12px', color: '#767676' }}>Permanently</p>
+          </div>
+          <button id="btn-delete-account" style={{
+            height: '35px', padding: '0 24px', borderRadius: '8px',
+            border: 'none',
+            background: `linear-gradient(90deg, ${RED}, ${RED_DARK})`,
+            color: '#fff', fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 500, cursor: 'pointer',
+          }}>Delete Account</button>
+        </div>
       </div>
 
       {/* ── Logout ── */}
