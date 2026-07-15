@@ -1,0 +1,16 @@
+# Dependencies and caches
+node_modules
+.next
+.vercel
+.git
+
+# Local scripts and tools
+*.js
+*.txt
+*.zip
+*.tsbuildinfo
+
+# Large assets and raw materials not needed in the web build
+Assets
+brief
+design-templates
