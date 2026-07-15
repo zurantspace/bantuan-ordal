@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      { source: '/wallet',    destination: '/profile/wallet',    permanent: true },
+      { source: '/affiliate', destination: '/profile/affiliate', permanent: true },
+      { source: '/settings',  destination: '/profile/settings',  permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

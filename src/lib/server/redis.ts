@@ -19,6 +19,14 @@ export const redis =
   globalForRedis.redis ??
   new IORedis(redisConfig);
 
+redis.on('error', (err) => {
+  // Silence connection errors to avoid flooding the node event loop in local development
+  if (process.env.NODE_ENV !== 'production') {
+    // Just a simple log, don't throw
+    console.debug('[Redis] connection warning:', err.message);
+  }
+});
+
 if (process.env.NODE_ENV !== 'production') {
   globalForRedis.redis = redis;
 }

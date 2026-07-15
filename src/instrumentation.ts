@@ -8,6 +8,11 @@
 export async function register() {
   // Only start workers in Node.js runtime (not Edge)
   if (process.env.NEXT_RUNTIME === 'nodejs') {
+    if (process.env.DISABLE_REDIS_WORKERS === 'true') {
+      console.log('[Workers] Redis workers are disabled locally (DISABLE_REDIS_WORKERS=true).');
+      return;
+    }
+
     const { startEmailWorker, startWAWorker, startAbandonedCheckoutWorker, startAffiliateCronWorker } =
       await import('./lib/server/workers');
     const { affiliateQueue, abandonedCheckoutQueue } = await import('./lib/server/redis');

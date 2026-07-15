@@ -111,11 +111,14 @@ export default function WatchPage() {
         </div>
 
         {/* ── Video Player ── */}
-        <div style={{ padding: '0 20px 20px' }}>
+        <div style={{ padding: '0 20px 0' }}>
           <div style={{
-            borderRadius: '16px', overflow: 'hidden',
-            border: '1px solid ' + BORDER, position: 'relative',
-            aspectRatio: '16/9', background: '#0a0a0a',
+            borderRadius: '16px 16px 0 0', overflow: 'hidden',
+            border: '1px solid ' + BORDER, borderBottom: 'none',
+            position: 'relative',
+            aspectRatio: '16/9',
+            maxHeight: '240px',
+            background: '#0a0a0a',
             boxShadow: '0 0 40px rgba(241,48,30,0.08)',
           }}>
             {episode.videoUrl ? (
@@ -138,10 +141,37 @@ export default function WatchPage() {
               </div>
             )}
           </div>
+
+          {/* ── YouTube-style thin progress bar directly under video ── */}
+          <div
+            style={{
+              height: '4px', background: '#1a1a1a',
+              borderRadius: '0 0 4px 4px',
+              overflow: 'hidden',
+              border: '1px solid ' + BORDER,
+              borderTop: 'none',
+              cursor: 'pointer',
+              transition: 'height 0.15s',
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.height = '8px'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.height = '4px'; }}
+          >
+            <motion.div
+              initial={false}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: '100%',
+                background: isCompleted
+                  ? 'linear-gradient(90deg, #4ade80, #22c55e)'
+                  : `linear-gradient(90deg, ${RED}, #9f2315)`,
+              }}
+            />
+          </div>
         </div>
 
         {/* ── Apa yang dipelajari disini? (per Figma 170:210) ── */}
-        <div style={{ padding: '0 20px 16px' }}>
+        <div style={{ padding: '20px 20px 16px' }}>
           <div style={{
             background: DARK, border: '1px solid ' + BORDER,
             borderRadius: '14px', padding: '16px 18px',
@@ -150,7 +180,7 @@ export default function WatchPage() {
               Apa yang dipelajari disini?
             </p>
             <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {(episode.learnings || [
+              {((episode as unknown as { learnings?: string[] }).learnings || [
                 'Cara membangun personal brand yang kuat',
                 'Strategi melamar kerja yang efektif',
                 'Teknik interview yang terbukti berhasil',
@@ -164,39 +194,25 @@ export default function WatchPage() {
           </div>
         </div>
 
-        {/* ── Progress Bar (manual, user-controlled) ── */}
+        {/* ── Manual Progress Marker ── */}
         <div style={{ padding: '0 20px 20px' }}>
           <div style={{
             background: DARK, border: '1px solid ' + BORDER,
-            borderRadius: '14px', padding: '16px 18px',
+            borderRadius: '14px', padding: '14px 16px',
+            display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap',
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-              <span style={{ fontSize: '11px', fontWeight: 700, color: '#ccc' }}>Progress Menonton</span>
-              <span style={{ fontSize: '12px', fontWeight: 800, color: isCompleted ? '#4ade80' : RED }}>{progress}%</span>
-            </div>
-            <div style={{ height: '6px', background: '#1a1a1a', borderRadius: '3px', overflow: 'hidden', marginBottom: '10px' }}>
-              <motion.div
-                initial={false}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.5 }}
-                style={{
-                  height: '100%',
-                  background: isCompleted
-                    ? 'linear-gradient(90deg, #4ade80, #22c55e)'
-                    : `linear-gradient(90deg, ${RED}, #9f2315)`,
-                  borderRadius: '3px',
-                }}
-              />
-            </div>
+            <span style={{ fontSize: '11px', color: '#555', flex: 1, minWidth: '100px' }}>
+              {isCompleted ? '✓ Episode selesai!' : `Progress: ${progress}%`}
+            </span>
             {!isCompleted && (
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ display: 'flex', gap: '6px' }}>
                 {[25, 50, 75, 100].map(pct => (
                   <button
                     key={pct}
                     id={`progress-${pct}`}
                     onClick={() => { setProgress(pct); setEpisodeProgress(String(episode.id), pct, 100).catch(console.error); }}
                     style={{
-                      flex: 1, height: '28px', borderRadius: '8px', border: 'none', cursor: 'pointer',
+                      height: '28px', padding: '0 10px', borderRadius: '8px', border: 'none', cursor: 'pointer',
                       background: progress >= pct ? RED + '22' : '#111',
                       color: progress >= pct ? RED : '#444',
                       fontFamily: 'Poppins, sans-serif', fontSize: '10px', fontWeight: 700,
@@ -208,11 +224,7 @@ export default function WatchPage() {
                 ))}
               </div>
             )}
-            {isCompleted && (
-              <div style={{ textAlign: 'center', fontSize: '12px', color: '#4ade80', fontWeight: 700 }}>
-                ✓ Episode ini sudah selesai ditonton!
-              </div>
-            )}
+            {isCompleted && <span style={{ fontSize: '12px', color: '#4ade80', fontWeight: 700 }}>✓ Selesai!</span>}
           </div>
         </div>
 
